@@ -11,3 +11,12 @@ wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
 wp-config.php
+
+*.py[co]
+*.sw[po]
+.coverage
+pip-log.txt
+docs/_build
+docs/_gh-pages
+.#*
+*.db
