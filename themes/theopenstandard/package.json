@@ -1,0 +1,10 @@
+{
+    "name": "the-open-standard",
+    "version": "0.1.0",
+    "devDependencies": {
+        "grunt": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-stylus": "*",
+        "grunt-contrib-uglify": "*"
+    }
+}

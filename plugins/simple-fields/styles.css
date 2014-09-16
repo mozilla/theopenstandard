@@ -1,0 +1,277 @@
+/**
+ * Styles used in Simple Fields Admin
+ */
+
+.sf-cf:before, .sf-cf:after { content:""; display:table; }
+.sf-cf:after { clear:both; }
+.sf-cf { zoom:1; } /* For IE 6/7 (trigger hasLayout) */
+
+.sf_box_debug {
+	padding: .5em;
+	background-color: lightyellow;
+}
+
+.simple-fields-message {
+	background-color: #ffffe0;
+	border-color: #e6db55;
+	margin: 5px 0 15px;
+	padding: 0 .6em;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.simple-fields-message p {
+	margin: .5em 0;
+	padding: 2px;
+}
+
+ul.simple-fields-edit-field-groups-added-fields {
+	margin-top: 0;
+	position: relative;
+}
+	ul.simple-fields-edit-field-groups-added-fields li {
+		position: relative;
+		padding: 1em 2em;
+		margin: 0;
+		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(whiteSmoke), to(#fcfcfc));
+		background-image: -webkit-linear-gradient(top, whiteSmoke, #fcfcfc);
+		background-image:    -moz-linear-gradient(top, whiteSmoke, #fcfcfc);
+		background-image:     -ms-linear-gradient(top, whiteSmoke, #fcfcfc);
+		background-image:      -o-linear-gradient(top, whiteSmoke, #fcfcfc);
+		border-top: 2px solid #eee;
+		margin-bottom: 2em;
+	}
+	ul.simple-fields-edit-field-groups-added-fields li li {
+		background-image: none;
+	}
+
+
+#field_group_name,
+#post_connector_name
+ {
+	font-size: 1.5em;
+	/*font-weight: bold;*/
+	width: 16.6em;
+	line-height: 1.2;
+}
+
+.simple-fields-field-group-one-field-name {
+	font-size: 1.25em;
+	width: 20em !important;
+}
+
+.simple-fields-field-group-one-field-row {
+	margin-bottom: .75em;
+}
+
+.simple-fields-field-group-one-field-row-radiobuttons-values {
+	margin-top: 2em;
+}
+
+.simple-fields-field-group-one-field-row-col-first,
+.simple-fields-field-group-one-field-row-col-second {
+	display: inline-block;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+	min-height: 1px;
+	vertical-align: top;
+}
+
+.simple-fields-field-group-one-field-row-col-first p,
+.simple-fields-field-group-one-field-row-col-second p {
+	margin: 0;
+}
+
+
+.simple-fields-field-group-one-field-row-col-first {
+	padding-right: 4em;
+}
+.simple-fields-field-group-one-field-row-col-second {
+	width: 80%;
+}
+
+.simple-fields-field-group-one-field-row-col-first,
+.simple-fields-field-group-one-field-row label {
+	width: 15%;
+}
+#simple-fields-field-group-existing-fields .description {
+	/*margin-left: 12.5em;*/
+	margin-left: 16%;
+}
+
+
+.simple-fields-field-group-one-field-row fieldset {
+	border: 1px solid silver;
+	padding: 0em 1em;
+}
+.simple-fields-field-group-one-field-row legend {
+	font-weight: bold;
+}
+
+.simple-fields-field-group-one-field-row label,
+.simple-fields-field-type-options label
+ {
+	display: block;
+}
+.simple-fields-field-group-one-field-row label {
+	display: inline-block;
+}
+
+.simple-fields-field-group-one-field-row-col-first label {
+	width: auto;
+}
+
+.simple-fields-field-type-options label {
+	display: block;
+}
+#simple-fields-field-group-existing-fields .simple-fields-field-type-options .description {
+	margin-left: auto;
+}
+
+.simple-fields-field-group-one-field-row p textarea {
+	height: 8em;
+}
+
+/* @todo: these just a tad to un-specific... */
+div.delete a {
+	color: #BC0B0B;
+}
+div.delete a:hover {
+	color: #FF0000;
+}
+
+.settings_page_simple-fields-options .add-new-h2 {
+	font-weight: normal;
+	top: 0;
+}
+
+li.simple-fields-field-group-one-field {
+	position: relative;
+}
+li.simple-fields-field-group-one-field div.delete {
+	display: none;
+	position: absolute;
+	right: .5em;
+	top: .5em;
+}
+.simple-fields-field-group-delete,
+.simple-fields-post-connector-delete
+ {
+	text-align: right;
+	margin-top: -3.5em;
+}
+.simple-fields-field-group-delete a,
+.simple-fields-post-connector-delete a
+ {
+	color: #BC0B0B;
+}
+.simple-fields-field-group-delete a:hover,
+simple-fields-post-connector-delete a:hover
+ {
+	color: #FF0000;
+}
+
+.simple-fields-edit-post-connectors,
+.simple-fields-post-type-defaults,
+.simple-fields-debug
+ {
+	 margin-top: 2em;
+}
+
+.simple-fields-edit-field-groups ul,
+.simple-fields-edit-post-connectors ul,
+.simple-fields-post-type-defaults ul
+ {
+	list-style-type: disc;
+	margin-left: 20px;
+}
+
+ul.simple-fields-field-type-options-radiobutton-values-added li,
+ul.simple-fields-field-type-options-dropdown-values-added li,
+ul#simple-fields-post-connector-added-fields li
+ {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	line-height: 2.5em;
+	position: relative;
+}
+.simple-fields-field-type-options-radiobutton-checked-by-default {
+	margin-left: 27em;
+	margin-top: -1.5em;
+}
+.simple-fields-field-type-options-radiobutton-handle,
+.simple-fields-field-type-options-dropdown-handle,
+.simple-fields-post-connector-addded-fields-handle,
+.simple-fields-field-group-one-field-handle
+ {
+	width: 16px;
+	height: 16px;
+	background: transparent url(icon-drag.gif) no-repeat 0 50%;
+	float: left;
+	cursor: move;
+	margin-top: 7px;
+}
+.simple-fields-field-group-one-field-handle {
+	margin-left: -16px;
+}
+.simple-fields-field-type-options-radiobutton-values-add,
+.simple-fields-field-type-options-dropdown-values-add
+ {
+	display: block;
+	margin-left: 20px;
+	margin-top: .5em;
+}
+.simple-fields-field-type-options-radiobutton-delete,
+.simple-fields-field-type-options-dropdown-delete,
+.simple-fields-post-connector-addded-fields-delete
+ {
+	display: none;
+	color: #BC0B0B;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 35em;
+}
+.simple-fields-field-type-options-dropdown-delete {
+	left: 30em;
+}
+.simple-fields-field-type-options-radiobutton-delete:hover,
+.simple-fields-field-type-options-dropdown-delete:hover,
+.simple-fields-post-connector-addded-fields-delete:hover
+ {
+	color: #FF0000;
+}
+.simple-fields-field-type-options-radiobutton-checked-by-default-values {
+	margin-left: 1em;
+}
+
+ul#simple-fields-post-connector-added-fields {
+	display: block;
+	position: relative;
+}
+ul#simple-fields-post-connector-added-fields li {
+	margin-bottom: 2em;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(whiteSmoke), to(#fcfcfc));
+	background-image: -webkit-linear-gradient(top, whiteSmoke, #fcfcfc);
+	background-image:    -moz-linear-gradient(top, whiteSmoke, #fcfcfc);
+	background-image:     -ms-linear-gradient(top, whiteSmoke, #fcfcfc);
+	background-image:      -o-linear-gradient(top, whiteSmoke, #fcfcfc);
+	border-top: 2px solid #eee;
+}
+.simple-fields-post-connector-addded-fields-options {
+	margin-left: 16px;
+}
+.simple-fields-post-connector-addded-fields-field-name {
+	font-weight: bold;
+}
+.simple-fields-post-connector-addded-fields-option-context {
+	margin-right: 1em;
+}
+
+
+#simple-fields-post-edit-side-field-settings-select-connector-please-save {
+	margin-top: .5em;
+}
+
