@@ -3,10 +3,10 @@ themes/twentythirteen/
 themes/theopenstandard/node_modules/
 
 # Ignore the local doc build
-docs/*
-!docs/source/
-!docs/source/*.txt
+docs/_build
 
 *.py
+*.pyc
+.DS_Store
 
 index.php
