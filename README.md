@@ -3,6 +3,10 @@ The Open Standard
 
 The Open Standard Website https://wiki.mozilla.org/Websites/The_Open_Standard
 
+Docs
+----
+
+The Open Standard runs on wordpress. Documentation can be found at http://theopenstandard.rtfd.org/.
 
 
 Building Documentation Locally
