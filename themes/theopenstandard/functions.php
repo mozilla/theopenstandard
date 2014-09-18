@@ -94,33 +94,10 @@
         );
     }
 
-    // Helper function for getting post categories.
-    function get_post_categories($post, $without = NULL, $limit = NULL) {
-        $categories = get_the_category($post);
-        if ($without || $limit)
-            $categories = reduce_categories($categories, $without, $limit);
+    // Disable the automatic appending of related posts to post content
+    add_filter('rp4wp_append_content', '__return_false');
 
-        return $categories;
-    }
-
-    // Helper function for reducing an array of categories to a certain length and/or a certain slug.
-    function reduce_categories($categories, $without = NULL, $limit = NULL) {
-        if ($without) {
-            foreach ($categories as $index => $category) {
-                if ($without == $category->slug)
-                    unset($categories[$index]);
-            }
-        }
-
-        if ($limit)
-            $categories = array_slice($categories, 0, $limit);
-
-        if (!$categories)
-            return NULL;
-
-        if (count($categories) == 1)
-            return $categories[0];
-
-        return $categories;
-    }
+    require_once('custom-post-types.php');
+    require_once('custom-shortcodes.php');
+    require_once('helpers.php');
 ?>
