@@ -9,4 +9,4 @@ docs/*
 
 *.py
 
-index.php
+/index.php
