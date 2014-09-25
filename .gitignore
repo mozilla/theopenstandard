@@ -9,4 +9,4 @@ docs/_build
 *.pyc
 .DS_Store
 
-index.php
+/index.php

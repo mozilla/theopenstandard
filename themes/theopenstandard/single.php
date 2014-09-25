@@ -27,6 +27,8 @@
                 <?php posted_on(); ?>
 
             </div>
+
+            <?= get_related_posts(); ?>
             
             <?php edit_post_link(__('Edit this entry','html5reset'),'','.'); ?>
             

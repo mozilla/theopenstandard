@@ -15,3 +15,10 @@ Placeholder For Content Editing Instructions
 - What All The Custom Fields Are For
 - Featured articles, etc
 
+Shortcodes
+-------------
+[post_gallery id="ID HERE"] will insert a gallery in the post.
+
+Blockquotes
+-------------
+Blockquote tags will be pulled to the side and have a share button added to them.

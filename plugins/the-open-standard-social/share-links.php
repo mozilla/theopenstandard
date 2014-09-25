@@ -1,4 +1,4 @@
-<script>var current_post_id = <?= the_ID(); ?></script>
+<script>var currentPostId = <?= the_ID(); ?></script>
 
 <div class="sharing">
 	<ul class="share-ratios">
