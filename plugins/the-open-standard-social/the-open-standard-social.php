@@ -11,37 +11,49 @@ defined('ABSPATH') or die("No script kiddies please!");
 add_action('parse_request', 'TheOpenStandardSocial::share_handler');
 
 Class TheOpenStandardSocial {
+    static function curl_request($url) {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => $url,
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0
+        ));
+        $response = curl_exec($curl);
+        curl_close($curl);
+        return $response;
+    }
+
+    private static function get_plus_one_count($shared_url) {
+        $html = file_get_contents("https://plusone.google.com/_/+1/fastbutton?url=" . urlencode($shared_url));
+        $doc = new DOMDocument();
+        $doc->loadHTML($html);
+        $counter = $doc->getElementById('aggregateCount');
+        $count = $counter->nodeValue;
+
+        // The count can be returned as a string like 1.5k
+        if (strstr($count, 'k'))
+            $count = floatval($count) * 1000;
+        
+        return json_encode(array('count' => intval($count)));
+    }
+
     static function share_handler() {
-        if (strtok($_SERVER["REQUEST_URI"],'?') == '/track_sharing') {
-			switch ($_SERVER['REQUEST_METHOD']) {
-				case 'GET':
-					$post_id = $_GET['post_id'];
-					header('Content-Type: application/json');
-					print get_post_meta($post_id, 'sharing_info', TRUE);
-					exit();
-				case 'POST':
-					$post_id = $_POST['post_id'];
-					$service = $_POST['service'];
-					$sharing_info = get_post_meta($post_id, 'sharing_info', TRUE);
-					if ($sharing_info) {
-						$sharing_info = json_decode($sharing_info, TRUE);
-						if (!$sharing_info[$service])
-							$sharing_info[$service] = 0;
-						$sharing_info[$service] += 1;
-						update_post_meta($post_id, 'sharing_info', json_encode($sharing_info));
-					} else {
-						$sharing_info = array();
-						$sharing_info[$service] = 1;
-						add_post_meta($post_id, 'sharing_info', json_encode($sharing_info), TRUE);
-					}
-					exit();
-			}
+        if (strtok($_SERVER["REQUEST_URI"],'?') == '/share-counts') {
+            $shared_url = $_GET['shared_url'];
+            if ($_GET['service'] == 'twitter')
+                $response = self::curl_request('http://urls.api.twitter.com/1/urls/count.json?url=' . urlencode($shared_url));
+            if ($_GET['service'] == 'googleplus')
+                $response = self::get_plus_one_count($shared_url);
+
+            header('Content-Type: application/json');
+            print $response;
             exit();
         }
     }
 
     static function share_links() {
-		wp_enqueue_script('the-open-standard-sharing-js', plugins_url('js/sharing.js', __FILE__), NULL, NULL, TRUE);
+        wp_enqueue_script('the-open-standard-sharing', plugins_url('js/sharing.js', __FILE__), NULL, NULL, TRUE);
         include 'share-links.php';
     }
 }
