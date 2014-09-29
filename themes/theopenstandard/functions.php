@@ -97,6 +97,22 @@
     // Disable the automatic appending of related posts to post content
     add_filter('rp4wp_append_content', '__return_false');
 
+    //Custom Image Sizes
+    add_image_size( 'story-rss', 460 );
+
+    add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+
+    function my_custom_sizes( $sizes ) {
+        return array_merge( $sizes, array(
+            'story-rss' => __( 'Story RSS' ),
+        ) );
+    }
+
+    if ( has_post_thumbnail() ) {
+        the_post_thumbnail( 'story-rss' );
+    }
+
+
     require_once('custom-post-types.php');
     require_once('custom-shortcodes.php');
     require_once('helpers.php');
