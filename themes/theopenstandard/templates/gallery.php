@@ -4,6 +4,6 @@
 
 <?php
 foreach ($gallery as $gallery_item) { ?>
-	<img src="<?= $gallery_item['image']['url']; ?>" />
+	<img src="<?php echo $gallery_item['image']['url']; ?>" />
 <?php
 } ?>

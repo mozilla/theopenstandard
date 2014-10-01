@@ -1,0 +1,81 @@
+# Spanish (es_ES) translation for WP User Avatar.
+# Copyright (C) 2014 Bangbay Siboliban.
+# This file is distributed under the same license as the WP User Avatar package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: WP User Avatar 1.9.13\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/wp-user-avatar/\n"
+"PO-Revision-Date: 2014-06-03 00:00-0000\n"
+"Language: es_ES\n"
+"Last-Translator: WP User Avatar\n"
+"Language-Team: WP User Avatar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: includes/class-wp-user-avatar-admin.php:302
+msgid "Donate"
+msgstr "Donar"
+
+#: includes/wpua-functions.php:189
+msgid "Do you like WP User Avatar?"
+msgstr "¿Está satisfecho con WP-Usuario-Avatar?"
+
+#: includes/wpua-functions.php:189
+msgid "Make a donation."
+msgstr "Donar"
+
+#: includes/wpua-options-page.php:83
+msgid "Add avatar button to Visual Editor"
+msgstr "Añadir botón avatar al editor visual"
+
+#: includes/wpua-options-page.php:89
+msgid "Allow Contributors & Subscribers to upload avatars"
+msgstr "Permitir los colaboradores y los suscriptores subir avatares"
+
+#: includes/wpua-options-page.php:95
+msgid "Disable Gravatar and use only local avatars"
+msgstr "Desactivar Gravatar y utilizar sólo los avatares locales"
+
+#: includes/wpua-options-page.php:117
+#: includes/wpua-options-page.php:122
+msgid "Upload Size Limit"
+msgstr "Sube límite de tamaño"
+
+#: includes/wpua-options-page.php:117
+#: includes/wpua-options-page.php:122
+msgid "(only for Contributors & Subscribers)"
+msgstr "(para colaboradores y suscriptores)"
+
+#: includes/wpua-options-page.php:132
+msgid "Allow users to edit avatars"
+msgstr "Permitir a los usuarios editar avatar"
+
+#: includes/wpua-options-page.php:138
+msgid "Resize avatars on upload"
+msgstr "Cambiar el tamaño de avatares en carga"
+
+#: includes/wpua-options-page.php:148
+msgid "Crop avatars to exact dimensions"
+msgstr "Recortar los avatares a sus dimensiones exactas"
+
+#. Plugin Name of the plugin/theme
+msgid "WP User Avatar"
+msgstr "WP-Usuario-Avatar"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/wp-user-avatar/"
+msgstr "http://wordpress.org/plugins/wp-user-avatar/"
+
+#. Description of the plugin/theme
+msgid "Use any image from your WordPress Media Library as a custom user avatar. Add your own Default Avatar."
+msgstr "Utiliza cualquier imagen en tu Librería multimedia de WordPress como un avatar personalizado. Añade tu propia Avatar por defecto."
+
+#. Author of the plugin/theme
+msgid "Bangbay Siboliban"
+msgstr "Bangbay Siboliban"
+
+#. Author URI of the plugin/theme
+msgid "http://siboliban.org/"
+msgstr "http://siboliban.org/"
