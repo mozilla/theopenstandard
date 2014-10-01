@@ -5,7 +5,7 @@
 	}
 ?>
 
-<a href="<?= get_author_posts_url($author_id); ?>">
-	<h2><?= field('user_nicename'); ?></h2>
-	<div><?= field('description'); ?></div>
+<a href="<?php echo get_author_posts_url($author_id); ?>">
+	<h2><?php echo field('user_nicename'); ?></h2>
+	<div><?php echo field('description'); ?></div>
 </a>

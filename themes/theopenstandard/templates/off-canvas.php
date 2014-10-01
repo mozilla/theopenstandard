@@ -17,8 +17,8 @@
         foreach ($categories as $category) { 
             $category_posts = get_category_posts(array('cat' => $category->term_id, 'posts_per_page' => 3)); ?>
             <li class="nav-item">
-                <div class="topics-tag-normal <?= $category->slug; ?>">
-                    <a href="#"><?= $category->name; ?></a>
+                <div class="topics-tag-normal <?php echo $category->slug; ?>">
+                    <a href="#"><?php echo $category->name; ?></a>
                 </div>
                 <ul class="nav-item-list">
                     <?php 

@@ -16,7 +16,12 @@ Required Categories
 - Learn
 - Live
 - Opinion
+- Sponsored
 
 Required Pages
 --------------
 - Authors
+
+Required Menus
+--------------
+- Footer Menu

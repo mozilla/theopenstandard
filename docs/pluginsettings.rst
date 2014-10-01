@@ -19,7 +19,6 @@ Simple Fields
 - Create a post connector called "Post Gallery"
     #. Add the "Gallery" field group you just created
     #. Check "Posts (post)" under "Available for post types"
-
 -  Create a post connector called "Gallery Fields"
     #. Add the "Gallery" field group
     #. Check "Galleries (gallery)" under "Available for post types"

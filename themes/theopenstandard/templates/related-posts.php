@@ -10,7 +10,7 @@
 			<?php 
 			$categories = get_post_categories($post, array('featured')); 
 			foreach ($categories as $category) { ?>
-				<a href="<?= get_category_link($category->term_id); ?>"><?= $category->name; ?></a>
+				<a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
 			<?php
 			} ?>
 		</div>

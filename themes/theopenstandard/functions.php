@@ -115,5 +115,6 @@
 
     require_once('custom-post-types.php');
     require_once('custom-shortcodes.php');
+    require_once('simple-fields.php');
     require_once('helpers.php');
 ?>

@@ -11,14 +11,14 @@
                     <?php
                     $categories = get_post_categories($post, 'featured');
                     foreach ($categories as $category) { ?>
-                        <li class="topics-tag-short <?= $category->slug; ?>"><a href="<?= get_tag_link($tag->term_id); ?>"><?= $category->name; ?></a></li>
+                        <li class="topics-tag-short <?php echo $category->slug; ?>"><a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $category->name; ?></a></li>
                     <?php
                     } ?>
 
                     <?php
                     $tags = get_the_tags();
                     foreach ($tags as $tag) { ?>
-                        <li class="issues-tag"><a href="<?= get_tag_link($tag->term_id); ?>" class="issues-<?= $tag->slug; ?>"><?= $tag->name; ?></a></li>
+                        <li class="issues-tag"><a href="<?php echo get_tag_link($tag->term_id); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
                     <?php
                     } ?>  
                 </ul>
@@ -39,9 +39,17 @@
                 </div>
 
                 <div class="author-icon">
+                    <?php
+                    $fieldgroup = simple_fields_fieldgroup('sponsor');
+                    if ($fieldgroup) { ?>
+                        <hr>
+                        <p>Brought to you by</p>
+                        <a href="<?php echo $fieldgroup['url']; ?>"><img src="<?php echo $fieldgroup['logo']['url']; ?>"></a></a>
+                    <?php
+                    } ?>
                     <hr>
-                    <img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/e3bcff5e9fd99da95dd0da444a99cd8468bcdced/author.jpg">
-                    <p>Rhodri Marsden</p>
+                    <?php echo get_wp_user_avatar(get_the_author_meta('ID'), 150); ?>
+                    <p><?php echo get_the_author(); ?></p>
                 </div>
             </div>
             <!-- DECK -->

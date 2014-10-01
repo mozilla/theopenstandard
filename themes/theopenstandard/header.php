@@ -39,7 +39,7 @@
                     <a class="left-off-canvas-toggle" href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/0992d7f691b654e889e30d9bed9196d2a9ec5891/menu-icon.svg"></a>
                 </div>
                 <div class="logo-container">
-                    <a title="<?= esc_attr(get_bloginfo('name', 'display')); ?>" rel="home" href="<?= esc_url(home_url('/')); ?>"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/30d897fbdac61ee6a0ea567077e5d5eb323ec341/tos_logo.svg"></a>
+                    <a title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home" href="<?php echo esc_url(home_url('/')); ?>"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/30d897fbdac61ee6a0ea567077e5d5eb323ec341/tos_logo.svg"></a>
                 </div>
             </div>
 
@@ -48,5 +48,5 @@
 
             <!-- DATE -->
             <div class="date">
-                <p><?= date("F j, Y"); ?></p>
+                <p><?php echo date("F j, Y"); ?></p>
             </div>

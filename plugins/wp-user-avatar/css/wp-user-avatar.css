@@ -1,0 +1,13 @@
+#wpua-errors, #wpua-readable-size-error, .wpua-error { color: #c00 !important; font-weight: 700 !important; }
+#wpua-readable-size-error, #wpua-undo-button { display: none; }
+#wpua-preview { margin-right: 10px; }
+#wpua-preview, #wpua-thumbnail { display: inline-block; text-align: center; vertical-align: top; }
+#wpua-preview img, #wpua-thumbnail img { max-height: 96px; border: 1px solid #dfdfdf; display: block; }
+.widget_wp_user_avatar #wpua-preview img, .widget_wp_user_avatar #wpua-thumbnail img { max-height: 64px; }
+.defaultavatarpicker #wpua-preview { width: 32px; height: 32px; margin-right: 0; display: inline-block; overflow: hidden; vertical-align: middle; }
+.defaultavatarpicker #wpua-preview img { width: 32px; height: auto; border: 0; }
+#wpua-edit #wpua-remove, #wpua-edit #wpua-undo, #wpua-edit-attachment { margin-left: 10px !important; }
+#wpua-slider { width: 22.75em; }
+#wpua-upload-messages span { display: block; }
+.wpua-hide { display: none !important; }
+.wpua-no-avatars { display: none; }

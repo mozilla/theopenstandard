@@ -15,13 +15,13 @@
 
     <div class="row">
         <div class="medium-12 columns">
-            <div class="hero-image" style="background: url('<?= wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>') 0 0/cover no-repeat">
+            <div class="hero-image" style="background: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>') 0 0/cover no-repeat">
 
                 <?php
                 $categories = get_post_categories($post, 'featured');
                 foreach ($categories as $category) { ?>
-                    <div class="topics-tag-normal <?= $category->slug; ?>">
-                        <a href="#"><?= $category->name; ?></a>
+                    <div class="topics-tag-normal <?php echo $category->slug; ?>">
+                        <a href="#"><?php echo $category->name; ?></a>
                     </div>
                 <?php
                 } ?>
@@ -42,7 +42,7 @@
                                 <?php
                                 $tags = get_the_tags();
                                 foreach ($tags as $tag) { ?>
-                                    <li class="issues-tag"><a href="<?= get_tag_link($tag->term_id); ?>" class="issues-<?= $tag->slug; ?>"><?= $tag->name; ?></a></li>
+                                    <li class="issues-tag"><a href="<?php echo get_tag_link($tag->term_id); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
                                 <?php
                                 } ?>                            
                             </ul>
@@ -73,8 +73,8 @@
                         endif; ?>
 
                         <li class="featured-articles-item">  
-                            <div class="topics-tag-normal <?= $category->slug; ?>">
-                                <a href="#"><?= $category->name; ?></a>
+                            <div class="topics-tag-normal <?php echo $category->slug; ?>">
+                                <a href="#"><?php echo $category->name; ?></a>
                             </div>
                             <?php the_post_thumbnail('thumbnail'); ?>
                             <a href="#<?php get_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
@@ -118,10 +118,10 @@
                                     <?php
                                     $categories = get_post_categories($post, 'featured');
                                     foreach ($categories as $category) { ?>
-                                        <a href="<?= get_category_link($category->term_id); ?>" class="topics-tag-minimal <?= $category->slug; ?>"><?= $category->name; ?></a>
+                                        <a href="<?php echo get_category_link($category->term_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
                                     <?php
                                     } ?>
-                                    <span class="timestamp"><?= human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span>
+                                    <span class="timestamp"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span>
                                 </p>
                             </li>
 
