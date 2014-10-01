@@ -44,5 +44,14 @@
         ob_start();
         include 'templates/related-posts.php';
         return ob_get_clean();
-    } 
+    }
+
+    function get_category_posts($query_options = array()) {
+        $query_options = array_merge(array(
+            'orderby' => 'date'
+        ), $query_options);
+
+        $category_posts = new WP_Query($query_options);
+        return $category_posts;
+    }
 ?>

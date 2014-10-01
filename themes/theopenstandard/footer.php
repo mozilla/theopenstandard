@@ -1,36 +1,62 @@
-<?php
-/**
- * @package WordPress
- * @subpackage HTML5-Reset-WordPress-Theme
- * @since HTML5 Reset 2.0
- */
-?>
-        <footer id="footer" class="source-org vcard copyright" role="contentinfo">
-            <small>&copy;<?php echo date("Y"); echo " "; bloginfo('name'); ?></small>
+        <footer class="footer">
+            <div class="row upper-footer">
+                <div class="medium-8 columns">
+                    <ul class="medium-block-grid-5">
+                        <?php
+                        $featured_term_id = get_category_by_slug('featured')->term_id;
+                        $uncategorized_term_id = get_category_by_slug('uncategorized')->term_id;
+                        $categories = get_terms('category', array('hide_empty' => false, 'exclude' => array($featured_term_id, $uncategorized_term_id)));
+                        foreach ($categories as $category) { ?>
+                            <li class="footer-item">  
+                                <div class="topics-tag-normal <?= $category->slug; ?>">
+                                    <a href="#"><?= $category->name; ?></a>
+                                </div>
+                                <p><?= $category->description; ?></p>
+                            </li>
+                        <?php
+                        } ?>
+                    </ul>
+                </div>
+                <!-- NEWSLETTER SIGN-UP -->
+                <div class="medium-4 columns">
+                    <h6>Newsletter Sign-up</h6>
+                    <form method="post"><input type="hidden" name="form-name" value="form 2">
+                        <div class="row collapse">
+                            <div class="small-8 columns">
+                                <input type="text" placeholder="Enter Email Address">
+                            </div>
+                            <div class="small-4 columns">
+                                <a href="#" class="button postfix">Sign-up</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <hr>
+                </div>
+            </div>
+            <div class="row lower-footer">
+                <div class="medium-2 columns">
+                    <ul class="social-icon-links inline-list">
+                        <li><a href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/a2e1b1fb30d095212b505fbc74e7ff6e9fa47c06/social-twitter.svg"></a></li>
+                        <li><a href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/8930e95d705cd0669eb01ee3d53552220d521513/social-facebook.svg"></a></li>
+                        <li><a href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/2269641b25f1cb8652c7219f66d53accb3fb80d6/social-google-plus.svg"></a></li>
+                    </ul>
+                </div>
+                <div class="medium-10 columns">
+                    <?php wp_nav_menu(array('name' => 'Footer Menu', 'menu_class' => 'inline-list')); ?>
+                    <p class="disclaimer">Portions of this content are ©<?= date('Y'); ?> by individual mozilla.org contributors. Content available under Creative Commons licence.</p>
+                </div>
+            </div>
         </footer>
 
+        <a class="exit-off-canvas"></a>
     </div>
+</div>
 
-    <?php wp_footer(); ?>
-
-
-<!-- jQuery is called via the WordPress-friendly way via functions.php -->
-
-<!-- Asynchronous google analytics; this is the official snippet.
-         Replace UA-XXXXXX-XX with your site's ID and domainname.com with your domain, then uncomment to enable.
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-XXXXXX-XX', 'domainname.com');
-  ga('send', 'pageview');
-
-</script>
--->
-
+<?php wp_footer(); ?>
+<script src='http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/js/1ea3de023f49f2fb0ce7bf13cb499969cb222fca/assets/js/all.js'></script>
 </body>
-
 </html>
