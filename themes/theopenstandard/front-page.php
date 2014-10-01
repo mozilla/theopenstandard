@@ -7,59 +7,130 @@
  get_header(); ?>
 
     <?php
-        $featured_term_id = get_category_by_slug('featured')->term_id;
-        // Get all posts in the Featured category.
-        $featured_posts = new WP_Query(array(
-            'cat' => $featured_term_id
-        )); 
+    $featured_term_id = get_category_by_slug('featured')->term_id;
+    // Get all posts in the Featured category.
+    $featured_posts = get_category_posts(array('cat' => $featured_term_id));
+    $featured_posts->the_post();
     ?>
 
-    <?php 
-    if ($featured_posts->have_posts()): 
-        $featured_term_ids = array(); ?>
-        <ul>
-            <?php 
-            while ($featured_posts->have_posts()): 
-                $featured_posts->the_post();
-                $category = get_post_categories($post, 'featured', 1);
-                // Only show one post per category.
-                if (empty($category) || in_array($category->term_id, $featured_term_ids)):
-                    continue;
-                else:
-                    $featured_term_ids[] = $category->term_id;
-                endif; ?>
-                
-                <li>
-                    <?php the_post_thumbnail('thumbnail'); ?>
-                    <a href="<?php get_permalink(); ?>"><?php the_title(); ?></a>
-                </li>
+    <div class="row">
+        <div class="medium-12 columns">
+            <div class="hero-image" style="background: url('<?= wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>') 0 0/cover no-repeat">
 
-            <?php 
-            endwhile; ?>
-        </ul>
-    <?php 
-    endif; ?>
+                <?php
+                $categories = get_post_categories($post, 'featured');
+                foreach ($categories as $category) { ?>
+                    <div class="topics-tag-normal <?= $category->slug; ?>">
+                        <a href="#"><?= $category->name; ?></a>
+                    </div>
+                <?php
+                } ?>
 
-    <?php 
-    if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <article class="post" id="post-<?php the_ID(); ?>">
-            <h2><?php the_title(); ?></h2>
-
-            <?php posted_on(); ?>
-
-            <div class="entry">
-                <?php the_content(); ?>
-                <?php wp_link_pages(array('before' => __('Pages: ','html5reset'), 'next_or_number' => 'number')); ?>
+                <div class="hero-headline-container">
+                    <div class="hero-headline">
+                        <a href="<?php the_permalink(); ?>"><h1><?php the_title(); ?></h1></a>
+                    </div>
+                    <div class="lower" data-equalizer="">
+                        <div class="social" data-equalizer-watch="">
+                            <span class="tw"></span>
+                            <span class="fb"></span>
+                            <span class="g"></span>
+                        </div>
+                        <div class="hero-headline-description" data-equalizer-watch="">
+                            <?php the_excerpt(); ?>
+                            <ul class="inline-list">
+                                <?php
+                                $tags = get_the_tags();
+                                foreach ($tags as $tag) { ?>
+                                    <li class="issues-tag"><a href="<?= get_tag_link($tag->term_id); ?>" class="issues-<?= $tag->slug; ?>"><?= $tag->name; ?></a></li>
+                                <?php
+                                } ?>                            
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>    
 
-            <?php edit_post_link(__('Edit this entry','html5reset'), '<p>', '</p>'); ?>
-        </article>
+    <?php $featured_term_ids = array(); ?>
         
-        <?php comments_template(); ?>
+    <!-- FEATURED ARTICLES BY TOPIC -->
+    <section class="featured">
+        <div class="row">
+            <div class="medium-12 columns">
+                <h2>Featured Articles by Topic</h2>
+                <ul class="medium-block-grid-5">
+                    <?php 
+                    while ($featured_posts->have_posts()): 
+                        $featured_posts->the_post();
+                        $category = get_post_categories($post, 'featured', 1);
+                        // Only show one post per category.
+                        if (empty($category) || in_array($category->term_id, $featured_term_ids)):
+                            continue;
+                        else:
+                            $featured_term_ids[] = $category->term_id;
+                        endif; ?>
 
-    <?php 
-    endwhile; endif; ?>
+                        <li class="featured-articles-item">  
+                            <div class="topics-tag-normal <?= $category->slug; ?>">
+                                <a href="#"><?= $category->name; ?></a>
+                            </div>
+                            <?php the_post_thumbnail('thumbnail'); ?>
+                            <a href="#<?php get_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+                        </li>                
+                    <?php 
+                    endwhile; ?>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<?php get_sidebar(); ?>
+    <div class="row">
+        <div class="medium-12 columns">
+           <hr>
+        </div>
+    </div>
+
+    <section class="body">
+        <div class="row">
+            <!-- RECENT ARTICLES -->
+            <div class="medium-8 columns">
+                <div class="recent-articles">
+                    <a href="#"><h4>Recent Articles</h4></a>
+                    
+                    <?php
+                    // Get all recent posts not in the Featured category.
+                    $recent_posts = get_category_posts(array('category__not_in' => $featured_term_id));
+                    ?>
+                    <ul>
+                        <?php
+                        while ($featured_posts->have_posts()): 
+                            $featured_posts->the_post(); ?>
+
+                            <li class="recent-articles-item">
+                                <div class="thumbnail">
+                                    <?php the_post_thumbnail('thumbnail'); ?>
+                                </div>
+                                <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+                                <p><?php the_excerpt(); ?></p>
+                                <p>
+                                    <?php
+                                    $categories = get_post_categories($post, 'featured');
+                                    foreach ($categories as $category) { ?>
+                                        <a href="<?= get_category_link($category->term_id); ?>" class="topics-tag-minimal <?= $category->slug; ?>"><?= $category->name; ?></a>
+                                    <?php
+                                    } ?>
+                                    <span class="timestamp"><?= human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span>
+                                </p>
+                            </li>
+
+                        <?php
+                        endwhile; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <?php get_footer(); ?>

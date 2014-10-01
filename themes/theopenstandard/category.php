@@ -10,11 +10,11 @@
 	        'orderby' => 'date'
         ));
 
-    	$category_posts = new WP_Query(array(
-	        'cat' => $category->term_id,
-	        'category__not_in' => $featured_term_id,
-	        'posts_per_page' => 6,
-	        'orderby' => 'date'
+        $category_posts = new WP_Query(array(
+            'cat' => $category->term_id,
+            'category__not_in' => $featured_term_id,
+            'posts_per_page' => 6,
+            'orderby' => 'date'
         ));
     ?>
 
