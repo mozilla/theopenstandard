@@ -12,7 +12,7 @@
     function reduce_categories($categories, $without = NULL, $limit = NULL) {
         if ($without) {
             foreach ($categories as $index => $category) {
-                if ($without == $category->slug)
+                if (in_array($category->slug, $without))
                     unset($categories[$index]);
             }
         }
@@ -53,5 +53,10 @@
 
         $category_posts = new WP_Query($query_options);
         return $category_posts;
+    }
+
+    function get_post_thumbnail_url($size = 'thumbnail') {
+        $image_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), $size);
+        return $image_url[0];
     }
 ?>

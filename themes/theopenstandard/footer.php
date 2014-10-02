@@ -5,7 +5,9 @@
                         <?php
                         $featured_term_id = get_category_by_slug('featured')->term_id;
                         $uncategorized_term_id = get_category_by_slug('uncategorized')->term_id;
-                        $categories = get_terms('category', array('hide_empty' => false, 'exclude' => array($featured_term_id, $uncategorized_term_id)));
+                        $sponsored_term_id = get_category_by_slug('sponsored')->term_id;
+
+                        $categories = get_terms('category', array('hide_empty' => false, 'exclude' => array($featured_term_id, $uncategorized_term_id, $sponsored_term_id)));
                         foreach ($categories as $category) { ?>
                             <li class="footer-item">  
                                 <div class="topics-tag-normal <?php echo $category->slug; ?>">

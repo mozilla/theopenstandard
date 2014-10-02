@@ -18,7 +18,7 @@
             <div class="hero-image" style="background: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>') 0 0/cover no-repeat">
 
                 <?php
-                $categories = get_post_categories($post, 'featured');
+                $categories = get_post_categories($post, array('featured'));
                 foreach ($categories as $category) { ?>
                     <div class="topics-tag-normal <?php echo $category->slug; ?>">
                         <a href="#"><?php echo $category->name; ?></a>
@@ -64,7 +64,7 @@
                     <?php 
                     while ($featured_posts->have_posts()): 
                         $featured_posts->the_post();
-                        $category = get_post_categories($post, 'featured', 1);
+                        $category = get_post_categories($post, array('featured'), 1);
                         // Only show one post per category.
                         if (empty($category) || in_array($category->term_id, $featured_term_ids)):
                             continue;
@@ -74,10 +74,17 @@
 
                         <li class="featured-articles-item">  
                             <div class="topics-tag-normal <?php echo $category->slug; ?>">
-                                <a href="#"><?php echo $category->name; ?></a>
+                                <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                             </div>
-                            <?php the_post_thumbnail('thumbnail'); ?>
-                            <a href="#<?php get_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+                            <img src="<?php echo get_post_thumbnail_url('medium'); ?>" />
+                            <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
+                            <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+                                <?php
+                                if (has_category('sponsored')) { ?>
+                                    <p class="sponsored-content">Sponsored</p>
+                                <?php
+                                } ?>
+                            </div>
                         </li>                
                     <?php 
                     endwhile; ?>
@@ -116,7 +123,7 @@
                                 <p><?php the_excerpt(); ?></p>
                                 <p>
                                     <?php
-                                    $categories = get_post_categories($post, 'featured');
+                                    $categories = get_post_categories($post, array('featured', 'sponsored'));
                                     foreach ($categories as $category) { ?>
                                         <a href="<?php echo get_category_link($category->term_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
                                     <?php

@@ -9,7 +9,7 @@
                 <ul class="inline-list">
                     <li><?php the_date('F j, Y'); ?></li>
                     <?php
-                    $categories = get_post_categories($post, 'featured');
+                    $categories = get_post_categories($post, array('featured', 'sponsored'));
                     foreach ($categories as $category) { ?>
                         <li class="topics-tag-short <?php echo $category->slug; ?>"><a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $category->name; ?></a></li>
                     <?php
@@ -30,7 +30,7 @@
         <div class="medium-8 medium-centered columns">
             <!-- STORY HEADER -->
             <div class="story-header">
-                <img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/229c5c3da2fd50537627c1d38192fb58b31497e6/googleglass_790.jpg" class="key-img">
+                <img src="<?php echo get_post_thumbnail_url('full'); ?>" class="key-img">
                 <div class="social" data-equalizer-watch="">
                     <?php // TheOpenStandardSocial::share_links(); ?>
                     <span class="tw"></span>
@@ -53,11 +53,15 @@
                 </div>
             </div>
             <!-- DECK -->
-            <h2 class="deck">Other gadgets that don't announce their presence so obviously will continue to do the actual surveillance, argues Rhodri Marsden</h2>
+            <h2 class="deck"><?php echo get_the_excerpt(); ?></h2>
             
             <hr>
+            
+            <div class="post-content">
+                <?php the_content(); ?>
+            </div>
 
-            <?php the_content(); ?>
+            <?php edit_post_link(__('Edit this entry','html5reset'),'','.'); ?>
 
             <hr class="tall">
 
@@ -91,16 +95,14 @@
                
             <hr class="tall">
 
-            <?php edit_post_link(__('Edit this entry','html5reset'),'','.'); ?>
-            
+            <?php comments_template(); ?>
+
         </div>
     </div>
 
     <?php previous_post_link('<div class="arrow-left">%link</div>', '<img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/c60a9e20e740db664abf7fb5bbb87a92a34bc348/arrow-left.svg">', true); ?>
     
-    <?php next_post_link('<div class="arrow-right">%link</a>', '<img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/c60a9e20e740db664abf7fb5bbb87a92a34bc348/arrow-right.svg">', true); ?>
-
-    <?php comments_template(); ?>
+    <?php next_post_link('<div class="arrow-right">%link</div>', '<img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/122bee921541e5f5269e1bb152e14bbe1c41512a/arrow-right.svg">', true); ?>
 
 <?php endwhile; endif; ?>
 

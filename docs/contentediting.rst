@@ -22,3 +22,7 @@ Shortcodes
 Blockquotes
 -------------
 Blockquote tags will be pulled to the side and have a share button added to them.
+
+Block grids
+-------------
+Block grids can be created by putting :: at the beginning of a P tag. All consequtive p tags that start with :: will be put into the same block grid.

@@ -61,3 +61,22 @@ ul.share-ratios li div.bar {
   height: 100%;
   margin: 0 4px;
 }
+div.post-content blockquote {
+  position: absolute;
+  left: 100%;
+  right: -14rem;
+  margin-left: 2rem;
+  padding: 2rem 0;
+  border: 1px dotted #ddd;
+}
+div.post-content blockquote p {
+  margin: 0;
+  padding: 0;
+}
+div.post-content blockquote,
+div.post-content blockquote p {
+  font-size: 1.1875rem;
+  letter-spacing: 0.03125rem;
+  color: #005da5;
+  border-width: 1px 0;
+}

@@ -1767,7 +1767,6 @@ sf_d($one_field_slug, 'one_field_slug');*/
 		// and + add-button
 		
 		global $sf;
-	 
 		$field_groups = $this->get_field_groups( false );
 		$current_field_group = $field_groups[$post_connector_field_id];
 
