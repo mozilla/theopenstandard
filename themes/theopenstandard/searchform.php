@@ -1,8 +1,7 @@
-<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-    <div>
-        <label for="s" class="screen-reader-text"><?php _e('Search for:','html5reset'); ?></label>
-        <input type="search" id="s" name="s" value="" />
-        
-        <input type="submit" value="<?php _e('Search','html5reset'); ?>" id="searchsubmit" />
-    </div>
+<form role="search" method="get" class="search" id="searchform" action="<?php echo home_url( '/' ); ?>">
+	<div class="row">
+		<div class="medium-12 columns">
+     	   <input placeholder="Search The Open Standard" type="search" id="search" name="search" value="" />
+	    </div>
+	</div>
 </form>
