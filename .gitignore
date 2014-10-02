@@ -10,3 +10,5 @@ docs/_build
 .DS_Store
 
 /index.php
+plugins/wordpress-mu-domain-mapping
+sunrise.php

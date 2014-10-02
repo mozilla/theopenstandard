@@ -12,18 +12,8 @@ Simple Fields
 -------------
 
 - Enable plugin
-- Create a field group called "Gallery"
-    #. Check "Repeatable" and "Use table view"
-    #. Add field called "Image" of type "File" and check "Enable extended return values"
-    #. Add field called "Video Embed Url" of type "Text" and sub-type "text"
-- Create a post connector called "Post Gallery"
-    #. Add the "Gallery" field group you just created
-    #. Check "Posts (post)" under "Available for post types"
--  Create a post connector called "Gallery Fields"
-    #. Add the "Gallery" field group
-    #. Check "Galleries (gallery)" under "Available for post types"
-
-- Set "Gallery Fields" as a default post connector for Galleries
+    #. Go to settings->Simple Fields
+    #. Import simple-fields-export.json from themes->theopenstandard->imports
 
 Featured Images in RSS w/ Size and Position
 -------------------------------------------
@@ -53,3 +43,13 @@ We do not password protect the RSS feed.
     #. Enable "Password Protected Status"
     #. Protected Permissions Enable "Allow Administrators"
     #. Enter A Password
+
+Related Posts
+-------------
+
+- Enable plugin (Automatically link if you feel like it.)
+
+- Go to Settings -> Related Posts
+    #. Uncheck “Enable”
+    #. Erase contents of “Heading Text”
+    #. Erase contents of “CSS”
