@@ -48,8 +48,10 @@
                     <?php
                     } ?>
                     <hr>
-                    <?php echo get_wp_user_avatar(get_the_author_meta('ID'), 150); ?>
-                    <p><?php echo get_the_author(); ?></p>
+                    <a href="/<?php echo get_the_author_link(); ?>">
+                        <?php echo get_wp_user_avatar(get_the_author_meta('ID'), 150); ?>
+                        <p><?php echo get_the_author(); ?></p>
+                    </a>
                 </div>
             </div>
             <!-- DECK -->

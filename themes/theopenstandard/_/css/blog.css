@@ -80,3 +80,6 @@ div.post-content blockquote p {
   color: #005da5;
   border-width: 1px 0;
 }
+section.search-results {
+  margin-top: 2rem;
+}
