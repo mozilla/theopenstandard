@@ -17,12 +17,33 @@ Placeholder For Content Editing Instructions
 
 Shortcodes
 -------------
-[post_gallery id="ID HERE"] will insert a gallery in the post.
+``[post_gallery id="ID HERE"]`` will insert a gallery in the post.
 
 Blockquotes
 -------------
 Blockquote tags will be pulled to the side and have a share button added to them.
 
+``<blockquote>I am some copy</blockquote>`` is Rendered As:
+
+.. image:: images/blockquote-render.png
+
+
+.. note::  {fill in number of blockquotes allowed and if their position in the copy matters}.
+
+
+
 Block grids
 -------------
-Block grids can be created by putting :: at the beginning of a P tag. All consequtive p tags that start with :: will be put into the same block grid.
+Block grids can be created by putting ```::``` at the beginning of a P tag.
+All consequtive p tags that start with ```::``` will be put into the same block grid.
+
+Example:
+
+.. image:: images/block-admin.png
+
+Rendered As:
+
+.. image:: images/block-render.png
+
+
+
