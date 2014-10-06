@@ -9,7 +9,7 @@
 
                         $categories = get_terms('category', array('hide_empty' => false, 'exclude' => array($featured_term_id, $uncategorized_term_id, $sponsored_term_id)));
                         foreach ($categories as $category) { ?>
-                            <li class="footer-item">  
+                            <li class="footer-item">
                                 <div class="topics-tag-normal <?php echo $category->slug; ?>">
                                     <a href="#"><?php echo $category->name; ?></a>
                                 </div>
@@ -49,7 +49,10 @@
                 </div>
                 <div class="medium-10 columns">
                     <?php wp_nav_menu(array('name' => 'Footer Menu', 'menu_class' => 'inline-list')); ?>
-                    <p class="disclaimer">Portions of this content are ©<?php echo date('Y'); ?> by individual mozilla.org contributors. Content available under Creative Commons licence.</p>
+                    <p class="disclaimer">
+                    Except where otherwise <a href="https://www.mozilla.org/foundation/licensing/website-content/">noted</a>,
+                    content on Mozilla websites is available under a Creative Commons Attribution Share-Alike 3.0 license.
+                    </p>
                 </div>
             </div>
         </footer>
