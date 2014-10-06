@@ -12,6 +12,6 @@ Contents
 
    installation
    wpsettings
-   pluginsettings
    contentediting
+   pluginsettings
    deployments
