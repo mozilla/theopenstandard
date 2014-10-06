@@ -24,4 +24,13 @@ Required Pages
 
 Required Menus
 --------------
-- Footer Menu
+
+Footer Menu
+```````````
+* Name = ``Footer Menu``
+* Links
+    1. About ``link to internal page``
+    2. Contact Us ``link to internal page``
+    3. Privacy ``https://www.mozilla.org/privacy/``
+    4. Legal ``https://www.mozilla.org/about/legal/``
+    5. Report Trademark Abuse ``https://www.mozilla.org/about/legal/report-abuse/``
