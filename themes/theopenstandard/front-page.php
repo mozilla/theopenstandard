@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="medium-12 columns">
-            <div class="hero-image" style="background: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>') 0 0/cover no-repeat">
+            <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>') 0 0/cover no-repeat">
 
                 <?php
                 $categories = get_post_categories($post, array('featured'));
@@ -76,15 +76,17 @@
                             <div class="topics-tag-normal <?php echo $category->slug; ?>">
                                 <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                             </div>
-                            <img src="<?php echo get_post_thumbnail_url('medium'); ?>" />
-                            <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
-                            <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
-                                <?php
-                                if (has_category('sponsored')) { ?>
-                                    <p class="sponsored-content">Sponsored</p>
-                                <?php
-                                } ?>
-                            </div>
+                            <a href="<?php the_permalink(); ?>">
+                                <img src="<?php echo get_post_thumbnail_url('medium'); ?>" />
+                                <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
+                                <h3><?php the_title(); ?></h3>
+                                    <?php
+                                    if (has_category('sponsored')) { ?>
+                                        <p class="sponsored-content">Sponsored</p>
+                                    <?php
+                                    } ?>
+                                </div>
+                            </a>
                         </li>                
                     <?php 
                     endwhile; ?>

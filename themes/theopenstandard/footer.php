@@ -42,7 +42,7 @@
             <div class="row lower-footer">
                 <div class="medium-2 columns">
                     <ul class="social-icon-links inline-list">
-                        <li><a href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/a2e1b1fb30d095212b505fbc74e7ff6e9fa47c06/social-twitter.svg"></a></li>
+                        <li><a href="https://twitter.com/TheOpenStandard"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/a2e1b1fb30d095212b505fbc74e7ff6e9fa47c06/social-twitter.svg"></a></li>
                         <li><a href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/8930e95d705cd0669eb01ee3d53552220d521513/social-facebook.svg"></a></li>
                         <li><a href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/2269641b25f1cb8652c7219f66d53accb3fb80d6/social-google-plus.svg"></a></li>
                     </ul>

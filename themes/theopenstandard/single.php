@@ -4,12 +4,24 @@
     <div class="story header">
         <div class="row">
             <div class="medium-8 medium-centered columns">
+                <?php $categories = get_post_categories($post, array('featured', 'sponsored')); ?>
+                <?php if (has_category('sponsored')) { ?>
+                    <div class="sponsored-content-container">
+                        <p class="sponsored-content">Sponsored</p>
+                <?php } ?>
+
                 <h1 class="title innovate"><?php the_title(); ?></h1>
+
+                <?php if (has_category('sponsored')) { ?>
+                    </div>
+                    <br>
+                <?php } else { ?>
                 <hr>
+                <?php } ?>
+
                 <ul class="inline-list">
                     <li><?php the_date('F j, Y'); ?></li>
                     <?php
-                    $categories = get_post_categories($post, array('featured', 'sponsored'));
                     foreach ($categories as $category) { ?>
                         <li class="topics-tag-short <?php echo $category->slug; ?>"><a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $category->name; ?></a></li>
                     <?php
@@ -31,12 +43,8 @@
             <!-- STORY HEADER -->
             <div class="story-header">
                 <img src="<?php echo get_post_thumbnail_url('full'); ?>" class="key-img">
-                <div class="social" data-equalizer-watch="">
-                    <?php // TheOpenStandardSocial::share_links(); ?>
-                    <span class="tw"></span>
-                    <span class="fb"></span>
-                    <span class="g"></span>
-                </div>
+
+                <?php TheOpenStandardSocial::share_links(); ?>
 
                 <div class="author-icon">
                     <?php
