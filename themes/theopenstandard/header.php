@@ -46,7 +46,9 @@
             <!-- OFF CANVAS MENU -->
             <?php include('templates/off-canvas.php'); ?>
 
-            <!-- DATE -->
-            <div class="date">
-                <p><?php echo date("F j, Y"); ?></p>
-            </div>
+            <?php if (is_front_page()) { ?>
+                <!-- DATE -->
+                <div class="date-home">
+                    <p><?php echo date("F j, Y"); ?></p>
+                </div>
+            <?php } ?>

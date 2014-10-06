@@ -5,36 +5,35 @@
         <div class="row">
             <div class="medium-8 medium-centered columns">
                 <?php $categories = get_post_categories($post, array('featured', 'sponsored')); ?>
-                    <?php if (has_category('sponsored')) { ?>
-                        <div class="sponsored-content-container">
-                            <p class="sponsored-content">Sponsored</p>
-                    <?php } ?>
+                <?php if (has_category('sponsored')) { ?>
+                    <div class="sponsored-content-container">
+                        <p class="sponsored-content">Sponsored</p>
+                <?php } ?>
 
-                    <h1 class="title innovate"><?php the_title(); ?></h1>
+                <h1 class="title innovate"><?php the_title(); ?></h1>
 
-                    <?php if (has_category('sponsored')) { ?>
-                        </div>
-                        <br>
-                    <?php } else { ?>
-                    <hr>
-                    <?php } ?>
+                <?php if (has_category('sponsored')) { ?>
+                    </div>
+                    <br>
+                <?php } else { ?>
+                <hr>
+                <?php } ?>
 
-                    <ul class="inline-list">
-                        <li><?php the_date('F j, Y'); ?></li>
-                        <?php
-                        foreach ($categories as $category) { ?>
-                            <li class="topics-tag-short <?php echo $category->slug; ?>"><a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $category->name; ?></a></li>
-                        <?php
-                        } ?>
+                <ul class="inline-list">
+                    <li><?php the_date('F j, Y'); ?></li>
+                    <?php
+                    foreach ($categories as $category) { ?>
+                        <li class="topics-tag-short <?php echo $category->slug; ?>"><a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $category->name; ?></a></li>
+                    <?php
+                    } ?>
 
-                        <?php
-                        $tags = get_the_tags();
-                        foreach ($tags as $tag) { ?>
-                            <li class="issues-tag"><a href="<?php echo get_tag_link($tag->term_id); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
-                        <?php
-                        } ?>  
-                    </ul>
-                </div>
+                    <?php
+                    $tags = get_the_tags();
+                    foreach ($tags as $tag) { ?>
+                        <li class="issues-tag"><a href="<?php echo get_tag_link($tag->term_id); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
+                    <?php
+                    } ?>  
+                </ul>
             </div>
         </div>
     </div>
