@@ -13,6 +13,6 @@ Contents
    installation
    stylus
    wpsettings
-   pluginsettings
    contentediting
+   pluginsettings
    deployments
