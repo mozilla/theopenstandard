@@ -76,15 +76,17 @@
                             <div class="topics-tag-normal <?php echo $category->slug; ?>">
                                 <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                             </div>
-                            <img src="<?php echo get_post_thumbnail_url('medium'); ?>" />
-                            <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
-                            <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
-                                <?php
-                                if (has_category('sponsored')) { ?>
-                                    <p class="sponsored-content">Sponsored</p>
-                                <?php
-                                } ?>
-                            </div>
+                            <a href="<?php the_permalink(); ?>">
+                                <img src="<?php echo get_post_thumbnail_url('medium'); ?>" />
+                                <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
+                                <h3><?php the_title(); ?></h3>
+                                    <?php
+                                    if (has_category('sponsored')) { ?>
+                                        <p class="sponsored-content">Sponsored</p>
+                                    <?php
+                                    } ?>
+                                </div>
+                            </a>
                         </li>                
                     <?php 
                     endwhile; ?>

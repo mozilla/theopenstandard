@@ -45,9 +45,9 @@
     function shareCountReceived() {
         if (twitterShareCount >= 0 && facebookShareCount >= 0 && googleplusShareCount >= 0) {
             var total = twitterShareCount + facebookShareCount + googleplusShareCount;
-            $('.twitter').height(twitterShareCount / total * 100 + '%');
-            $('.facebook').height(facebookShareCount / total * 100 + '%');
-            $('.googleplus').height(googleplusShareCount / total * 100 + '%');
+            $('.twitter').height((twitterShareCount / total * 100) || 0 + '%');
+            $('.facebook').height((facebookShareCount / total * 100) || 0 + '%');
+            $('.googleplus').height((googleplusShareCount / total * 100) || 0 + '%');
         }
     }
 

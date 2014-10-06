@@ -1,45 +1,52 @@
-$button-size = 1.7rem
+$share-size = 2rem
 
-ul.share-buttons
-    overflow: hidden
-    li
-        position: relative
-        height: $button-size; width: $button-size
-        overflow: hidden
-        float: left
-    button
-        position: absolute
-        top: 0; left: 0
-        margin: 0; padding: 0
-        height: $button-size; width: $button-size
-        z-index: 1
-        border: none
-    iframe
-        width: $button-size!important; height: $button-size!important;
-    button.twitter-button
-        background: #fff url('../images/icon_twitter.png') no-repeat center center; background-size: $button-size
-    button.facebook-button
-        background: #fff url('../images/icon_facebook.png') no-repeat center center; background-size: $button-size
-    button.googleplus-button
-        background: #fff url('../images/icon_googleplus.png') no-repeat center center; background-size: $button-size
+div.sharing
+    position: absolute
+    right: 100%
+    margin-right: 2rem
+    width: 110px
+    bottom: 0
 
 ul.share-ratios
     height: 100px
-    width: 68px
     position: relative
     margin-bottom: 2px
     li
-        width: $button-size
+        width: $share-size
         position: absolute
         height: 0
         bottom: 0
-        &:nth-child(1)
-            left: 0
-        &:nth-child(2)
-            left: ($button-size * 1)
-        &:nth-child(3)
-            left: ($button-size * 2)
+        margin: 0
         div.bar
-            background-color: #333
             height: 100%
-            margin: 0 4px
+            width: $share-size
+            min-height: $share-size
+            position: absolute
+            bottom: 0
+            left: 0
+        &.twitter 
+            left: 0
+            div.bar
+                background-color: #5ec2df
+        &.facebook 
+            left: ($share-size * 1.25)
+            div.bar
+                background-color: #2c6087
+        &.googleplus 
+            left: ($share-size * 2.5)
+            div.bar
+                background-color: #e03e12
+
+    button
+        position: absolute
+        bottom: 0; left: 0
+        margin: 0; padding: 0
+        height: $share-size; width: $share-size
+        z-index: 1
+        border: none
+    button.twitter-button
+        background: url('../images/icons/social-twitter.svg') no-repeat center center; background-size: $share-size - .2
+    button.facebook-button
+        background: url('../images/icons/social-facebook.svg') no-repeat center center; background-size: $share-size - .2
+    button.googleplus-button
+        background: url('../images/icons/social-google-plus.svg') no-repeat center center; background-size: $share-size - .2
