@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="medium-12 columns">
-            <div class="hero-image" style="background: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>') 0 0/cover no-repeat">
+            <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>') 0 0/cover no-repeat">
 
                 <?php
                 $categories = get_post_categories($post, array('featured'));
