@@ -7,7 +7,13 @@
                         $uncategorized_term_id = get_category_by_slug('uncategorized')->term_id;
                         $sponsored_term_id = get_category_by_slug('sponsored')->term_id;
 
-                        $categories = get_terms('category', array('hide_empty' => false, 'exclude' => array($featured_term_id, $uncategorized_term_id, $sponsored_term_id)));
+                        $categories = array(
+                            get_term_by('slug', 'live', 'category'),
+                            get_term_by('slug', 'learn', 'category'),
+                            get_term_by('slug', 'innovate', 'category'),
+                            get_term_by('slug', 'engage', 'category'),
+                            get_term_by('slug', 'opinion', 'category')
+                        );
                         foreach ($categories as $category) { ?>
                             <li class="footer-item">
                                 <div class="topics-tag-normal <?php echo $category->slug; ?>">
