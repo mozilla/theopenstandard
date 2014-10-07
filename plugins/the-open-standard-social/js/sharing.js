@@ -2,7 +2,7 @@
     var facebookShareCount;
     var twitterShareCount;
     var googleplusShareCount;
-    var shareUrl = window.location.href;
+    var shareUrl = window.shareUrl || window.location.href;
 
     function sharePopup(url, title, width, height) {
         var left = (screen.width / 2) - (width / 2);
@@ -25,7 +25,7 @@
     } 
 
     function getShareCounts() {
-        $.get('http://graph.facebook.com/?ids=' + window.location.href, function(response) {
+        $.get('http://graph.facebook.com/?ids=' + shareUrl, function(response) {
             for (var url in response) facebookShareCount = response[url].shares;
             facebookShareCount = facebookShareCount || 0;
             shareCountReceived();

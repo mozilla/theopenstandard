@@ -31,11 +31,9 @@
                         <a href="<?php the_permalink(); ?>"><h1><?php the_title(); ?></h1></a>
                     </div>
                     <div class="lower" data-equalizer="">
-                        <div class="social" data-equalizer-watch="">
-                            <span class="tw"></span>
-                            <span class="fb"></span>
-                            <span class="g"></span>
-                        </div>
+                        <script>window.shareUrl = '<?php the_permalink(); ?>';</script>
+                        <?php TheOpenStandardSocial::share_links(); ?>
+
                         <div class="hero-headline-description" data-equalizer-watch="">
                             <?php the_excerpt(); ?>
                             <ul class="inline-list">
