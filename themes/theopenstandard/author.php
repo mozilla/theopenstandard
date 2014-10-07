@@ -21,9 +21,9 @@
     <ul>
 <!-- The Loop -->
 
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php if (have_posts()): while (have_posts()) : the_post(); ?>
         <li>
-            <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
+            <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?>">
             <?php the_title(); ?></a>,
             <?php the_time('d M Y'); ?> in <?php the_category('&');?>
         </li>

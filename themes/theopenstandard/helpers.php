@@ -59,4 +59,13 @@
         $image_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), $size);
         return $image_url[0];
     }
+
+    // Provide concise fall-through logic
+    function one_of() {
+        $args = func_get_args();
+        foreach ($args as $arg) {
+            if ($arg)
+                return $arg;
+        }
+    }
 ?>

@@ -59,6 +59,11 @@
             <?php if (is_front_page()) { ?>
                 <!-- DATE -->
                 <div class="date-home">
-                    <p><?php echo date("F j, Y"); ?></p>
+                    <p></p>
+                    <script>
+                        $(function() {
+                            $('.date-home p').text(moment().format('MMMM D, YYYY'));
+                        });
+                    </script>
                 </div>
             <?php } ?>

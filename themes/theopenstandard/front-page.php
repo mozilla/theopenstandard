@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="medium-12 columns">
-            <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>') 0 0/cover no-repeat">
+            <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo get_post_thumbnail_url('large'); ?>') 0 0/cover no-repeat">
 
                 <?php
                 $categories = get_post_categories($post, array('featured'));
@@ -28,14 +28,12 @@
 
                 <div class="hero-headline-container">
                     <div class="hero-headline">
-                        <a href="<?php the_permalink(); ?>"><h1><?php the_title(); ?></h1></a>
+                        <a href="<?php the_permalink(); ?>"><h1><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h1></a>
                     </div>
                     <div class="lower" data-equalizer="">
-                        <div class="social" data-equalizer-watch="">
-                            <span class="tw"></span>
-                            <span class="fb"></span>
-                            <span class="g"></span>
-                        </div>
+                        <script>window.shareUrl = '<?php the_permalink(); ?>';</script>
+                        <?php TheOpenStandardSocial::share_links(); ?>
+
                         <div class="hero-headline-description" data-equalizer-watch="">
                             <?php the_excerpt(); ?>
                             <ul class="inline-list">
@@ -79,7 +77,7 @@
                             <a href="<?php the_permalink(); ?>">
                                 <img src="<?php echo get_post_thumbnail_url('medium'); ?>" />
                                 <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
-                                <h3><?php the_title(); ?></h3>
+                                <h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3>
                                     <?php
                                     if (has_category('sponsored')) { ?>
                                         <p class="sponsored-content">Sponsored</p>
@@ -121,7 +119,7 @@
                                 <div class="thumbnail">
                                     <?php the_post_thumbnail('thumbnail'); ?>
                                 </div>
-                                <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+                                <a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
                                 <p><?php the_excerpt(); ?></p>
                                 <p>
                                     <?php
