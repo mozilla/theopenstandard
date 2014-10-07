@@ -10,7 +10,7 @@
             
         <article class="post" id="post-<?php the_ID(); ?>">
 
-            <h2><?php the_title(); ?></h2>
+            <h2><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h2>
 
             <?php posted_on(); ?>
 

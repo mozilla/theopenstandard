@@ -28,7 +28,7 @@
 
                 <div class="hero-headline-container">
                     <div class="hero-headline">
-                        <a href="<?php the_permalink(); ?>"><h1><?php the_title(); ?></h1></a>
+                        <a href="<?php the_permalink(); ?>"><h1><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h1></a>
                     </div>
                     <div class="lower" data-equalizer="">
                         <script>window.shareUrl = '<?php the_permalink(); ?>';</script>
@@ -77,7 +77,7 @@
                             <a href="<?php the_permalink(); ?>">
                                 <img src="<?php echo get_post_thumbnail_url('medium'); ?>" />
                                 <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
-                                <h3><?php the_title(); ?></h3>
+                                <h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3>
                                     <?php
                                     if (has_category('sponsored')) { ?>
                                         <p class="sponsored-content">Sponsored</p>
@@ -119,7 +119,7 @@
                                 <div class="thumbnail">
                                     <?php the_post_thumbnail('thumbnail'); ?>
                                 </div>
-                                <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+                                <a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
                                 <p><?php the_excerpt(); ?></p>
                                 <p>
                                     <?php

@@ -41,7 +41,7 @@
 			            $featured_posts->the_post(); ?>
 						<li class="featured-articles-item">
 			                <?php the_post_thumbnail('large'); ?>
-							<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+							<a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
 							<p><?php the_excerpt(); ?></p>
 							<p><span class="timestamp"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span></p>
 						</li>
@@ -57,7 +57,7 @@
 			            $category_posts->the_post(); ?>
 						<li class="recent-articles-item">
 			                <?php the_post_thumbnail(array(80,80), array('class' => 'thumbnail')); ?>
-							<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+							<a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
 							<p><?php the_excerpt(); ?></p>
 							<p><span class="timestamp"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span></p>
 						</li>
