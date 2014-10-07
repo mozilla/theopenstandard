@@ -63,5 +63,6 @@
 
 <?php wp_footer(); ?>
 <script src='http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/js/1ea3de023f49f2fb0ce7bf13cb499969cb222fca/assets/js/all.js'></script>
+<script src='<?php echo get_template_directory_uri(); ?>/_/js/vendor/moment.min.js'></script>
 </body>
 </html>
