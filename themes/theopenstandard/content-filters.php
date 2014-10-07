@@ -14,7 +14,13 @@
 		$content = mb_convert_encoding($content, 'html-entities', 'utf-8'); 
 
 		$document = new DOMDocument('1.0', 'utf-8');
-		$document->loadHTML($content);
+
+		if (phpversion() >= 5.4) {
+			$document->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+		} else {
+			$document->loadHTML($content);
+		}
+
 		$xpath = new DOMXpath($document);
 
 		$blocks = $xpath->query("//p[starts-with(.,'::')]");
