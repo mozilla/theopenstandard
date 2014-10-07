@@ -7,7 +7,13 @@
                         $uncategorized_term_id = get_category_by_slug('uncategorized')->term_id;
                         $sponsored_term_id = get_category_by_slug('sponsored')->term_id;
 
-                        $categories = get_terms('category', array('hide_empty' => false, 'exclude' => array($featured_term_id, $uncategorized_term_id, $sponsored_term_id)));
+                        $categories = array(
+                            get_term_by('slug', 'live', 'category'),
+                            get_term_by('slug', 'learn', 'category'),
+                            get_term_by('slug', 'innovate', 'category'),
+                            get_term_by('slug', 'engage', 'category'),
+                            get_term_by('slug', 'opinion', 'category')
+                        );
                         foreach ($categories as $category) { ?>
                             <li class="footer-item">
                                 <div class="topics-tag-normal <?php echo $category->slug; ?>">
@@ -21,7 +27,7 @@
                 </div>
                 <!-- NEWSLETTER SIGN-UP -->
                 <div class="medium-4 columns">
-                    <h6>Newsletter Sign-up</h6>
+      <!--               <h6>Newsletter Sign-up</h6>
                     <form method="post"><input type="hidden" name="form-name" value="form 2">
                         <div class="row collapse">
                             <div class="small-8 columns">
@@ -31,7 +37,7 @@
                                 <a href="#" class="button postfix">Sign-up</a>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
                 </div>
             </div>
             <div class="row">

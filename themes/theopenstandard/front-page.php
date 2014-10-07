@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="medium-12 columns">
-            <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo get_post_thumbnail_url('large'); ?>') 0 0/cover no-repeat">
+            <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat">
 
                 <?php
                 $categories = get_post_categories($post, array('featured'));
@@ -40,7 +40,7 @@
                                 <?php
                                 $tags = get_the_tags();
                                 foreach ($tags as $tag) { ?>
-                                    <li class="issues-tag"><a href="<?php echo get_tag_link($tag->term_id); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
+                                    <li class="issues-tag"><a href="<?php TheOpenStandardIssues::the_issues_link($tag->term_id); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
                                 <?php
                                 } ?>                            
                             </ul>

@@ -116,6 +116,11 @@
     // http://viewvc.svn.mozilla.org/vc/projects/blog.mozilla.com/trunk/wp-content/mu-plugins/moz_custom.php?view=markup
     remove_action('wp_head', 'add_webanalytics_js');
 
+    if (function_exists('add_image_size')) { 
+        add_image_size('single-hero', 770, 331, true);
+        add_image_size('homepage-hero', 1170, 565, true);
+    }
+
     require_once('custom-post-types.php');
     require_once('custom-shortcodes.php');
     require_once('simple-fields.php');

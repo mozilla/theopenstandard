@@ -30,7 +30,7 @@
                     <?php
                     $tags = get_the_tags();
                     foreach ($tags as $tag) { ?>
-                        <li class="issues-tag"><a href="<?php echo get_tag_link($tag->term_id); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
+                        <li class="issues-tag"><a href="<?php TheOpenStandardIssues::the_issues_link($tag->term_id); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
                     <?php
                     } ?>  
                 </ul>
@@ -42,7 +42,7 @@
         <div class="medium-8 medium-centered columns">
             <!-- STORY HEADER -->
             <div class="story-header">
-                <img src="<?php echo get_post_thumbnail_url('large'); ?>" class="key-img">
+                <img src="<?php echo get_post_thumbnail_url('single-hero'); ?>" class="key-img">
 
                 <?php TheOpenStandardSocial::share_links(); ?>
 
