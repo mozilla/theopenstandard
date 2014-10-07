@@ -112,6 +112,9 @@
         the_post_thumbnail( 'story-rss' );
     }
 
+    // All Moz Blogs Get A Default GA Tag, We Want Our own
+    // http://viewvc.svn.mozilla.org/vc/projects/blog.mozilla.com/trunk/wp-content/mu-plugins/moz_custom.php?view=markup
+    remove_action('wp_head', 'add_webanalytics_js');
 
     require_once('custom-post-types.php');
     require_once('custom-shortcodes.php');
