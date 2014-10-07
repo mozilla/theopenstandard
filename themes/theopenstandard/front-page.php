@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="medium-12 columns">
-            <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo get_post_thumbnail_url('large'); ?>') 0 0/cover no-repeat">
+            <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat">
 
                 <?php
                 $categories = get_post_categories($post, array('featured'));
