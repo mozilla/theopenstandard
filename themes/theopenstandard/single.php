@@ -42,7 +42,7 @@
         <div class="medium-8 medium-centered columns">
             <!-- STORY HEADER -->
             <div class="story-header">
-                <img src="<?php echo get_post_thumbnail_url('full'); ?>" class="key-img">
+                <img src="<?php echo get_post_thumbnail_url('large'); ?>" class="key-img">
 
                 <?php TheOpenStandardSocial::share_links(); ?>
 
