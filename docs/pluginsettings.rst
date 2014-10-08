@@ -14,6 +14,9 @@ Simple Fields
 - Enable plugin
     #. Go to settings->Simple Fields
     #. Import simple-fields-export.json from themes->theopenstandard->imports
+    #. Set "Default Post Connector" for Posts to "Simple Fields" - as follows:
+
+.. image:: images/post-type-defaults.png
 
 Featured Images in RSS w/ Size and Position
 -------------------------------------------
