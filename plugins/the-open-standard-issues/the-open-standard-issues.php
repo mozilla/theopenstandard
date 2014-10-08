@@ -19,7 +19,7 @@ Class TheOpenStandardIssues {
     }
 
     static function the_issues_link($tag) {
-        print '/issues?issue=' . $tag;
+        print '/issues?issues=' . $tag;
     }
 }
 
