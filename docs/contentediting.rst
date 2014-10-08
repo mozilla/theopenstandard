@@ -13,6 +13,7 @@ Content Editing
 
    articles
    categories
+   comments
    galleries
    homepage
    users

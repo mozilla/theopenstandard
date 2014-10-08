@@ -34,6 +34,7 @@ Create The Author Account
 
 .. important::  Wordpress will send an email to the editor account. This email should be ignored.
 
+.. note::  Comment moderation emails will be sent to ``TOSEditors+username@mozilla.com`` for their respective articles.
 
 Populate The Author Account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
