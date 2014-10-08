@@ -15,5 +15,6 @@ Content Editing
    categories
    galleries
    homepage
+   users
 
 
