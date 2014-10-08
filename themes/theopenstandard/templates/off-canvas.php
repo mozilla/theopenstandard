@@ -27,7 +27,7 @@
                     <?php 
                     while ($category_posts->have_posts()): 
                         $category_posts->the_post(); ?>
-                        <li><a href="<?php get_permalink(); ?>"><?php the_title(); ?></a></li>
+                        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
                     <?php 
                     endwhile; ?>
                 </ul>

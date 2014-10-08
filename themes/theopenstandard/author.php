@@ -1,4 +1,12 @@
-<?php get_header(); ?>
+<?php get_header();
+
+function field($field_name) {
+    global $author_id;
+    return get_the_author_meta($field_name, $author_id);
+}
+
+?>
+
 
 <div id="content" class="narrowcolumn">
 
