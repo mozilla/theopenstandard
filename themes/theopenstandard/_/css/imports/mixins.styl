@@ -1,6 +1,13 @@
 filter(ft, fa)
-	-webkit-filter: ft + '(' + fa + ')'
-	-moz-filter: ft + '(' + fa + ')'
-	-ms-filter: ft + '(' + fa + ')'
-	-o-filter: ft + '(' + fa + ')'
-	filter: ft + '(' + fa + ')'
+	if fa
+		-webkit-filter: ft + '(' + fa + ')'
+		-moz-filter: ft + '(' + fa + ')'
+		-ms-filter: ft + '(' + fa + ')'
+		-o-filter: ft + '(' + fa + ')'
+		filter: ft + '(' + fa + ')'
+	else
+		-webkit-filter: ft
+		-moz-filter: ft
+		-ms-filter: ft
+		-o-filter: ft
+		filter: ft

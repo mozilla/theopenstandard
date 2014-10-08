@@ -1,16 +1,23 @@
-<?php get_header(); ?>
+<?php include 'header-modal.php'; ?>
 
-<h2>List of authors:</h2>
-<?php 
-$authors = get_users(array(
-	'role' => 'author',
-	'fields' => 'ID'
-));
+<div class="row">
+    <div class="medium-8 medium-centered columns">
+		<div class="authors-listing text-center">
+			<h1>Authors</h1>
+		</div>
+		<?php 
+		$authors = get_users(array(
+			'role' => 'author',
+			'fields' => 'ID'
+		));
 
-foreach ($authors as $author_id) {
-	include('templates/author-listing.php');
-}
+		foreach ($authors as $author_id) {
+			include('templates/author-listing-item.php');
+		}
 
-?> 
+		?> 
 
-<?php get_footer(); ?>
+	</div>
+</div>
+
+<?php include 'footer-modal.php'; ?>

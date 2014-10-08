@@ -68,4 +68,8 @@
                 return $arg;
         }
     }
+
+    function theme_image_src($path) {
+        echo get_template_directory_uri() . '/_/images/' . $path;
+    }
 ?>
