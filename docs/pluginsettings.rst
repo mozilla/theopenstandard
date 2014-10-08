@@ -56,3 +56,17 @@ Related Posts
     #. Uncheck “Enable”
     #. Erase contents of “Heading Text”
     #. Erase contents of “CSS”
+
+Contact Form 7
+-------------
+
+- Enable plugin
+
+- Go to Contact -> Contact Forms
+    #. Paste the following in the Form textarea
+        <p> Name (required)<br />[text* your-name] </p>
+        <p>Email (required)<br /> [email* your-email] </p>
+        <p>Message<br />[textarea* your-message] </p>
+        <p>[submit class:button "Send"]</p>
+    #. Save the form
+    #. Copy the provided shortcode into the Contact Us page

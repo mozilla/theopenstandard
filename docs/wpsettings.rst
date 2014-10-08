@@ -21,6 +21,8 @@ Required Categories
 Required Pages
 --------------
 - Authors
+- Contact Us
+	* Add shortcode from Contact Form 7 to the wyiwyg
 
 Required Menus
 --------------

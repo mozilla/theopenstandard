@@ -54,6 +54,7 @@ Blockquote tags will be pulled to the side and have a share button added to them
 
 .. image:: images/blockquote-render.png
 
+They will maintain their vertical position within the flow of the document, and the content below them will collapse to fill in the space they occupied.
 
 .. note::  {fill in number of blockquotes allowed and if their position in the copy matters}.
 
