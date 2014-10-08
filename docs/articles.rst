@@ -16,7 +16,7 @@ Full & Short Titles
 -------------------
 
 There are 2 titles for each article, the full title (used on the article page) and the short title
-used everywhere else. Both are required.
+used everywhere else. If a short title is not supplied the long title will be used.
 
 ------------
 
