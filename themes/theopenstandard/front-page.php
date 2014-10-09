@@ -8,9 +8,18 @@
 
     <?php
     $featured_term_id = get_category_by_slug('featured')->term_id;
-    // Get all posts in the Featured category.
-    $featured_posts = get_category_posts(array('cat' => $featured_term_id));
-    $featured_posts->the_post();
+    $lead_term_id = get_category_by_slug('lead')->term_id;
+
+    // Get all posts that are promoted to front page
+    $featured_posts = get_category_posts(array(
+        'post__in' => get_option('sticky_posts')
+    ));
+
+    $sticky_post = get_category_posts(array(
+        'cat' => $lead_term_id,
+        'ignore_sticky_posts' => 1
+    ));
+    $sticky_post->the_post();
     ?>
 
     <div class="row">
@@ -18,7 +27,7 @@
             <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat">
 
                 <?php
-                $categories = get_post_categories($post, array('featured'));
+                $categories = get_post_categories($post, array('featured', 'sponsored'));
                 foreach ($categories as $category) { ?>
                     <div class="topics-tag-normal <?php echo $category->slug; ?>">
                         <a href="#"><?php echo $category->name; ?></a>
@@ -60,9 +69,9 @@
                 <h2>Featured Articles by Topic</h2>
                 <ul class="medium-block-grid-5">
                     <?php 
-                    while ($featured_posts->have_posts()): 
+                    while ($featured_posts->have_posts()):
                         $featured_posts->the_post();
-                        $category = get_post_categories($post, array('featured'), 1);
+                        $category = get_post_categories($post, array('featured', 'lead'), 1);
                         // Only show one post per category.
                         if (empty($category) || in_array($category->term_id, $featured_term_ids)):
                             continue;
@@ -123,7 +132,7 @@
                                 <p><?php the_excerpt(); ?></p>
                                 <p>
                                     <?php
-                                    $categories = get_post_categories($post, array('featured', 'sponsored'));
+                                    $categories = get_post_categories($post, array('featured', 'sponsored', 'lead'));
                                     foreach ($categories as $category) { ?>
                                         <a href="<?php echo get_category_link($category->term_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
                                     <?php
