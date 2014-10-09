@@ -23,7 +23,7 @@
                     <li><?php the_date('F j, Y'); ?></li>
                     <?php
                     foreach ($categories as $category) { ?>
-                        <li class="topics-tag-short <?php echo $category->slug; ?>"><a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $category->name; ?></a></li>
+                        <li class="topics-tag-short <?php echo $category->slug; ?>"><a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a></li>
                     <?php
                     } ?>
 
