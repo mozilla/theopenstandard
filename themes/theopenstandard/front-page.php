@@ -27,7 +27,7 @@
             <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat">
 
                 <?php
-                $categories = get_post_categories($post, array('featured', 'sponsored'));
+                $categories = get_post_categories($post, array('featured', 'sponsored', 'lead'));
                 foreach ($categories as $category) { ?>
                     <div class="topics-tag-normal <?php echo $category->slug; ?>">
                         <a href="#"><?php echo $category->name; ?></a>

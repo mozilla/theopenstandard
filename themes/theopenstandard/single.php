@@ -23,7 +23,7 @@
                     <li><?php the_date('F j, Y'); ?></li>
                     <?php
                     foreach ($categories as $category) { ?>
-                        <li class="topics-tag-short <?php echo $category->slug; ?>"><a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $category->name; ?></a></li>
+                        <li class="topics-tag-short <?php echo $category->slug; ?>"><a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a></li>
                     <?php
                     } ?>
 
@@ -56,7 +56,7 @@
                     <?php
                     } ?>
                     <hr>
-                    <a href="/<?php echo get_the_author_link(); ?>">
+                    <a href="#" class="view-author" data-modal data-modal-content="author" data-modal-query="/<?php the_author_nickname(); ?>">
                         <?php echo get_wp_user_avatar(get_the_author_meta('ID'), 150); ?>
                         <p><?php echo get_the_author(); ?></p>
                     </a>
