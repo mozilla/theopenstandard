@@ -17,6 +17,7 @@ Required Categories
 - Live
 - Opinion
 - Sponsored
+- Lead
 
 Required Pages
 --------------
