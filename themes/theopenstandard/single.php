@@ -4,7 +4,7 @@
     <div class="story header">
         <div class="row">
             <div class="medium-8 medium-centered columns">
-                <?php $categories = get_post_categories($post, array('featured', 'sponsored')); ?>
+                <?php $categories = get_post_categories($post, array('featured', 'sponsored', 'lead')); ?>
                 <?php if (has_category('sponsored')) { ?>
                     <div class="sponsored-content-container">
                         <p class="sponsored-content">Sponsored</p>
