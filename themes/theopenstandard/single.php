@@ -49,7 +49,7 @@
                 <div class="author-icon">
                     <?php
                     $fieldgroup = simple_fields_fieldgroup('sponsor');
-                    if ($fieldgroup) { ?>
+                    if ($fieldgroup['url'] && $fieldgroup['logo']['url']) { ?>
                         <hr>
                         <p>Brought to you by</p>
                         <a href="<?php echo $fieldgroup['url']; ?>"><img src="<?php echo $fieldgroup['logo']['url']; ?>"></a></a>
