@@ -56,7 +56,7 @@
                     <?php
                     } ?>
                     <hr>
-                    <a href="/<?php echo get_the_author_link(); ?>">
+                    <a href="#" class="view-author" data-modal data-modal-content="author" data-modal-query="/<?php the_author_nickname(); ?>">
                         <?php echo get_wp_user_avatar(get_the_author_meta('ID'), 150); ?>
                         <p><?php echo get_the_author(); ?></p>
                     </a>

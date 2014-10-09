@@ -1,4 +1,11 @@
-iframe.modal
+body.modal-open
+	overflow: hidden
+	height: 100%
+
+body#modal
+	overflow: hidden
+
+div.modal
 	width: 100%
 	height: 100%
 	position: fixed
@@ -6,5 +13,8 @@ iframe.modal
 	top: 0
 	left: 0
 	display: none
+	overflow-y: auto
+	overflow-x: hidden
+	background-color: white
 	&.open
 		display: block
