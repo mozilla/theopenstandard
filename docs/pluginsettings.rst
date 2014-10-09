@@ -63,10 +63,23 @@ Contact Form 7
 - Enable plugin
 
 - Go to Contact -> Contact Forms
-    #. Paste the following in the Form textarea
-        <p> Name (required)<br />[text* your-name] </p>
-        <p>Email (required)<br /> [email* your-email] </p>
-        <p>Message<br />[textarea* your-message] </p>
-        <p>[submit class:button "Send"]</p>
+    #. Paste the html below in the Form textarea
     #. Save the form
     #. Copy the provided shortcode into the Contact Us page
+
+    Form HTML
+
+    .. sourcecode:: html
+
+        <p>
+        Hello. The Open Standard wants to hear from you. Please, share with us your suggestions.
+        Do you have a story tip? A problem with the site? This is where you can reach us.
+        </p>
+
+        <p> Name (required)<br />[text* your-name] </p>
+
+        <p>Email (required)<br /> [email* your-email] </p>
+
+        <p>Message<br />[textarea* your-message] </p>
+
+        <p>[submit class:button "Send"]</p>
