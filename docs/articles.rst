@@ -30,8 +30,7 @@ The ``exerpt`` field is used for the deck and is required.
 Categories
 ----------
 
-Articles should be assigned a single category from the 6 main categories. Other modifier categories
-such as "sponsored" can also be added.
+Articles should be assigned a single category from the 6 main categories.
 
 ------------
 
@@ -88,11 +87,21 @@ Featured Articles
 Articles that have their visibility set to "Promoted to front page" will go into the row below the hero on the home page
 The newest article that have the Category "Lead" will be the primary post on the home page
 
-Still need to add
+
+Sponsored Articles
+------------------
+Sponsored articeles should have the required information entered into the sponsor custom field.
+
+* URL - when clicked where the thumbnail goes.
+* Logo - the logo that will appear on the article page. Dimensions should be 124x124
+
+------------
+
+ToDo
 --------------------------------------------
-- What All The Custom Fields Are For
 - Featured articles, etc
-- categories
+- primary & secondary categories
 - tags
-- homepage stuff
+- promoting articles to the homepage
+- related posts!!
 

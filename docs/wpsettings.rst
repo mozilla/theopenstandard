@@ -10,20 +10,19 @@ Word Press Settings
 
 Required Categories
 -------------------
-- Featured
-- Engage
-- Innovate
-- Learn
-- Live
-- Opinion
-- Sponsored
-- Lead
+* Featured
+* Engage
+* Innovate
+* Learn
+* Live
+* Opinion
+* Sponsored
+* Lead
 
 Required Pages
 --------------
-- Authors
-- Contact Us
-	* Add shortcode from Contact Form 7 to the wyiwyg
+* Authors
+* Contact Us
 
 Required Menus
 --------------
