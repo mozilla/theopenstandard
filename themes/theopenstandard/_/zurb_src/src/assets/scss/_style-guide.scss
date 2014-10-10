@@ -1,3 +1,4 @@
+// STYLE GUIDE
 .plain-marquee{
   text-align: center;
   margin-bottom: 20px;
@@ -19,7 +20,12 @@
   color: #444;
   padding-bottom: 8px;
 }
+.colors-container {
+  h3 {
+    clear: both;
+  }
 
+}
 ul.colors {
   width: 100%;
   margin: 0 auto;
@@ -31,11 +37,10 @@ ul.colors {
 ul.colors li {
   display: inline;
   float: left;
-  margin: 0 0 0 15px;
+  margin: 0 0 15px 15px;
   font-weight: bold;
   font-size: 12px;
   width: 20%;
-
 }
 
 

@@ -5,3 +5,4 @@
 /dist/*
 npm-debug.log
 src/assets/scss/app.scss
+dist.zip

@@ -23,7 +23,7 @@
     <link href='//fonts.googleapis.com/css?family=Karma:400,300,500' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Fira+Sans:300,400,400italic,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/foundation/css/foundation.min.css" />
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_/css/zurb.css" />
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_/zurb_src/dist/assets/css/app.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_/css/blog.css" />
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" />
 

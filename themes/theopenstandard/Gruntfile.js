@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         },
         watch: {
             options: {
-                livereload: true
+                livereload: 35730
             },
             css: {
                 files: ['_/css/*.styl', '_/css/imports/*.styl'],

@@ -1,3 +1,4 @@
+// TOPICS
 .header {
 	form.search {
 		width: 70%;
@@ -23,14 +24,9 @@
 			line-height: 1.4;
 		}
 	}
-	// .recent-articles-item {
-	// 	margin-right: 2rem;
-	// 	margin-left: 2rem;
-	// }
 }
 .in-context {
 	padding-bottom: 2rem;
-	// text-align: center;
 	h4 {
 		padding-top: 2rem;
 		text-align: left;
@@ -47,3 +43,4 @@
 		}
 	}
 }
+.featured-articles-item > img { width: 100% }

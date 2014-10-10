@@ -1,10 +1,10 @@
+// TOPICS COLORS
 $live-color: #e63d2f;
 $learn-color: #f26c23;
 $innovate-color: #005da5;
 $engage-color: #95368c;
 $opinion-color: #6fbe4a;
 
-// TOPICS COLORS
 .live {
 	&.title, &.topics-tag-minimal {
 		color: $live-color;
@@ -27,6 +27,16 @@ $opinion-color: #6fbe4a;
 
 			&:before {border-color: $live-color transparent transparent transparent;}
 			&:after {border-color: transparent transparent transparent $live-color;}
+		}
+	}
+	&.arrow-left, &.arrow-right {
+		background-color: $live-color;
+
+		&:hover {
+			background-color: darken($live-color, 8%);
+		}
+		a {
+			color: $live-color;
 		}
 	}
 	&.sponsored-content-container {
@@ -54,6 +64,16 @@ $opinion-color: #6fbe4a;
 
 			&:before {border-color: $learn-color transparent transparent transparent;}
 			&:after {border-color: transparent transparent transparent $learn-color;}
+		}
+	}
+	&.arrow-left, &.arrow-right {
+		background-color: $learn-color;
+
+		&:hover {
+			background-color: darken($learn-color, 8%);
+		}
+		a {
+			color: $learn-color;
 		}
 	}
 	&.sponsored-content-container {
@@ -120,6 +140,16 @@ $opinion-color: #6fbe4a;
 			&:after {border-color: transparent transparent transparent $engage-color;}
 		}
 	}
+	&.arrow-left, &.arrow-right {
+		background-color: $engage-color;
+
+		&:hover {
+			background-color: darken($engage-color, 8%);
+		}
+		a {
+			color: $engage-color;
+		}
+	}
 	&.sponsored-content-container {
 		border-top-color: $engage-color;
 	}
@@ -145,6 +175,16 @@ $opinion-color: #6fbe4a;
 
 			&:before {border-color: $opinion-color transparent transparent transparent;}
 			&:after {border-color: transparent transparent transparent $opinion-color;}
+		}
+	}
+	&.arrow-left, &.arrow-right {
+		background-color: $opinion-color;
+
+		&:hover {
+			background-color: darken($opinion-color, 8%);
+		}
+		a {
+			color: $opinion-color;
 		}
 	}
 	&.sponsored-content-container {
