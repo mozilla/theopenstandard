@@ -25,7 +25,7 @@ aside .search { margin: 1.5rem 1rem; }
         height: 2.75rem;
         &:focus {
         box-shadow: inset 0 2px 0 #efefef;
-        background: url(../img/icons/search.png) no-repeat right center #f2f2f2;
+        background: url(../images/search.png) no-repeat right center #f2f2f2;
         background-size: 1.4rem; 
         background-origin: content-box;
         }  
@@ -33,13 +33,4 @@ aside .search { margin: 1.5rem 1rem; }
     &::-webkit-input-placeholder {
         color: #999;
     }
-}
-
-.author-bio-image {
-    @media #{$small-only} { width: 100%; }
-    img {padding-bottom: 2rem;}
-}
-.author-bio {
-    padding-bottom: 3rem;
-    ul { padding: .5rem 0;}
 }

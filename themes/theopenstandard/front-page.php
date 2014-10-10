@@ -11,21 +11,22 @@
     $lead_term_id = get_category_by_slug('lead')->term_id;
 
     // Get all posts that are promoted to front page
-    $featured_posts = get_category_posts(array(
+    $featured_posts = get_posts(array(
         'post__in' => get_option('sticky_posts')
     ));
 
-    $sticky_post = get_category_posts(array(
+    // The hero post
+    $sticky_posts = get_posts(array(
         'cat' => $lead_term_id,
         'ignore_sticky_posts' => 1
     ));
-    $sticky_post->the_post();
+    $post = $sticky_posts[0];
     ?>
 
     <div class="row">
-        <div class="medium-12 columns">
-            <div class="hero-image" onclick="window.location='<?php echo the_permalink(); ?>'" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat">
-
+        <div class="medium-12 columns hero-wrapper">
+            <a class="hero-image" href="<?php echo the_permalink(); ?>" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat"></a>
+            <div class="hero-post">
                 <?php
                 $categories = get_post_categories($post, array('featured', 'sponsored', 'lead'));
                 foreach ($categories as $category) { ?>
@@ -67,24 +68,46 @@
         <div class="row">
             <div class="medium-12 columns">
                 <h2>Featured Articles by Topic</h2>
-                <ul class="medium-block-grid-5">
+                <ul class="owl-carousel" id="featuredArticles">
                     <?php 
-                    while ($featured_posts->have_posts()):
-                        $featured_posts->the_post();
-                        $category = get_post_categories($post, array('featured', 'lead'), 1);
-                        // Only show one post per category.
-                        if (empty($category) || in_array($category->term_id, $featured_term_ids)):
-                            continue;
-                        else:
-                            $featured_term_ids[] = $category->term_id;
-                        endif; ?>
+                    $categories = array(
+                        get_term_by('slug', 'live', 'category'),
+                        get_term_by('slug', 'learn', 'category'),
+                        get_term_by('slug', 'innovate', 'category'),
+                        get_term_by('slug', 'engage', 'category'),
+                        get_term_by('slug', 'opinion', 'category')
+                    );
+
+                    $ordered_featured_posts = array();
+                    
+                    foreach ($categories as $category) {
+                        foreach ($featured_posts as $i => $featured_post) {
+                            $featured_post_categories = get_post_categories($featured_post, array('featured', 'lead', 'sponsored'));
+                            
+                            $featured_post->category_slugs = array();
+                            $featured_post->categories = $featured_post_categories;
+
+                            foreach ($featured_post_categories as $featured_post_category) {
+                                $featured_post->category_slugs[] = $featured_post_category->slug;
+                            }
+
+                            if (in_array($category->slug, $featured_post->category_slugs)) {
+                                $ordered_featured_posts[] = $featured_post;
+                                unset($featured_posts[$i]);
+                                break;
+                            }
+                        }
+                    }
+
+                    foreach ($ordered_featured_posts as $post) {
+                        $category = get_post_categories($post, array('featured', 'lead'), 1); ?>
 
                         <li class="featured-articles-item">  
                             <div class="topics-tag-normal <?php echo $category->slug; ?>">
                                 <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                             </div>
                             <a href="<?php the_permalink(); ?>">
-                                <img src="<?php echo get_post_thumbnail_url('medium'); ?>" />
+                                <img src="<?php echo get_post_thumbnail_url('homepage-featured'); ?>" />
                                 <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
                                 <h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3>
                                     <?php
@@ -96,7 +119,7 @@
                             </a>
                         </li>                
                     <?php 
-                    endwhile; ?>
+                    }; ?>
                 </ul>
             </div>
         </div>
@@ -117,22 +140,26 @@
                     
                     <?php
                     // Get all recent posts not in the Featured category.
-                    $recent_posts = get_category_posts(array('category__not_in' => $featured_term_id));
+                    $options = array('category__not_in' => array($featured_term_id, $lead_term_id));
+                    $recent_posts = get_posts($options);
                     ?>
                     <ul>
                         <?php
-                        while ($featured_posts->have_posts()): 
-                            $featured_posts->the_post(); ?>
+                        foreach ($recent_posts as $post) { 
+                            $categories = get_post_categories($post, array('featured', 'lead', 'sponsored'));
+                            ?>
 
-                            <li class="recent-articles-item">
+                            <li class="recent-articles-item <?php echo $categories[0]->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
+                                <?php if (has_post_thumbnail()) { ?>
                                 <div class="thumbnail">
                                     <?php the_post_thumbnail('thumbnail'); ?>
                                 </div>
+                                <?php } ?>
+
                                 <a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
                                 <p><?php the_excerpt(); ?></p>
                                 <p>
                                     <?php
-                                    $categories = get_post_categories($post, array('featured', 'sponsored', 'lead'));
                                     foreach ($categories as $category) { ?>
                                         <a href="<?php echo get_category_link($category->term_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
                                     <?php
@@ -142,7 +169,7 @@
                             </li>
 
                         <?php
-                        endwhile; ?>
+                        }; ?>
                     </ul>
                 </div>
             </div>

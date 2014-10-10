@@ -48,9 +48,9 @@
             <div class="row lower-footer">
                 <div class="medium-2 columns">
                     <ul class="social-icon-links inline-list">
-                        <li><a href="https://twitter.com/TheOpenStandard"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/a2e1b1fb30d095212b505fbc74e7ff6e9fa47c06/social-twitter.svg"></a></li>
-                        <li><a href="https://www.facebook.com/theopenstandard"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/8930e95d705cd0669eb01ee3d53552220d521513/social-facebook.svg"></a></li>
-                        <li><a href="https://plus.google.com/101433152788587086227"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/2269641b25f1cb8652c7219f66d53accb3fb80d6/social-google-plus.svg"></a></li>
+                        <li><a href="https://twitter.com/TheOpenStandard"><img src="//5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/a2e1b1fb30d095212b505fbc74e7ff6e9fa47c06/social-twitter.svg"></a></li>
+                        <li><a href="https://www.facebook.com/theopenstandard"><img src="//5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/8930e95d705cd0669eb01ee3d53552220d521513/social-facebook.svg"></a></li>
+                        <li><a href="https://plus.google.com/101433152788587086227"><img src="//5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/2269641b25f1cb8652c7219f66d53accb3fb80d6/social-google-plus.svg"></a></li>
                     </ul>
                 </div>
                 <div class="medium-10 columns">
@@ -68,7 +68,7 @@
 </div>
 
 <?php wp_footer(); ?>
-<script src='http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/js/1ea3de023f49f2fb0ce7bf13cb499969cb222fca/assets/js/all.js'></script>
+<script src='<?php echo get_template_directory_uri(); ?>/_/zurb_src/dist/assets/js/all.js'></script>
 <script src='<?php echo get_template_directory_uri(); ?>/_/js/vendor/moment.min.js'></script>
 <script src='<?php echo get_template_directory_uri(); ?>/_/js/vendor/URI.js'></script>
 <script src='<?php echo get_template_directory_uri(); ?>/_/js/vendor/jquery.history.js'></script>

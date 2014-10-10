@@ -11,18 +11,33 @@
 	}
 }
 
+.hero-wrapper {
+	background-color: black;
+	position: relative;
+	margin-bottom: 2rem; 
+}
+
 .hero-image{
 	background:url('../images/hero.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-position: center;
 	padding: 70px 20px;
-	// @media #{$small-only} {	background-position: center;}
+	opacity: .5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 0
+}
+div.hero-post {
 	@media #{$large-up} { padding: 140px 300px 140px 75px; }
 	@media #{$medium-only} { padding: 140px 180px 140px 38px; }
 	@media only screen and (min-width: 640px) and (max-width: 890px) { padding: 140px 40px 140px 38px;}
 	position: relative;
-	margin-bottom: 2rem; 
+	z-index: 1;
+	position: relative;
 	h1 {
 		color: #FFF;
 		&:hover {
@@ -56,7 +71,6 @@
 		}
 	}
 	.lower {
-	// 	padding-top: 1.5rem;
 		border-top: 1px dotted #999;
 		margin-top: 1rem;
 		
