@@ -1,0 +1,7 @@
+{
+  "name": "foundation-libsass-template",
+  "dependencies": {
+    "foundation": "5.3.3",
+    "OwlCarousel": "OwlFonk/OwlCarousel#~1.3.2"
+  }
+}

@@ -1,0 +1,27 @@
+.sponsored-content-container{
+	border-top: 3px solid #333;
+	background-color: #f5f5f5;
+	padding: 1em .75em;
+
+	h1{
+		padding-top: 1rem;
+	}
+	h3 {
+		padding-top: 0em !important;
+		margin-top: 0em !important;
+	}
+
+}
+.sponsored-content-title{
+}
+.story-sponsored {
+	background-color: #f5f5f5;
+}
+.sponsored-content {
+	color: #999;
+	font-size: rem-calc(11) !important;
+	font-weight: 700;
+	padding-left: 0em !important;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}

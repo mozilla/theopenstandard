@@ -1,0 +1,49 @@
+.header {
+	form.search {
+		width: 70%;
+		margin-left: 15%;
+	}
+}
+
+.owl-carousel#featuredTopicArticles {
+	@media #{$medium-up} {
+		display: block;
+	}
+}
+
+.topics-page {
+	padding-top: 4rem;
+	.featured-articles-item {
+		padding-bottom: .75rem;
+		margin-bottom: 2rem;
+		border-bottom: 1px dotted #ddd; 
+		&:last-child { border-bottom: 0; }
+		p {
+			margin-bottom: 1rem;
+			line-height: 1.4;
+		}
+	}
+	// .recent-articles-item {
+	// 	margin-right: 2rem;
+	// 	margin-left: 2rem;
+	// }
+}
+.in-context {
+	padding-bottom: 2rem;
+	// text-align: center;
+	h4 {
+		padding-top: 2rem;
+		text-align: left;
+	}
+	img {
+		width: 250px;
+	}
+	@media #{$small-only} {
+		h4 {
+		padding-top: 0rem;
+		}
+		img {
+			text-align: center;
+		}
+	}
+}
