@@ -1,0 +1,72 @@
+// SOCIAL GRAPH
+.social {
+	position: relative;
+	width: 7.9rem;
+	@media #{$small-only} { height: 100px !important; }
+	margin-right: 2rem;
+	margin-top: 20px;
+	height: 100px;
+
+	span {
+		width: 2.3rem;
+		min-height: 2rem;
+		position: absolute;
+		bottom: 0;
+	}
+}
+.tw {
+	background-color: #5ec2df;
+	height: 80px; 
+	left: 0;
+	img {
+		bottom: 3px;
+		position: absolute;
+		left: 7px;
+		width: 24px;
+	}
+	&:hover{
+		background-color: darken(#5ec2df, 20%);
+	}		
+}
+.fb {
+	background-color: #2c6087;
+	height: 60px;
+	left: 2.8rem;
+	img {
+		bottom: 3px;
+		position: absolute;
+		left: 6px;
+		width: 24px;
+	}
+	&:hover{
+		background-color: darken(#2c6087, 10%);
+	}		
+}
+.g {
+	background-color: #e03e12; 
+	height: 40px;
+	left: 5.6rem;
+	img {
+		bottom: 2px;
+		position: absolute;
+		left: 8px;
+		width: 24px;
+	}
+	&:hover{
+		background-color: darken(#e03e12, 10%);
+	}	
+}
+
+// SOCIAL ICON LINKS
+
+.social-icon-links {
+	img {
+		width: 1.1rem;
+	}
+	@media #{$small-only} { margin-bottom: 1rem; }
+	li {
+		&:hover {
+		opacity: .7;
+		}
+	}
+}

@@ -1,0 +1,90 @@
+@mixin karma { font-family: "Karma", "Fira Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+@mixin fira { font-family: "Fira Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+
+h1 { font-weight: 200; line-height: 1.2;}
+h2, h3 { 
+	line-height: 1.2; 
+	a {
+		&:hover {
+		color: #000;
+		}
+	}
+}
+
+@media #{$small-only} {
+	h1 { font-size: 2rem; line-height: 1.2; }
+	h2 { font-size: 1.75rem !important; }
+	h3 { font-size: 1.5rem; }
+	h4 { font-size: 1.25rem; }	
+}
+
+.nav-item{
+	a {
+		text-transform: uppercase;
+	}
+}
+.nav-item-list{
+	a {
+		font-size: rem-calc(13);
+		text-transform: none;
+	}
+}
+
+.timestamp{
+	color: #999;
+	font-style: italic;
+	font-size: rem-calc(13);
+}
+.date {
+	@include fira;
+	color: #ccc;
+}
+.lead {
+		padding-bottom: 1rem;
+		p {
+		font-size: rem-calc(24);
+	}
+}
+
+.author-bio {
+	a {font-size: rem-calc(13);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
