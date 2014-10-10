@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/foundation/css/foundation.min.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_/css/zurb.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_/css/blog.css" />
+    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" />
 
     <?php wp_head(); ?>
 
