@@ -114,6 +114,7 @@
     if (function_exists('add_image_size')) { 
         add_image_size('single-hero', 770, 331, true);
         add_image_size('homepage-hero', 1170, 565, true);
+        add_image_size('homepage-featured', 218, 160, true);
     }
 
     require_once('custom-post-types.php');

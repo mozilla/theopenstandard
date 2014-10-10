@@ -84,7 +84,7 @@
                                 <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                             </div>
                             <a href="<?php the_permalink(); ?>">
-                                <img src="<?php echo get_post_thumbnail_url('medium'); ?>" />
+                                <img src="<?php echo get_post_thumbnail_url('homepage-featured'); ?>" />
                                 <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
                                 <h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3>
                                     <?php
