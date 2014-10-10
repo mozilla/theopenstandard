@@ -23,7 +23,12 @@ Class TheOpenStandardSearch {
     }
 
     static function search_handler() {
-        if (strtok($_SERVER["REQUEST_URI"],'?') == '/search' && $_GET['s']) {
+        if (strtok($_SERVER["REQUEST_URI"],'?') == '/search') {
+            load_template(plugin_dir_path(__FILE__) . 'page-search.php');
+            exit();
+        }
+
+        if (strtok($_SERVER["REQUEST_URI"],'?') == '/search-request' && $_GET['s']) {
             $search_options = array(
                 's' => $_GET['s'],
                 'post_type' => 'post',
@@ -40,9 +45,9 @@ Class TheOpenStandardSearch {
         }
     }
 
-    static function search_form() {
+    static function search_form($default_search_params) {
         wp_enqueue_script('the-open-standard-search', plugins_url('js/search.js', __FILE__), NULL, NULL, TRUE);
-        get_search_form(true);
+        include 'form.php';
     }
 }
 

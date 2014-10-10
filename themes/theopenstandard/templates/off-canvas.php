@@ -9,10 +9,10 @@
 
 <aside class="left-off-canvas-menu">
     <!-- NAV -->
-    <form class='search' method='post'><input type='hidden' name='form-name' value='form 1' />
+    <form role="search" data-search method="get" class="search" action="<?php echo home_url('/search'); ?>">
         <div class="row">
             <div class="medium-12 columns">
-                <input type="search" placeholder="Search The Open Standard">
+                <input type="search" name="s" placeholder="Search The Open Standard">
             </div>
         </div>
     </form>
@@ -37,9 +37,9 @@
 
         <li>
             <ul class="social-icon-links inline-list">
-                <li><a href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/a2e1b1fb30d095212b505fbc74e7ff6e9fa47c06/social-twitter.svg"></a></li>
-                <li><a href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/8930e95d705cd0669eb01ee3d53552220d521513/social-facebook.svg"></a></li>
-                <li><a href="#"><img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/2269641b25f1cb8652c7219f66d53accb3fb80d6/social-google-plus.svg"></a></li>
+                <li><a href="#"><img src="<?php theme_image_src('icons/social-twitter.svg'); ?>"></a></li>
+                <li><a href="#"><img src="<?php theme_image_src('icons/social-facebook.svg'); ?>"></a></li>
+                <li><a href="#"><img src="<?php theme_image_src('icons/social-google-plus.svg'); ?>"></a></li>
             </ul>
         </li>
     </ul>

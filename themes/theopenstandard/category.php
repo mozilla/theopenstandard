@@ -23,7 +23,7 @@
 			<div class="medium-8 medium-centered columns text-center">
 				<h1><?php echo $category->name; ?></h1>
 				<p><?php echo $category->description; ?></p>
-				<?php TheOpenStandardSearch::search_form(); ?>
+				<?php TheOpenStandardSearch::search_form(array('cat' => $category->slug)); ?>
 			</div>
 		</div>
 	</div>
