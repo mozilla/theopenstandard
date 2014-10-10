@@ -68,7 +68,7 @@
         <div class="row">
             <div class="medium-12 columns">
                 <h2>Featured Articles by Topic</h2>
-                <ul class="medium-block-grid-5">
+                <ul class="owl-carousel" id="featuredArticles">
                     <?php 
                     $categories = array(
                         get_term_by('slug', 'live', 'category'),
@@ -100,13 +100,7 @@
                     }
 
                     foreach ($ordered_featured_posts as $post) {
-                        $category = get_post_categories($post, array('featured', 'lead'), 1);
-                        // Only show one post per category.
-                        if (empty($category) || in_array($category->term_id, $featured_term_ids)):
-                            continue;
-                        else:
-                            $featured_term_ids[] = $category->term_id;
-                        endif; ?>
+                        $category = get_post_categories($post, array('featured', 'lead'), 1); ?>
 
                         <li class="featured-articles-item">  
                             <div class="topics-tag-normal <?php echo $category->slug; ?>">
@@ -151,9 +145,11 @@
                     ?>
                     <ul>
                         <?php
-                        foreach ($recent_posts as $post) { ?>
+                        foreach ($recent_posts as $post) { 
+                            $categories = get_post_categories($post, array('featured', 'lead', 'sponsored'));
+                            ?>
 
-                            <li class="recent-articles-item">
+                            <li class="recent-articles-item <?php echo $categories[0]->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
                                 <?php if (has_post_thumbnail()) { ?>
                                 <div class="thumbnail">
                                     <?php the_post_thumbnail('thumbnail'); ?>
@@ -164,7 +160,6 @@
                                 <p><?php the_excerpt(); ?></p>
                                 <p>
                                     <?php
-                                    $categories = get_post_categories($post);
                                     foreach ($categories as $category) { ?>
                                         <a href="<?php echo get_category_link($category->term_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
                                     <?php
