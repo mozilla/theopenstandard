@@ -46,15 +46,6 @@
         return ob_get_clean();
     }
 
-    function get_category_posts($query_options = array()) {
-        $query_options = array_merge(array(
-            'orderby' => 'date'
-        ), $query_options);
-
-        $category_posts = new WP_Query($query_options);
-        return $category_posts;
-    }
-
     function get_post_thumbnail_url($size = 'thumbnail') {
         $image_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), $size);
         return $image_url[0];

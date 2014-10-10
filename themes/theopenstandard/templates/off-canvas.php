@@ -19,18 +19,17 @@
     <ul class="nav">
         <?php
         foreach ($categories as $category) { 
-            $category_posts = get_category_posts(array('cat' => $category->term_id, 'posts_per_page' => 3)); ?>
+            $category_posts = get_posts(array('cat' => $category->term_id, 'posts_per_page' => 3)); ?>
             <li class="nav-item">
                 <div class="topics-tag-normal <?php echo $category->slug; ?>">
                     <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                 </div>
                 <ul class="nav-item-list">
                     <?php 
-                    while ($category_posts->have_posts()): 
-                        $category_posts->the_post(); ?>
+                    foreach ($category_posts as $post) { ?>
                         <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
                     <?php 
-                    endwhile; ?>
+                    }; ?>
                 </ul>
             </li>
         <?php
