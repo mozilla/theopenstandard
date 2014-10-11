@@ -80,36 +80,8 @@
 
             <hr class="tall">
 
-            <!-- LARGER ISSUES -->
-            <div class="larger-issues">
-                <?php // get_related_posts(); ?>
-                <ul class="medium-block-grid-3">
-                    <li class="featured-articles-item">  
-                        <div class="topics-tag-normal live">
-                            <a href="#">Live</a>
-                        </div>
-                        <img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/ac61739df1ec3320c7d2d97173d7820d59dde83d/apple_600.jpg">
-                        <a href="#"><h3>Apple forces users to download a U2 album</h3></a>
-                    </li>
-                    <li class="featured-articles-item">  
-                        <div class="topics-tag-normal learn">
-                            <a href="#">Learn</a>
-                        </div>
-                        <img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/9e24dc625c8f312d099a56f124175cbe3f723cbf/facebook_600.jpg">
-                        <a href="#"><h3>Girl Code LA showes women how to get started in tech</h3></a>
-                    </li>
-                    <li class="featured-articles-item">  
-                        <div class="topics-tag-normal innovate">
-                            <a href="#">Innovate</a>
-                        </div>
-                        <img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/a4099f83587a3f78870c1e14bfdde56a6c679f36/googleglass_600.jpg">
-                        <a href="#"><h3>Facebook's tracking more than you think</h3></a>
-                    </li>
-                </ul>
-            </div>
+            <?php echo get_related_posts(); ?>
                
-            <hr class="tall">
-
             <?php comments_template(); ?>
 
         </div>
