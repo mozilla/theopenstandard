@@ -2,9 +2,15 @@
     $featured_term_id = get_category_by_slug('featured')->term_id;
     $uncategorized_term_id = get_category_by_slug('uncategorized')->term_id;
     $sponsored_term_id = get_category_by_slug('sponsored')->term_id;
-    $lead_term_id = get_category_by_slug('lead')->term_id;
+    $lead_term_id = get_category_by_slug('hp_lead')->term_id;
 
-    $categories = get_terms('category', array('hide_empty' => false, 'exclude' => array($featured_term_id, $uncategorized_term_id, $sponsored_term_id, $lead_term_id)));
+    $categories = array(
+        get_term_by('slug', 'live', 'category'),
+        get_term_by('slug', 'learn', 'category'),
+        get_term_by('slug', 'innovate', 'category'),
+        get_term_by('slug', 'engage', 'category'),
+        get_term_by('slug', 'opinion', 'category')
+    );
 ?>
 
 <aside class="left-off-canvas-menu">
