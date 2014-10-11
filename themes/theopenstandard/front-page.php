@@ -12,15 +12,15 @@
 
     // Get all posts that are promoted to front page
     $featured_posts = get_posts(array(
-        'post__in' => get_option('sticky_posts')
+        'cat' => $featured_term_id,
+        'category__not_in' => array($lead_term_id)
     ));
 
     // The hero post
-    $sticky_posts = get_posts(array(
-        'cat' => $lead_term_id,
-        'ignore_sticky_posts' => 1
+    $lead_posts = get_posts(array(
+        'cat' => $lead_term_id
     ));
-    $post = $sticky_posts[0];
+    $post = $lead_posts[0];
     ?>
 
     <div class="row collapse">
