@@ -85,7 +85,7 @@ Since the various image sizes are generated upon upload, you should upload a lar
 Featured Articles
 ------------------------
 Articles that have their visibility set to "Promoted to front page" will go into the row below the hero on the home page
-The newest article that have the Category "Lead" will be the primary post on the home page
+The newest article that have the Category "HP Lead" will be the primary post on the home page
 
 
 Sponsored Articles

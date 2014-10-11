@@ -8,7 +8,7 @@
 
     <?php
     $featured_term_id = get_category_by_slug('featured')->term_id;
-    $lead_term_id = get_category_by_slug('lead')->term_id;
+    $lead_term_id = get_category_by_slug('hp_lead')->term_id;
 
     // Get all posts that are promoted to front page
     $featured_posts = get_posts(array(
