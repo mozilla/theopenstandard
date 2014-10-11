@@ -54,8 +54,9 @@ Class TheOpenStandardSearch {
         }
     }
 
-    static function search_form($default_search_params) {
-        wp_enqueue_script('the-open-standard-search', plugins_url('js/search.js', __FILE__), NULL, NULL, TRUE);
+    static function search_form($default_search_params, $ajaxify = true) {
+        if ($ajaxify)
+            wp_enqueue_script('the-open-standard-search', plugins_url('js/search.js', __FILE__), NULL, NULL, TRUE);
         include 'form.php';
     }
 }

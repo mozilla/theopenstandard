@@ -1,11 +1,20 @@
 <?php
     // Helper function for getting post categories.
-    function get_post_categories($post, $without = NULL, $limit = NULL) {
+    function get_post_categories($post, $without = array('featured', 'lead', 'sponsored'), $limit = NULL) {
         $categories = get_the_category($post);
         if ($without || $limit)
             $categories = reduce_categories($categories, $without, $limit);
 
         return $categories;
+    }
+
+    function get_primary_category($post, $without = array('featured', 'lead', 'sponsored')) {
+        $primary_category_data = simple_fields_value('primary_category', $post);
+        if ($primary_category_data) {
+            return get_term_by('name', $primary_category_data['selected_value'], 'category');
+        } else {
+            return get_post_categories($post, $without, 1);
+        }
     }
 
     // Helper function for reducing an array of categories to a certain length and/or a certain slug.
@@ -61,6 +70,10 @@
     }
 
     function theme_image_src($path) {
-        echo get_template_directory_uri() . '/_/images/' . $path;
+        echo get_theme_image_src($path);
     }
+
+    function get_theme_image_src($path) {
+        return get_template_directory_uri() . '/_/images/' . $path;
+    }    
 ?>

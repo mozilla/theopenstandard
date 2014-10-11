@@ -4,7 +4,7 @@
     <div class="story header">
         <div class="row">
             <div class="medium-8 medium-centered columns">
-                <?php $categories = get_post_categories($post, array('featured', 'sponsored', 'lead')); ?>
+                <?php $categories = get_post_categories($post); ?>
                 <?php if (has_category('sponsored')) { ?>
                     <div class="sponsored-content-container">
                         <p class="sponsored-content">Sponsored</p>
@@ -114,9 +114,39 @@
         </div>
     </div>
 
-    <?php previous_post_link('<div class="arrow-left">%link</div>', '<img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/c60a9e20e740db664abf7fb5bbb87a92a34bc348/arrow-left.svg">', true); ?>
-    
-    <?php next_post_link('<div class="arrow-right">%link</div>', '<img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/122bee921541e5f5269e1bb152e14bbe1c41512a/arrow-right.svg">', true); ?>
+   
+    <?php 
+    $prev = get_previous_post(true);
+    $next = get_next_post(true);
+
+    if ($prev) {
+        $prev_category = get_primary_category($prev); 
+        ?>
+        <div class="arrow-left <?php echo $prev_category->slug; ?> show-for-large-up">
+            <a href="<?php echo post_permalink($prev->ID); ?>">
+                <img src="<?php theme_image_src('arrow-left.svg'); ?>">
+                <div class="arrow-hover left">
+                    <h3 class="<?php echo $prev_category->slug; ?>"><?php echo one_of(simple_fields_fieldgroup('short_title', $prev->ID), get_the_title($prev->ID)); ?></h3>
+                </div>
+            </a>
+        </div>
+    <?php
+    } ?>
+
+
+    <?php
+    if ($next) { 
+        $next_category = get_primary_category($next); ?>
+        <div class="arrow-right <?php echo $next_category->slug; ?> show-for-large-up">
+            <a href="<?php echo post_permalink($next->ID); ?>">
+                <img src="<?php theme_image_src('arrow-right.svg'); ?>">
+                <div class="arrow-hover right">
+                    <h3 class="<?php echo $next_category->slug; ?>"><?php echo one_of(simple_fields_fieldgroup('short_title', $next->ID), get_the_title($next->ID)); ?></h3>
+                </div>
+            </a>
+        </div>
+    <?php
+    } ?>
 
 <?php endwhile; endif; ?>
 
