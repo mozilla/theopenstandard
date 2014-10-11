@@ -43,10 +43,11 @@
             <!-- STORY HEADER -->
             <div class="story-header">
                 <img src="<?php echo get_post_thumbnail_url('single-hero'); ?>" class="key-img">
-                    <?php if(get_post(get_post_thumbnail_id())->post_excerpt) {
-                        echo '<div class="post-thumbnail-caption">' . get_post(get_post_thumbnail_id())->post_excerpt . '</div>';
-                        }
-                    ?>
+                <div class="post-thumbnail-caption">
+                    <?php 
+                    if (get_post(get_post_thumbnail_id())->post_excerpt)
+                        echo get_post(get_post_thumbnail_id())->post_excerpt; ?> &nbsp;
+                </div>
 
                 <?php TheOpenStandardSocial::share_links(); ?>
 
