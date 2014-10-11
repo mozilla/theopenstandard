@@ -9,7 +9,7 @@
 
 <aside class="left-off-canvas-menu">
     <!-- NAV -->
-    <form role="search" data-search method="get" class="search" action="<?php echo home_url('/search'); ?>">
+    <form role="search" method="get" class="search" action="<?php echo home_url('/search'); ?>">
         <div class="row">
             <div class="medium-12 columns">
                 <input type="search" name="s" placeholder="Search The Open Standard">

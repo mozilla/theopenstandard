@@ -55,11 +55,11 @@
         $('button[data-share-service]').click(function() {
             var service = $(this).attr('data-share-service');
             var windowUrl = null;
-            
+
             if (service == 'twitter')
                 windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&url=' + encodeURIComponent(shareUrl);
             if (service == 'facebook')
-                windowUrl = '//www.facebook.com/sharer/sharer.php?u=#url'
+                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&t=' + encodeURIComponent(document.title);
             if (service == 'googleplus')
                 windowUrl = '//plus.google.com/share?url=' + encodeURIComponent(shareUrl)
             
