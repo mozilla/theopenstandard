@@ -23,7 +23,7 @@
     $post = $sticky_posts[0];
     ?>
 
-    <div class="row">
+    <div class="row collapse">
         <div class="medium-12 columns hero-wrapper">
             <a class="hero-image" href="<?php echo the_permalink(); ?>" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat"></a>
             <div class="hero-post">

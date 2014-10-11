@@ -3,9 +3,11 @@
     <?php
     	$issues = explode(' ', $_GET['issues']);
 
+    	$issue = get_term_by('slug', $issues[0], 'post_tag');
+
     	$issue_posts = new WP_Query(array(
 	        'tag_slug__in' => $issues,
-	        'posts_per_page' => 6,
+	        'posts_per_page' => 10,
 	        'orderby' => 'date'
         ));		    	
     ?>
@@ -14,7 +16,7 @@
 		<div class="medium-8 medium-centered columns">
 			<div class="issues-detail text-center">
 				<h1>In Context</h1>
-				<p>Lorem ipsum dolar sit amet</p>
+				<p><?php echo $issue->description; ?></p>
 				<div class="socialmedia-issues">
 					<?php TheOpenStandardSocial::share_links(); ?>
 				</div>
