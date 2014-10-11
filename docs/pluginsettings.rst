@@ -4,8 +4,8 @@
 
 .. _pluginsettings:
 
-Content Editing
-===============
+Plugin Settings
+================
 
 .. toctree::
    :maxdepth: 1
