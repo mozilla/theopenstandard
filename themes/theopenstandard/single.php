@@ -89,8 +89,8 @@
 
    
     <?php 
-    $prev = get_previous_post(true);
-    $next = get_next_post(true);
+    $prev = get_previous_post(true, get_non_primary_category_ids($post));
+    $next = get_next_post(true, get_non_primary_category_ids($post));
 
     if ($prev) {
         $prev_category = get_primary_category($prev); 
@@ -109,7 +109,8 @@
 
     <?php
     if ($next) { 
-        $next_category = get_primary_category($next); ?>
+        $next_category = get_primary_category($next);
+        ?>
         <div class="arrow-right <?php echo $next_category->slug; ?> show-for-large-up">
             <a href="<?php echo post_permalink($next->ID); ?>">
                 <img src="<?php theme_image_src('arrow-right.svg'); ?>">

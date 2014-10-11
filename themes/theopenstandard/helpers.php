@@ -10,11 +10,13 @@
 
     function get_primary_category($post, $without = array('featured', 'hp_lead', 'sponsored')) {
         $primary_category_data = simple_fields_value('primary_category', $post);
-        if ($primary_category_data) {
-            return get_term_by('name', $primary_category_data['selected_value'], 'category');
+        if ($primary_category_data && $primary_category_data['selected_value']) {
+            $primary_category = get_term_by('name', $primary_category_data['selected_value'], 'category');
         } else {
-            return get_post_categories($post, $without, 1);
+            $primary_category = get_post_categories($post, $without, 1);
         }
+
+        return $primary_category;
     }
 
     // Helper function for reducing an array of categories to a certain length and/or a certain slug.
@@ -75,5 +77,18 @@
 
     function get_theme_image_src($path) {
         return get_template_directory_uri() . '/_/images/' . $path;
-    }    
+    }
+
+    // We use this as an argument in get_next_post and get_previous_post.
+    function get_non_primary_category_ids($post) {
+        $primary_category = get_primary_category($post);
+        $categories = get_post_categories($post, NULL);
+        $category_ids = array();
+        foreach ($categories as $category) {
+            if ($primary_category->term_id != $category->term_id) {
+                $category_ids = $category->term_id;
+            }
+        }
+        return $category_ids;
+    }
 ?>
