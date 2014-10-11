@@ -30,7 +30,7 @@ The ``exerpt`` field is used for the deck and is required.
 Categories
 ----------
 
-Articles should be assigned a single category from the 6 main categories.
+Articles should be assigned a single category from the 6 main categories. If an article has more than one of the 6 main categories, you may specify one of them as primary using the Primary Category dropdown below the wysiwyg
 
 ------------
 
@@ -85,7 +85,7 @@ Since the various image sizes are generated upon upload, you should upload a lar
 Featured Articles
 ------------------------
 Articles that have their visibility set to "Promoted to front page" will go into the row below the hero on the home page
-The newest article that have the Category "Lead" will be the primary post on the home page
+The newest article that have the Category "HP Lead" will be the primary post on the home page
 
 
 Sponsored Articles
@@ -95,7 +95,15 @@ Sponsored articeles should have the required information entered into the sponso
 * URL - when clicked where the thumbnail goes.
 * Logo - the logo that will appear on the article page. Dimensions should be 124x124
 
+
+Related Posts
+--------------
+These show at the bottom of the post with a thumbnail and short title, along with the category of user-defined related posts.
+
+To add posts related to the current one, click the "Add Related Posts" button on the post edit page.
+
 ------------
+
 
 ToDo
 --------------------------------------------

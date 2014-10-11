@@ -3,10 +3,6 @@
                 <div class="medium-8 columns">
                     <ul class="medium-block-grid-5">
                         <?php
-                        $featured_term_id = get_category_by_slug('featured')->term_id;
-                        $uncategorized_term_id = get_category_by_slug('uncategorized')->term_id;
-                        $sponsored_term_id = get_category_by_slug('sponsored')->term_id;
-
                         $categories = array(
                             get_term_by('slug', 'live', 'category'),
                             get_term_by('slug', 'learn', 'category'),

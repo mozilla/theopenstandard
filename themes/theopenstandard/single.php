@@ -4,7 +4,7 @@
     <div class="story header">
         <div class="row">
             <div class="medium-8 medium-centered columns">
-                <?php $categories = get_post_categories($post, array('featured', 'sponsored', 'lead')); ?>
+                <?php $categories = get_post_categories($post); ?>
                 <?php if (has_category('sponsored')) { ?>
                     <div class="sponsored-content-container">
                         <p class="sponsored-content">Sponsored</p>
@@ -43,6 +43,11 @@
             <!-- STORY HEADER -->
             <div class="story-header">
                 <img src="<?php echo get_post_thumbnail_url('single-hero'); ?>" class="key-img">
+                <div class="post-thumbnail-caption">
+                    <?php 
+                    if (get_post(get_post_thumbnail_id())->post_excerpt)
+                        echo get_post(get_post_thumbnail_id())->post_excerpt; ?> &nbsp;
+                </div>
 
                 <?php TheOpenStandardSocial::share_links(); ?>
 
@@ -75,44 +80,47 @@
 
             <hr class="tall">
 
-            <!-- LARGER ISSUES -->
-            <div class="larger-issues">
-                <?php // get_related_posts(); ?>
-                <ul class="medium-block-grid-3">
-                    <li class="featured-articles-item">  
-                        <div class="topics-tag-normal live">
-                            <a href="#">Live</a>
-                        </div>
-                        <img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/ac61739df1ec3320c7d2d97173d7820d59dde83d/apple_600.jpg">
-                        <a href="#"><h3>Apple forces users to download a U2 album</h3></a>
-                    </li>
-                    <li class="featured-articles-item">  
-                        <div class="topics-tag-normal learn">
-                            <a href="#">Learn</a>
-                        </div>
-                        <img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/9e24dc625c8f312d099a56f124175cbe3f723cbf/facebook_600.jpg">
-                        <a href="#"><h3>Girl Code LA showes women how to get started in tech</h3></a>
-                    </li>
-                    <li class="featured-articles-item">  
-                        <div class="topics-tag-normal innovate">
-                            <a href="#">Innovate</a>
-                        </div>
-                        <img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/a4099f83587a3f78870c1e14bfdde56a6c679f36/googleglass_600.jpg">
-                        <a href="#"><h3>Facebook's tracking more than you think</h3></a>
-                    </li>
-                </ul>
-            </div>
+            <?php echo get_related_posts(); ?>
                
-            <hr class="tall">
-
             <?php comments_template(); ?>
 
         </div>
     </div>
 
-    <?php previous_post_link('<div class="arrow-left">%link</div>', '<img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/c60a9e20e740db664abf7fb5bbb87a92a34bc348/arrow-left.svg">', true); ?>
-    
-    <?php next_post_link('<div class="arrow-right">%link</div>', '<img src="http://5c4cf848f6454dc02ec8-c49fe7e7355d384845270f4a7a0a7aa1.r53.cf2.rackcdn.com/assets/images/122bee921541e5f5269e1bb152e14bbe1c41512a/arrow-right.svg">', true); ?>
+   
+    <?php 
+    $prev = get_previous_post(true, get_non_primary_category_ids($post));
+    $next = get_next_post(true, get_non_primary_category_ids($post));
+
+    if ($prev) {
+        $prev_category = get_primary_category($prev); 
+        ?>
+        <div class="arrow-left <?php echo $prev_category->slug; ?> show-for-large-up">
+            <a href="<?php echo post_permalink($prev->ID); ?>">
+                <img src="<?php theme_image_src('arrow-left.svg'); ?>">
+                <div class="arrow-hover left">
+                    <h3 class="<?php echo $prev_category->slug; ?>"><?php echo one_of(simple_fields_fieldgroup('short_title', $prev->ID), get_the_title($prev->ID)); ?></h3>
+                </div>
+            </a>
+        </div>
+    <?php
+    } ?>
+
+
+    <?php
+    if ($next) { 
+        $next_category = get_primary_category($next);
+        ?>
+        <div class="arrow-right <?php echo $next_category->slug; ?> show-for-large-up">
+            <a href="<?php echo post_permalink($next->ID); ?>">
+                <img src="<?php theme_image_src('arrow-right.svg'); ?>">
+                <div class="arrow-hover right">
+                    <h3 class="<?php echo $next_category->slug; ?>"><?php echo one_of(simple_fields_fieldgroup('short_title', $next->ID), get_the_title($next->ID)); ?></h3>
+                </div>
+            </a>
+        </div>
+    <?php
+    } ?>
 
 <?php endwhile; endif; ?>
 

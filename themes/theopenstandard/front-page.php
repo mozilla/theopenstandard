@@ -8,27 +8,27 @@
 
     <?php
     $featured_term_id = get_category_by_slug('featured')->term_id;
-    $lead_term_id = get_category_by_slug('lead')->term_id;
+    $lead_term_id = get_category_by_slug('hp_lead')->term_id;
 
     // Get all posts that are promoted to front page
     $featured_posts = get_posts(array(
-        'post__in' => get_option('sticky_posts')
+        'cat' => $featured_term_id,
+        'category__not_in' => array($lead_term_id)
     ));
 
     // The hero post
-    $sticky_posts = get_posts(array(
-        'cat' => $lead_term_id,
-        'ignore_sticky_posts' => 1
+    $lead_posts = get_posts(array(
+        'cat' => $lead_term_id
     ));
-    $post = $sticky_posts[0];
+    $post = $lead_posts[0];
     ?>
 
-    <div class="row">
+    <div class="row collapse">
         <div class="medium-12 columns hero-wrapper">
             <a class="hero-image" href="<?php echo the_permalink(); ?>" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat"></a>
             <div class="hero-post">
                 <?php
-                $categories = get_post_categories($post, array('featured', 'sponsored', 'lead'));
+                $categories = get_post_categories($post);
                 foreach ($categories as $category) { ?>
                     <div class="topics-tag-normal <?php echo $category->slug; ?>">
                         <a href="#"><?php echo $category->name; ?></a>
@@ -82,16 +82,13 @@
                     
                     foreach ($categories as $category) {
                         foreach ($featured_posts as $i => $featured_post) {
-                            $featured_post_categories = get_post_categories($featured_post, array('featured', 'lead', 'sponsored'));
+                            $featured_post_categories = get_post_categories($featured_post);
                             
-                            $featured_post->category_slugs = array();
                             $featured_post->categories = $featured_post_categories;
 
-                            foreach ($featured_post_categories as $featured_post_category) {
-                                $featured_post->category_slugs[] = $featured_post_category->slug;
-                            }
+                            $primary_category = get_primary_category($featured_post);
 
-                            if (in_array($category->slug, $featured_post->category_slugs)) {
+                            if ($category->slug == $primary_category->slug) {
                                 $ordered_featured_posts[] = $featured_post;
                                 unset($featured_posts[$i]);
                                 break;
@@ -100,7 +97,7 @@
                     }
 
                     foreach ($ordered_featured_posts as $post) {
-                        $category = get_post_categories($post, array('featured', 'lead'), 1); ?>
+                        $category = get_primary_category($post); ?>
 
                         <li class="featured-articles-item">  
                             <div class="topics-tag-normal <?php echo $category->slug; ?>">
@@ -146,10 +143,11 @@
                     <ul>
                         <?php
                         foreach ($recent_posts as $post) { 
-                            $categories = get_post_categories($post, array('featured', 'lead', 'sponsored'));
+                            $primary_category = get_primary_category($post);
+                            $categories = get_post_categories($post);
                             ?>
 
-                            <li class="recent-articles-item <?php echo $categories[0]->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
+                            <li class="recent-articles-item <?php echo $primary_category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
                                 <?php if (has_post_thumbnail()) { ?>
                                 <div class="thumbnail">
                                     <?php the_post_thumbnail('thumbnail'); ?>

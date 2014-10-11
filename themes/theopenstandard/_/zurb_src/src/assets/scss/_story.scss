@@ -14,6 +14,7 @@
 	font-size: rem-calc(22);
 	color: #888;
 	line-height: 2.2rem;
+	margin-top: 2rem;
 	@media only screen and (min-width: 0px) and (max-width: 1024px) {
 		clear: both;
 	}
@@ -95,6 +96,14 @@
 			float: left;
 			margin-bottom: 1rem;
 		}
+	}
+
+	.post-thumbnail-caption {
+		text-align: right;
+		color: #999;
+		font-size: .6rem;
+		position: absolute;
+		width: 100%;
 	}
 .author-icon {
 	position: absolute;
@@ -246,7 +255,7 @@
  	top: 25rem;
  	display: block;
 	
-	&:hover > .arrow-hover{
+	&:hover .arrow-hover{
 		visibility: visible;
 	}
  	
@@ -270,7 +279,7 @@
  	top: 25rem;
  	display: block;
 	
-	&:hover > .arrow-hover{
+	&:hover .arrow-hover{
 		visibility: visible;
 	}
 

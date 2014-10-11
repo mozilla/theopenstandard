@@ -1,25 +1,39 @@
 <?php get_header(); ?>
 
-<div class="row">
-    <div class="medium-8 medium-centered columns">
-
-        <?php if (have_posts()): while (have_posts()): the_post(); ?>
-                
-            <article class="post" id="post-<?php the_ID(); ?>">
-
-                <h1><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h1>
-
-                <div class="entry">
-                    <?php the_content(); ?>
-                    <?php wp_link_pages(array('before' => __('Pages: ','html5reset'), 'next_or_number' => 'number')); ?>
-                </div>
-
-                <?php edit_post_link(__('Edit this entry','html5reset'), '<p>', '</p>'); ?>
-
-            </article>
-            
-        <?php endwhile; endif; ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+    <div class="story header">
+        <div class="row">
+            <div class="medium-8 medium-centered columns">
+                <h1 class="title innovate"><?php the_title(); ?></h1>
+                <hr>
+            </div>
+        </div>
     </div>
-</div>
+
+    <div class="row story">
+        <div class="medium-8 medium-centered columns">
+            <!-- STORY HEADER -->
+            <div class="story-header">
+                <img src="<?php echo get_post_thumbnail_url('single-hero'); ?>" class="key-img">
+
+                <?php TheOpenStandardSocial::share_links(); ?>
+            </div>
+            <!-- DECK -->
+            <h2 class="deck"><?php echo get_the_excerpt(); ?></h2>
+            
+            <hr>
+            
+            <div class="post-content">
+                <?php the_content(); ?>
+            </div>
+
+            <?php edit_post_link(__('Edit this entry','html5reset'),'','.'); ?>
+
+            <hr class="tall">
+
+        </div>
+    </div>
+
+<?php endwhile; endif; ?>
 
 <?php get_footer(); ?>
