@@ -25,7 +25,7 @@
     } 
 
     function getShareCounts() {
-        $.get('http://graph.facebook.com/?ids=' + shareUrl, function(response) {
+        $.get('//graph.facebook.com/?ids=' + shareUrl, function(response) {
             for (var url in response) facebookShareCount = response[url].shares;
             facebookShareCount = facebookShareCount || 0;
             shareCountReceived();
@@ -57,11 +57,11 @@
             var windowUrl = null;
             
             if (service == 'twitter')
-                windowUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&url=' + encodeURIComponent(shareUrl);
+                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&url=' + encodeURIComponent(shareUrl);
             if (service == 'facebook')
-                windowUrl = 'http://www.facebook.com/sharer/sharer.php?u=#url'
+                windowUrl = '//www.facebook.com/sharer/sharer.php?u=#url'
             if (service == 'googleplus')
-                windowUrl = 'https://plus.google.com/share?url=' + encodeURIComponent(shareUrl)
+                windowUrl = '//plus.google.com/share?url=' + encodeURIComponent(shareUrl)
             
             if (windowUrl)
                 sharePopup(windowUrl, 'Share this article', 500, 360);

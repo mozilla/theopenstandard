@@ -37,9 +37,9 @@
 
         <li>
             <ul class="social-icon-links inline-list">
-                <li><a href="#"><img src="<?php theme_image_src('icons/social-twitter.svg'); ?>"></a></li>
-                <li><a href="#"><img src="<?php theme_image_src('icons/social-facebook.svg'); ?>"></a></li>
-                <li><a href="#"><img src="<?php theme_image_src('icons/social-google-plus.svg'); ?>"></a></li>
+                <li><a href="https://twitter.com/TheOpenStandard"><img src="<?php theme_image_src('icons/social-twitter.svg'); ?>"></a></li>
+                <li><a href="https://www.facebook.com/theopenstandard"><img src="<?php theme_image_src('icons/social-facebook.svg'); ?>"></a></li>
+                <li><a href="https://plus.google.com/101433152788587086227"><img src="<?php theme_image_src('icons/social-google-plus.svg'); ?>"></a></li>
             </ul>
         </li>
     </ul>
