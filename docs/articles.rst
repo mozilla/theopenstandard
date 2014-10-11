@@ -95,7 +95,15 @@ Sponsored articeles should have the required information entered into the sponso
 * URL - when clicked where the thumbnail goes.
 * Logo - the logo that will appear on the article page. Dimensions should be 124x124
 
+
+Related Posts
+--------------
+These show at the bottom of the post with a thumbnail and short title, along with the category of user-defined related posts.
+
+To add posts related to the current one, click the "Add Related Posts" button on the post edit page.
+
 ------------
+
 
 ToDo
 --------------------------------------------
