@@ -70,6 +70,11 @@
 			</div>
 
 		</div>
+		<div class="row">
+			<div class="medium-8 medium-centered columns text-center">
+				<a href="/search?cat=<?php echo $category->slug; ?>">All Articles &gt;</a>
+			</div>
+		</div>		
 	</section>
 
 <?php get_footer(); ?>

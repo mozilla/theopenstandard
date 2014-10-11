@@ -1,33 +1,19 @@
 <div class="columns small-12">
-    <?php if (have_posts()) : ?>
+    <?php if ($searched_posts->have_posts()) : ?>
         <h2><?php _e('Search Results','html5reset'); ?></h2>
-        <?php post_navigation(); ?>
-        <ul>
-        <?php while (have_posts()) : the_post(); ?>
-            <li class="recent-articles-item">
-                <?php if (has_post_thumbnail()) { ?>
-                <div class="thumbnail">
-                    <?php the_post_thumbnail('thumbnail'); ?>
-                </div>
-                <?php } ?>
-                <a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
-                <p><?php the_excerpt(); ?></p>
-                <p>
-                    <?php
-                    $categories = get_post_categories($post, array('featured', 'sponsored', 'lead'));
-                    foreach ($categories as $category) { ?>
-                        <a href="<?php echo get_category_link($category->term_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
-                    <?php
-                    } ?>
-                    <span class="timestamp"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span>
-                </p>
-            </li>
+        <ul class="results-list">
+        <?php while ($searched_posts->have_posts()):
+            $searched_posts->the_post(); ?>
+            <?php include 'search-item.php'; ?>
         <?php endwhile; ?>
         </ul>
 
-        <?php post_navigation(); ?>
+        <?php if ($show_more_link) { ?>
+            <a data-show-more href="#">More &gt;</a>
+        <?php } ?>
 
     <?php else : ?>
         <h2><?php _e('Nothing Found','html5reset'); ?></h2>
     <?php endif; ?>
 </div>
+

@@ -28,7 +28,7 @@ Class TheOpenStandardSearch {
             exit();
         }
 
-        if (strtok($_SERVER["REQUEST_URI"],'?') == '/search-request' && $_GET['s']) {
+        if (strtok($_SERVER["REQUEST_URI"],'?') == '/search-request') {
             $search_options = array(
                 's' => $_GET['s'],
                 'post_type' => 'post',
@@ -37,9 +37,18 @@ Class TheOpenStandardSearch {
             if ($_GET['cat'])
                 $search_options['cat'] = get_category_by_slug($_GET['cat'])->term_id;
 
-            query_posts($search_options);
+            $search_options['paged'] = $_GET['page'] ? $_GET['page'] : 1;
+            $search_options['posts_per_page'] = 3;
 
-            include 'search.php';
+            $searched_posts = new WP_Query($search_options);
+
+            $show_more_link = $searched_posts->max_num_pages > $search_options['paged'];
+
+            if ($search_options['paged'] > 1) {
+                include 'search-more.php';
+            } else {
+                include 'search.php';
+            }
 
             exit();
         }

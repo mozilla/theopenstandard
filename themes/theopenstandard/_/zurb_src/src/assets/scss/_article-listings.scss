@@ -41,6 +41,7 @@
 	padding-top: 1.5rem;
 	margin-bottom: 0rem;
 	overflow: hidden;
+	clear: left;
 	border-bottom: 1px dotted #ddd; 
 	&:first-child { padding-top: 0; }
 	&:last-child { border-bottom: 0; }
