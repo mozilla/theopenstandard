@@ -30,7 +30,11 @@ The ``exerpt`` field is used for the deck and is required.
 Categories
 ----------
 
-Articles should be assigned a single category from the 6 main categories. If an article has more than one of the 6 main categories, you may specify one of them as primary using the Primary Category dropdown below the wysiwyg
+Articles are assigne categories via the checkboxes on the right side. If you specify more than one category
+you should pick one category as primary. The primary category is where the article appears in navigation and search.
+To select a primary category scroll down in the edit interface until you see ``Categories`` select the primary category 
+from the dropdown.
+
 
 ------------
 
