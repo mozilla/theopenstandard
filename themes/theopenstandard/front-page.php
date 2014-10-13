@@ -131,9 +131,7 @@
     <section class="body">
         <div class="row">
             <div class="medium-4 large-3 medium-push-8 large-push-9 columns">
-                <div class="from-around-web">
-                    <?php the_around_the_web_menu('Around The Web (Home)'); ?>
-                </div>
+                <?php the_around_the_web_menu('Around The Web (Home)'); ?>
             </div>
 
             <!-- RECENT ARTICLES -->
