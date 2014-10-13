@@ -50,7 +50,7 @@
                     </ul>
                 </div>
                 <div class="medium-10 columns">
-                    <?php wp_nav_menu(array('name' => 'Footer Menu', 'menu_class' => 'inline-list')); ?>
+                    <?php wp_nav_menu(array('menu' => 'Footer Menu', 'menu_class' => 'inline-list')); ?>
                     <p class="disclaimer">
                     Except where otherwise <a href="https://www.mozilla.org/foundation/licensing/website-content/">noted</a>,
                     content on Mozilla websites is available under a Creative Commons Attribution Share-Alike 3.0 license.
