@@ -43,7 +43,12 @@
 	overflow: hidden;
 	clear: left;
 	border-bottom: 1px dotted #ddd; 
-	&:first-child { padding-top: 0; }
+	&:first-child { 
+		padding-top: 0; 
+		&.sponsored-content-container {
+			padding-top: 1rem;
+		}
+	}
 	&:last-child { border-bottom: 0; }
 	
 	a { display: block; }

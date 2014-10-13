@@ -31,7 +31,7 @@
                 $categories = get_post_categories($post);
                 foreach ($categories as $category) { ?>
                     <div class="topics-tag-normal <?php echo $category->slug; ?>">
-                        <a href="#"><?php echo $category->name; ?></a>
+                        <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                     </div>
                 <?php
                 } ?>
@@ -130,8 +130,12 @@
 
     <section class="body">
         <div class="row">
+            <div class="medium-4 large-3 medium-push-8 large-push-9 columns">
+                <?php the_around_the_web_menu('Around The Web (Home)'); ?>
+            </div>
+
             <!-- RECENT ARTICLES -->
-            <div class="medium-8 columns">
+            <div class="medium-8 medium-pull-4 columns">
                 <div class="recent-articles">
                     <a href="#"><h4>Recent Articles</h4></a>
                     

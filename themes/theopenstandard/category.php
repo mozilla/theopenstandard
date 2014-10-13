@@ -62,6 +62,11 @@
 			            $category_posts->the_post(); ?>
 						<li class="recent-articles-item <?php echo $category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
 			                <?php the_post_thumbnail(array(80,80), array('class' => 'thumbnail')); ?>
+              				<?php
+                            if (has_category('sponsored')) { ?>
+                                <p class="sponsored-content">Sponsored</p>
+                            <?php
+                            } ?>
 							<a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
 							<p><?php the_excerpt(); ?></p>
 							<p><span class="timestamp"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span></p>
@@ -72,6 +77,7 @@
 			</div>
 			<!-- FROM AROUND THE WEB -->
 			<div class="large-3 columns">
+                <?php the_around_the_web_menu('Around The Web (' . $category->name . ')'); ?>
 			</div>
 
 		</div>
