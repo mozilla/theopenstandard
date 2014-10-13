@@ -21,3 +21,10 @@ Categories at launch include:
 Each category must have a name and a description.
 
 
+Special Categories
+~~~~~~~~~~~~~~~~~~
+There are a few special-purpose categories that must exist.
+
+- Sponsored (for sponsored articles)
+- HP Lead (for the main article featured on the home page)
+- Featured (to feature articles on the category listings and the home page)

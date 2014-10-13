@@ -100,7 +100,8 @@ Sponsored Articles
 Sponsored articeles should have the required information entered into the sponsor custom field.
 
 * URL - when clicked where the thumbnail goes.
-* Logo - the logo that will appear on the article page. Dimensions should be 124x124
+* Logo - the logo that will appear on the article page. Dimensions should be 124x124.
+* **Note:** the "Sponsored" category must also be selected.
 
 
 Related Posts
