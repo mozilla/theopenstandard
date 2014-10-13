@@ -38,7 +38,9 @@ Class TheOpenStandardModals {
     }
 }
 
-wp_enqueue_script('the-open-standard-modals', plugins_url('js/modals.js', __FILE__), NULL, NULL, TRUE);
-wp_enqueue_script('the-open-standard-authors', plugins_url('js/authors.js', __FILE__), NULL, NULL, TRUE);
+if (!is_admin()) {
+    wp_enqueue_script('the-open-standard-modals', plugins_url('js/modals.js', __FILE__), NULL, NULL, TRUE);
+    wp_enqueue_script('the-open-standard-authors', plugins_url('js/authors.js', __FILE__), NULL, NULL, TRUE);
+}
 
 ?>

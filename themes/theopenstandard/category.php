@@ -72,6 +72,7 @@
 			</div>
 			<!-- FROM AROUND THE WEB -->
 			<div class="large-3 columns">
+                <?php the_around_the_web_menu('Around The Web (' . $category->name . ')'); ?>
 			</div>
 
 		</div>

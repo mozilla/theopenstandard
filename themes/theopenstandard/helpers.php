@@ -119,4 +119,9 @@
 
         return array('prev' => $prev, 'next' => $next);
     }
+
+    function the_around_the_web_menu($menu) {
+        $items = wp_get_nav_menu_items($menu);
+        include 'templates/around-the-web.php';
+    }
 ?>
