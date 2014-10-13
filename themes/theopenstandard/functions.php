@@ -117,6 +117,24 @@
         add_image_size('homepage-featured', 218, 160, true);
     }
 
+    if (!wp_get_nav_menu_object('Around The Web (Home)'))
+        wp_create_nav_menu('Around The Web (Home)');
+
+    if (!wp_get_nav_menu_object('Around The Web (Live)'))
+        wp_create_nav_menu('Around The Web (Live)');
+
+    if (!wp_get_nav_menu_object('Around The Web (Learn)'))
+        wp_create_nav_menu('Around The Web (Learn)');
+
+    if (!wp_get_nav_menu_object('Around The Web (Innovate)'))
+        wp_create_nav_menu('Around The Web (Innovate)');
+
+    if (!wp_get_nav_menu_object('Around The Web (Engage)'))
+        wp_create_nav_menu('Around The Web (Engage)');
+
+    if (!wp_get_nav_menu_object('Around The Web (Opinion)'))
+        wp_create_nav_menu('Around The Web (Opinion)');
+
     require_once('custom-post-types.php');
     require_once('custom-shortcodes.php');
     require_once('simple-fields.php');
