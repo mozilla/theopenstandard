@@ -14,6 +14,7 @@ Content Editing
    articles
    categories
    comments
+   aroundweb
    galleries
    homepage
    users
