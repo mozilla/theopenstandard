@@ -1,5 +1,6 @@
 function ModalsClass() {
 	this.openModal = null;
+	this.ignoreNextStateChange = false;
 
 	$('body').on('click', 'a[data-modal]', function() {
 		var modalUrl = $(this).attr('data-modal-content');
@@ -15,9 +16,13 @@ function ModalsClass() {
 	});
 
 	History.Adapter.bind(window, 'statechange', function(e) {
+		if (Modals.ignoreNextStateChange) {
+			Modals.ignoreNextStateChange = false;
+			return;
+		}
+
 		var state = History.getState();
 		var u = new URI(state.url);
-
 		if (u.query(true).modal) {
 			if (u.query(true).modal != Modals.openModal)
 				Modals.open(u.query(true).modal, null, false);

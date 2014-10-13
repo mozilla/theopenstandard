@@ -1,6 +1,6 @@
 <div class="author-bio small-12 medium-3 columns">
 	<?php $authordata = get_user_by('id', $author_id); ?>
-	<a href="#" data-modal data-modal-content="author" data-modal-query="/<?php the_author_meta('nickname', $author_id); ?>">
+	<a href="#" data-modal data-modal-content="author" data-modal-query="/<?php the_author_meta('user_nicename', $author_id); ?>">
 		<img src="<?php echo get_wp_user_avatar_src(get_the_author_meta('ID'), 150); ?>" class="author-bio-image">
 	    <p><?php the_author_meta('display_name',  $author_id); ?></p>
 	</a>
