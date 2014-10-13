@@ -30,9 +30,9 @@ The ``exerpt`` field is used for the deck and is required.
 Categories
 ----------
 
-Articles are assigne categories via the checkboxes on the right side. If you specify more than one category
+Articles are assigned categories via the checkboxes on the right side. If you specify more than one category
 you should pick one category as primary. The primary category is where the article appears in navigation and search.
-To select a primary category scroll down in the edit interface until you see ``Categories`` select the primary category 
+To select a primary category scroll down in the edit interface until you see ``Categories``. Select the primary category
 from the dropdown.
 
 
@@ -57,7 +57,8 @@ Blockquote tags will be pulled to the side and have a share button added to them
 
 .. image:: images/blockquote-render.png
 
-They will maintain their vertical position within the flow of the document, and the content below them will collapse to fill in the space they occupied.
+They will maintain their vertical position within the flow of the document, and the content below them will collapse
+to fill in the space they occupied.
 
 .. note::  {fill in number of blockquotes allowed and if their position in the copy matters}.
 
@@ -88,8 +89,10 @@ Since the various image sizes are generated upon upload, you should upload a lar
 
 Featured Articles
 ------------------------
-Articles that have their visibility set to "Promoted to front page" will go into the row below the hero on the home page
-The newest article that have the Category "HP Lead" will be the primary post on the home page
+- Articles assigned the "Featured" category will be featured on the article listing page for that category (the primary
+  one set for that article).
+- The newest featured article from each category will be shown on the home page.
+- The newest article that has the category "HP Lead" will be the primary post on the home page.
 
 
 Sponsored Articles
@@ -102,18 +105,18 @@ Sponsored articeles should have the required information entered into the sponso
 
 Related Posts
 --------------
-These show at the bottom of the post with a thumbnail and short title, along with the category of user-defined related posts.
+These are user-defined articles that show at the bottom of the post with a thumbnail and short title.
 
-To add posts related to the current one, click the "Add Related Posts" button on the post edit page.
+To add posts related to the current one you're editing:
+	#. Click the "Add Related Posts" button on the article editing page.
+	#. If only adding one related post: hover over a single item and click on the ``Link Post``
+	   link that appears. This will immediately link that post and bring you back to the article editing page.
+	#. If adding multiple related posts: use the checkboxes to select several posts, then choose ``Link Posts`` in
+	   the dropdown menu and click ``Apply``.
 
 ------------
 
 
 ToDo
 --------------------------------------------
-- Featured articles, etc
-- primary & secondary categories
-- tags
-- promoting articles to the homepage
-- related posts!!
-
+- tags (issues)
