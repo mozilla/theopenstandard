@@ -19,6 +19,7 @@
 			$document->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 		} else {
 			$document->loadHTML($content);
+
 		}
 
 		$xpath = new DOMXpath($document);
@@ -66,7 +67,7 @@
 			}
 		}
 
-		return $document->saveHTML();
+		return preg_replace("~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i", '', $document->saveHTML());
 	}
 
     add_filter('the_content', 'add_block_grids');
