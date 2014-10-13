@@ -1,4 +1,4 @@
-<script>var currentPostId = <?= the_ID(); ?>;</script>
+<script>var currentPostId = <?php echo the_ID(); ?>;</script>
 
 <div class="social">
     <ul class="share-ratios">
