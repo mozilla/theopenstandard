@@ -105,7 +105,7 @@
                             </div>
                             <a href="<?php the_permalink(); ?>">
                                 <img src="<?php echo get_post_thumbnail_url('homepage-featured'); ?>" />
-                                <div class="<?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
+                                <div class="<?php echo has_category('sponsored') ? ('sponsored-content-container ' . $category->slug)  : ''; ?>">
                                 <h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3>
                                     <?php
                                     if (has_category('sponsored')) { ?>
@@ -153,6 +153,12 @@
                                     <?php the_post_thumbnail('thumbnail'); ?>
                                 </div>
                                 <?php } ?>
+                                
+                                <?php
+                                if (has_category('sponsored')) { ?>
+                                    <p class="sponsored-content">Sponsored</p>
+                                <?php
+                                } ?>
 
                                 <a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
                                 <p><?php the_excerpt(); ?></p>

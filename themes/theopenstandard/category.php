@@ -39,11 +39,16 @@
 			        <?php 
 			        while ($featured_posts->have_posts()): 
 			            $featured_posts->the_post(); ?>
-						<li class="featured-articles-item">
+						<li class="featured-articles-item <?php echo $category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
 			                <?php the_post_thumbnail('large'); ?>
 							<a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
 							<p><?php the_excerpt(); ?></p>
 							<p><span class="timestamp"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span></p>
+              				<?php
+                            if (has_category('sponsored')) { ?>
+                                <p class="sponsored-content">Sponsored</p>
+                            <?php
+                            } ?>
 						</li>
 			        <?php 
 			        endwhile; ?>
@@ -55,7 +60,7 @@
 			        <?php 
 			        while ($category_posts->have_posts()): 
 			            $category_posts->the_post(); ?>
-						<li class="recent-articles-item">
+						<li class="recent-articles-item <?php echo $category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
 			                <?php the_post_thumbnail(array(80,80), array('class' => 'thumbnail')); ?>
 							<a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
 							<p><?php the_excerpt(); ?></p>
