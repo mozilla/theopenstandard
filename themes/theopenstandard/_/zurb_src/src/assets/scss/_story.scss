@@ -217,6 +217,12 @@
 		}
 	}
 }
+.img-caption {
+	margin-top: -1.3rem;
+	font-size: .8em;
+	letter-spacing: .02rem;
+	color: #999;
+}
 
 // COMMENTS
 .comments-item {
@@ -255,7 +261,7 @@
  	top: 25rem;
  	display: block;
 	
-	&:hover .arrow-hover{
+	&:hover > .arrow-hover{
 		visibility: visible;
 	}
  	
@@ -279,7 +285,7 @@
  	top: 25rem;
  	display: block;
 	
-	&:hover .arrow-hover{
+	&:hover > .arrow-hover{
 		visibility: visible;
 	}
 

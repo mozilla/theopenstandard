@@ -25,8 +25,15 @@
 	        <ul>
 		        <?php 
 		        while ($issue_posts->have_posts()): 
-		            $issue_posts->the_post(); ?>
-		            <li class="recent-articles-item">
+		            $issue_posts->the_post(); 
+		        	$category = get_primary_category($post); ?>
+
+		            <li class="recent-articles-item <?php echo $category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
+                        <?php
+                        if (has_category('sponsored')) { ?>
+                            <p class="sponsored-content">Sponsored</p>
+                        <?php
+                        } ?>
 		                <div class="thumbnail">
 		                    <?php the_post_thumbnail('thumbnail'); ?>
 		                </div>
@@ -34,7 +41,7 @@
 		                <p><?php the_excerpt(); ?></p>
 		                <p>
 		                    <?php
-		                    $categories = get_post_categories($post, array('featured', 'sponsored', 'lead'));
+		                    $categories = get_post_categories($post);
 		                    foreach ($categories as $category) { ?>
 		                        <a href="<?php echo get_category_link($category->term_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
 		                    <?php

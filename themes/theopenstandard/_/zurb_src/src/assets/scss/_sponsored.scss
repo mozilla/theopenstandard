@@ -11,6 +11,11 @@
 		padding-top: 0em !important;
 		margin-top: 0em !important;
 	}
+	&.featured-articles-item {
+		h3 {
+			margin-top: 1em !important;
+		}
+	}
 }
 .sponsored-content-title{
 }
