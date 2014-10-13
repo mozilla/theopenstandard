@@ -13,7 +13,8 @@
     // Get all posts that are promoted to front page
     $featured_posts = get_posts(array(
         'cat' => $featured_term_id,
-        'category__not_in' => array($lead_term_id)
+        'category__not_in' => array($lead_term_id),
+        'posts_per_page' => -1
     ));
 
     // The hero post
