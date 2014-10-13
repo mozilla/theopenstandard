@@ -7,9 +7,18 @@
 Homepage
 ==========
 
-Include:
+The homepage has 2 areas that can be actively managed.
 
-* Selecting the main featured story
-* Selecting the other stories that appear on the HP.
+1. HP Lead
+2. Featured Articles By Topic
+
+HP Lead
+=======
+The HP Lead story is the latest story in the speical category ``hp_lead``. 
+
+Featured Articles By Topic
+==========================
+The newest featured article from each category will be shown on the home page. Featured articles
+are those placed in the ``Featured`` category.
 
 
