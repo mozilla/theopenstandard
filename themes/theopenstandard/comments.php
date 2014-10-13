@@ -14,7 +14,7 @@
     <?php if (comments_open()): ?>
 
         <h2 class="text-center">Get in on the conversation</h2>
-        <p class="text-center">Lorem ipsum dolor sit amet, consectur adipiscing elit.</p>
+        <p class="text-center"></p>
 
         <div class="cancel-comment-reply">
             <?php cancel_comment_reply_link(); ?>
