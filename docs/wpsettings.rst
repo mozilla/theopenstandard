@@ -17,7 +17,7 @@ Required Categories
 * Live
 * Opinion
 * Sponsored
-* HP Lead
+* HP Lead (with slug "hp_lead")
 
 Required Pages
 --------------
