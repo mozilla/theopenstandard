@@ -79,16 +79,44 @@
         return get_template_directory_uri() . '/_/images/' . $path;
     }
 
-    // We use this as an argument in get_next_post and get_previous_post.
-    function get_non_primary_category_ids($post) {
-        $primary_category = get_primary_category($post);
-        $categories = get_post_categories($post, NULL);
-        $category_ids = array();
-        foreach ($categories as $category) {
-            if ($primary_category->term_id != $category->term_id) {
-                $category_ids = $category->term_id;
+    function get_adjacent_posts_from_category($post, $category) {
+        if (!$category)
+            return null;
+
+        $related_posts = get_posts(array(
+            'posts_per_page' => -1,
+            'cat' => $category->term_id
+        ));
+
+        $index = 0;
+        foreach ($related_posts as $i => $related_post) {
+            if ($related_post->ID == $post->ID) {
+                $index = $i;
+                break;
             }
         }
-        return $category_ids;
+
+        $prev = null;
+        $next = null;
+
+        for ($i = $index-1; $i>=0; $i--) {
+            $related_post = $related_posts[$i];
+            $primary_category = get_primary_category($related_post);
+            if ($primary_category->term_id == $category->term_id) {
+                $prev = $related_post;
+                break;
+            }
+        }
+
+        for ($i = $index+1; $i<count($related_posts); $i++) {
+            $related_post = $related_posts[$i];
+            $primary_category = get_primary_category($related_post);
+            if ($primary_category->term_id == $category->term_id) {
+                $next = $related_post;
+                break;
+            }
+        }
+
+        return array('prev' => $prev, 'next' => $next);
     }
 ?>

@@ -89,8 +89,9 @@
 
    
     <?php 
-    $prev = get_previous_post(true, get_non_primary_category_ids($post));
-    $next = get_next_post(true, get_non_primary_category_ids($post));
+    $adjacent = get_adjacent_posts_from_category($post, get_primary_category($post));
+    $next = $adjacent['next'];
+    $prev = $adjacent['prev'];
 
     if ($prev) {
         $prev_category = get_primary_category($prev); 
