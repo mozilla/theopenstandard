@@ -1,4 +1,4 @@
-<div class="columns small-12">
+<div class="medium-8 medium-centered columns">
     <?php if ($searched_posts->have_posts()) : ?>
         <h2><?php _e('Search Results','html5reset'); ?></h2>
         <ul class="results-list">

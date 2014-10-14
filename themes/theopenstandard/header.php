@@ -7,7 +7,7 @@
 <!--[if gt IE 9]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
 <!-- the "no-js" class is for Modernizr. -->
 
-<head id="<?php echo of_get_option('meta_headid'); ?>" data-template-set="html5-reset-wordpress-theme">
+<head>
     <meta charset="<?php bloginfo('charset'); ?>">
 
     <?php
@@ -28,7 +28,7 @@
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" />
 
     <?php wp_head(); ?>
-
+    <script src='<?php echo get_template_directory_uri(); ?>/_/zurb_src/dist/assets/js/modernizr.js'></script>
 </head>
 
 <body <?php body_class(); ?>>
