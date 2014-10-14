@@ -225,10 +225,17 @@ div.post-content > p:first-child:first-letter {
 }
 
 // COMMENTS
-.comments-item {
+li.comments-item {
 	position: relative;
 	margin-bottom: 1.5rem;
-	border-bottom: 1px dotted #ddd;
+	ul.children {
+		margin-left: 1.5rem;
+	}
+	a.comment-reply-link {
+		font-size: .7rem;
+		margin-left: 1rem;
+		text-decoration: underline;
+	}
 }
 .comments-item-pic{
 	position: absolute;
