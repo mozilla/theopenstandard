@@ -42,7 +42,10 @@
                         <a href="<?php the_permalink(); ?>"><h1><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h1></a>
                     </div>
                     <div class="lower" data-equalizer="">
-                        <script>window.shareUrl = '<?php the_permalink(); ?>';</script>
+                        <script>
+                            window.shareUrl = '<?php the_permalink(); ?>';
+                            window.shareTitle = '<?php the_title(); ?>';
+                        </script>
                         <?php TheOpenStandardSocial::share_links(); ?>
 
                         <div class="hero-headline-description" data-equalizer-watch="">
