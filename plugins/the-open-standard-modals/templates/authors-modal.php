@@ -12,10 +12,10 @@
 
 <div class="row">
 	<div class="columns medium-8 medium-centered">
-		<div class="tabs">
+<!-- 		<div class="tabs">
 			<a class="toggle-author <?php if ($modal == 'authors'): print 'active'; endif; ?>" href="#authors">Authors</a>
 			<a class="toggle-author <?php if ($modal == 'contributors'): print 'active'; endif; ?>" href="#contributors">Contributors</a>
-		</div>
+		</div> -->
 	</div>
 </div>
 <br>

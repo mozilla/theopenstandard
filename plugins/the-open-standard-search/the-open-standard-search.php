@@ -37,6 +37,9 @@ Class TheOpenStandardSearch {
             if ($_GET['cat'])
                 $search_options['cat'] = get_category_by_slug($_GET['cat'])->term_id;
 
+            if ($_GET['author'])
+                $search_options['author_name'] = $_GET['author'];
+
             $search_options['paged'] = $_GET['page'] ? $_GET['page'] : 1;
             $search_options['posts_per_page'] = 3;
 

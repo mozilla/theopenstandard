@@ -155,7 +155,7 @@
                             $categories = get_post_categories($post);
                             ?>
 
-                            <li class="recent-articles-item <?php echo $primary_category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
+                            <li class="recent-articles-item large-thumb <?php echo $primary_category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?> <?php echo has_post_thumbnail() ? 'has-thumbnail' : ''; ?>">
                                 <?php if (has_post_thumbnail()) { ?>
                                 <div class="thumbnail">
                                     <?php the_post_thumbnail('thumbnail'); ?>

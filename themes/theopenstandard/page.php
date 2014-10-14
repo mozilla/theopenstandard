@@ -4,7 +4,7 @@
     <div class="story header">
         <div class="row">
             <div class="medium-8 medium-centered columns">
-                <h1 class="title innovate"><?php the_title(); ?></h1>
+                <h1 class="title"><?php the_title(); ?></h1>
                 <hr>
             </div>
         </div>

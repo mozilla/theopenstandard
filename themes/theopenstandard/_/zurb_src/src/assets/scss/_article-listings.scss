@@ -54,10 +54,33 @@
 	a { display: block; }
 	.thumbnail {
 		float: left;
-		margin: 0 1.5rem 1rem 0;
+		margin: 0 1.5rem 1rem -6.5rem;
 		@media #{$small-only} { width: 30%;}
 	}
-	
+	&.has-thumbnail {
+		padding-left: 6.5rem;
+		@media #{$small-only} { padding-left: 10rem;}
+	}
+	&.sponsored-content-container {
+		&.has-thumbnail {
+			padding-left: 7.5rem;
+		}
+	}
+	&.large-thumb {
+		&.has-thumbnail {
+			padding-left: 10.5rem;
+			.thumbnail {
+				margin-left: -10.5rem;
+			}
+			@media #{$small-only} { padding-left: 10rem;}
+		}
+		&.sponsored-content-container {
+			&.has-thumbnail {
+				padding-left: 11.5rem;
+			}
+		}
+	}
+
 	p {
 		margin-bottom: 1rem;
 		line-height: 1.4;

@@ -25,7 +25,7 @@ $author_posts = new WP_Query(array(
 <section class="body">
     <div class="row">
         <div class="author-bio small-12 medium-2 medium-offset-1 columns">
-            <img src="<?php echo get_wp_user_avatar_src(get_the_author_meta('ID'), 150); ?>" class="author-bio-image">
+            <img src="<?php echo get_wp_user_avatar_src(get_the_author_meta('ID', $author_id), 150); ?>" class="author-bio-image">
 
             <ul class="social-icon-links inline-list">
                 <?php if (get_the_author_meta('twitter', $author_id)): ?>
@@ -45,19 +45,19 @@ $author_posts = new WP_Query(array(
                     'posts_per_page' => -1
                 ));
 
-                $tags = array();
+                $categories = array();
 
                 while ($author_posts->have_posts()): 
                     $author_posts->the_post(); 
-                    $post_tags = get_the_tags();
-                    foreach ($post_tags as $post_tag) {
-                        $tags[$post_tag->slug] = $post_tag;
+                    $post_categories = get_post_categories($post);
+                    foreach ($post_categories as $post_category) {
+                        $categories[$post_category->slug] = $post_category;
                     }
                 endwhile;
 
-                foreach ($tags as $tag) { ?>
-                    <li class="issues-tag"><a href="<?php TheOpenStandardIssues::the_issues_link(); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
-                <?php 
+                foreach ($categories as $category) { ?>
+                    <li><a href="/search?cat=<?php echo $category->slug; ?>&author=<?php the_author_meta('user_nicename', $author_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a></li>
+                <?php
                 } ?>
             </ul>
             <a href="#" data-modal data-modal-content="authors">See all Authors &gt;</a>
@@ -68,12 +68,20 @@ $author_posts = new WP_Query(array(
             <ul class="recent-articles">
                 <?php 
                 while ($author_posts->have_posts()): 
-                    $author_posts->the_post(); ?>
-                    <li class="recent-articles-item">
+                    $author_posts->the_post(); 
+                    $categories = get_post_categories(); ?>
+                    <li class="recent-articles-item <?php echo has_post_thumbnail() ? 'has-thumbnail' : ''; ?>">
                         <?php the_post_thumbnail(array(80,80), array('class' => 'thumbnail')); ?>
                         <a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
                         <p><?php the_excerpt(); ?></p>
-                        <p><span class="timestamp"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span></p>
+                        <p>
+                            <?php
+                            foreach ($categories as $category) { ?>
+                                <a href="<?php echo get_category_link($category->term_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
+                            <?php
+                            } ?>
+                            <span class="timestamp"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span>
+                        </p>
                     </li>
                 <?php 
                 endwhile; ?>
