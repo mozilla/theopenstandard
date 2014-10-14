@@ -19,7 +19,7 @@
 		clear: both;
 	}
 }
-.has-cap:first-of-type:first-letter {
+div.post-content > p:first-child:first-letter {
 	float: left;
 	margin: 1.5rem .6rem .4rem 0rem;
 	color: $innovate-color;
@@ -29,7 +29,7 @@
 
 }
 @-moz-document url-prefix() {
-	.has-cap:first-of-type:first-letter {
+	div.post-content > p:first-child:first-letter {
 		margin: .5rem .6rem .4rem 0rem;
 	}
 }

@@ -44,9 +44,9 @@
             <div class="row lower-footer">
                 <div class="medium-2 columns">
                     <ul class="social-icon-links inline-list">
-                        <li><a href="https://twitter.com/TheOpenStandard"><img src="<?php theme_image_src('icons/social-twitter.svg'); ?>"></a></li>
-                        <li><a href="https://www.facebook.com/theopenstandard"><img src="<?php theme_image_src('icons/social-facebook.svg'); ?>"></a></li>
-                        <li><a href="https://plus.google.com/101433152788587086227"><img src="<?php theme_image_src('icons/social-google-plus.svg'); ?>"></a></li>
+                        <li><a href="https://twitter.com/TheOpenStandard"><img src="<?php theme_image_src('icons/social-twitter-grey.svg'); ?>"></a></li>
+                        <li><a href="https://www.facebook.com/theopenstandard"><img src="<?php theme_image_src('icons/social-facebook-grey.svg'); ?>"></a></li>
+                        <li><a href="https://plus.google.com/101433152788587086227"><img src="<?php theme_image_src('icons/social-google-plus-grey.svg'); ?>"></a></li>
                     </ul>
                 </div>
                 <div class="medium-10 columns">
