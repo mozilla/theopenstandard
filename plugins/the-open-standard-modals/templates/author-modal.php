@@ -29,13 +29,13 @@ $author_posts = new WP_Query(array(
 
             <ul class="social-icon-links inline-list">
                 <?php if (get_the_author_meta('twitter', $author_id)): ?>
-                    <li><a href="<?php the_author_meta('twitter'); ?>"><img src="<?php theme_image_src('icons/social-twitter.svg'); ?>"></a></li>
+                    <li><a href="<?php the_author_meta('twitter', $author_id); ?>"><img src="<?php theme_image_src('icons/social-twitter-grey.svg'); ?>"></a></li>
                 <?php endif; ?>
                 <?php if (get_the_author_meta('facebook', $author_id)): ?>
-                    <li><a href="<?php the_author_meta('facebook'); ?>"><img src="<?php theme_image_src('icons/social-facebook.svg'); ?>"></a></li>
+                    <li><a href="<?php the_author_meta('facebook', $author_id); ?>"><img src="<?php theme_image_src('icons/social-facebook-grey.svg'); ?>"></a></li>
                 <?php endif; ?>
                 <?php if (get_the_author_meta('googleplus', $author_id)): ?>
-                    <li><a href="<?php the_author_meta('googleplus'); ?>"><img src="<?php theme_image_src('icons/social-google-plus.svg'); ?>"></a></li>
+                    <li><a href="<?php the_author_meta('googleplus', $author_id); ?>"><img src="<?php theme_image_src('icons/social-google-plus-grey.svg'); ?>"></a></li>
                 <?php endif; ?>
             </ul>
             <ul class="tag-list">
