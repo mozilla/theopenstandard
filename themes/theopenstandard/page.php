@@ -23,11 +23,8 @@
                 <?php TheOpenStandardSocial::share_links(); ?>
             </div>
             <!-- DECK -->
-            <h2 class="deck"><?php echo get_the_excerpt(); ?></h2>
-            
-            <hr>
-            
-            <div class="post-content">
+
+            <div class="page-content">
                 <?php the_content(); ?>
             </div>
 
