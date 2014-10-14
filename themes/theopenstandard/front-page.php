@@ -26,7 +26,7 @@
 
     <div class="row collapse">
         <div class="hero-wrapper">
-            <a class="hero-image" href="<?php echo the_permalink(); ?>" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat"></a>
+            <a class="hero-image" href="<?php echo the_permalink(); ?>" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') center center/cover no-repeat"></a>
             <div class="hero-post">
                 <?php
                 $primary_category = get_primary_category($post); ?>

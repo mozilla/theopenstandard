@@ -55,28 +55,31 @@
 	.thumbnail {
 		float: left;
 		margin: 0 1.5rem 1rem -6.5rem;
-		@media #{$small-only} { width: 30%;}
+		@media #{$small-only} { width: 30%; margin-left: -39%;}
 	}
 	&.has-thumbnail {
 		padding-left: 6.5rem;
-		@media #{$small-only} { padding-left: 10rem;}
+		@media #{$small-only} { padding-left: 30%;}
 	}
 	&.sponsored-content-container {
 		&.has-thumbnail {
 			padding-left: 7.5rem;
+			@media #{$small-only} { padding-left: 30%;}
 		}
 	}
 	&.large-thumb {
 		&.has-thumbnail {
 			padding-left: 10.5rem;
+			@media #{$small-only} {padding-left: 30%;}
 			.thumbnail {
 				margin-left: -10.5rem;
+				@media #{$small-only} {margin-left: -39%;}
 			}
-			@media #{$small-only} { padding-left: 10rem;}
 		}
 		&.sponsored-content-container {
 			&.has-thumbnail {
 				padding-left: 11.5rem;
+				@media #{$small-only} {padding-left: 30%;}
 			}
 		}
 	}
