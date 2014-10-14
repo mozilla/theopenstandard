@@ -6,15 +6,8 @@
 
     	$featured_posts = new WP_Query(array(
 	        'category__and' => array($category->term_id, $featured_term_id),
-	        'posts_per_page' => 3,
+	        'posts_per_page' => -1,
 	        'orderby' => 'date'
-        ));
-
-        $category_posts = new WP_Query(array(
-            'cat' => $category->term_id,
-            'category__not_in' => $featured_term_id,
-            'posts_per_page' => 6,
-            'orderby' => 'date'
         ));
     ?>
 
@@ -34,8 +27,13 @@
 			<div class="large-5 columns">
 				<ul class="featured-articles">
 			        <?php 
+			        $limit = 3;
 			        while ($featured_posts->have_posts()): 
-			            $featured_posts->the_post(); ?>
+			            $featured_posts->the_post(); 
+			        	$primary_category = get_primary_category($post);
+			        	if ($primary_category->term_id != $category->term_id)
+			        		continue;
+			        	?>
 						<li class="featured-articles-item <?php echo $category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
 			                <?php the_post_thumbnail('large'); ?>
 							<a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
@@ -47,7 +45,10 @@
                             <?php
                             } ?>
 						</li>
-			        <?php 
+			        	<?php 
+			        	$limit--;
+			        	if (!$limit)
+			        		break;
 			        endwhile; ?>
 				</ul>
 			</div>
@@ -55,9 +56,20 @@
 			<div class="large-4 columns">
 				<h4>Recent Articles</h4>
 				<ul class="recent-articles">
-			        <?php 
+			        <?php
+			        $category_posts = new WP_Query(array(
+			            'cat' => $category->term_id,
+			            'posts_per_page' => -1,
+			            'orderby' => 'date'
+			        ));
+
+			        $limit = 6;
 			        while ($category_posts->have_posts()): 
-			            $category_posts->the_post(); ?>
+			            $category_posts->the_post(); 
+			        	$primary_category = get_primary_category($post);
+			        	if ($primary_category->term_id == $category->term_id && has_category($featured_term_id))
+			        		continue;
+			        	?>
 						<li class="recent-articles-item <?php echo $category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?> <?php echo has_post_thumbnail() ? 'has-thumbnail' : ''; ?>">
 			                <?php the_post_thumbnail(array(80,80), array('class' => 'thumbnail')); ?>
               				<?php
@@ -69,7 +81,10 @@
 							<p><?php the_excerpt(); ?></p>
 							<p><span class="timestamp"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?></span></p>
 						</li>
-			        <?php 
+			        	<?php 
+				        $limit--;
+				        if (!$limit)
+				        	break;
 			        endwhile; ?>
 				</ul>
 			</div>

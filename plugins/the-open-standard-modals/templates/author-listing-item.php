@@ -16,7 +16,7 @@
 		<?php endif; ?>
 	</ul>
 
-	<?php
+<!-- 	<?php
 	$author_posts = new WP_Query(array(
 		'author' => $author_id,
         'posts_per_page' => -1
@@ -35,5 +35,5 @@
     foreach ($categories as $category) { ?>
     	<a href="/search?cat=<?php echo $category->slug; ?>&author=<?php the_author_meta('user_nicename', $author_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
     <?php
-    } ?>
+    } ?> -->
 </div>
