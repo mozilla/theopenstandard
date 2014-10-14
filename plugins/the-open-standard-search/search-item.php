@@ -1,4 +1,4 @@
-<li class="recent-articles-item">
+<li class="recent-articles-item large-thumb <?php echo has_post_thumbnail() ? 'has-thumbnail' : ''; ?>">
     <?php if (has_post_thumbnail()) { ?>
     <div class="thumbnail">
         <?php the_post_thumbnail('thumbnail'); ?>
@@ -8,7 +8,7 @@
     <p><?php the_excerpt(); ?></p>
     <p>
         <?php
-        $categories = get_post_categories($post, array('featured', 'sponsored', 'lead'));
+        $categories = get_post_categories($post);
         foreach ($categories as $category) { ?>
             <a href="<?php echo get_category_link($category->term_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a>
         <?php

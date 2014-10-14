@@ -58,7 +58,7 @@
 			        <?php 
 			        while ($category_posts->have_posts()): 
 			            $category_posts->the_post(); ?>
-						<li class="recent-articles-item <?php echo $category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?>">
+						<li class="recent-articles-item <?php echo $category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?> <?php echo has_post_thumbnail() ? 'has-thumbnail' : ''; ?>">
 			                <?php the_post_thumbnail(array(80,80), array('class' => 'thumbnail')); ?>
               				<?php
                             if (has_category('sponsored')) { ?>
