@@ -2,6 +2,11 @@ $(document).foundation();
 
 $(document).ready(function() {
 
+  /*  
+    Insert user agent
+  */
+  $('body').attr('data-useragent', navigator.userAgent);
+
   /*
     Featured articles carousel
   */

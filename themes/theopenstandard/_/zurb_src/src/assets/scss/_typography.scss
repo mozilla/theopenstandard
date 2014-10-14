@@ -1,6 +1,14 @@
 // TYPOGRAPHY
-@mixin karma { font-family: "Karma", "Fira Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
-@mixin fira { font-family: "Fira Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
+@mixin karma {
+	font-family: "Karma", "Fira Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+@mixin fira {
+	font-family: "Fira Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+
+	body[data-useragent*="Windows"] & {
+		font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif ;
+	}
+}
 
 h1 { font-weight: 200; line-height: 1.2;}
 h2, h3 { 
@@ -10,6 +18,12 @@ h2, h3 {
 		color: #000;
 		}
 	}
+}
+
+body[data-useragent*="Windows"] {
+  &, p, ul {
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  }
 }
 
 @media #{$small-only} {
@@ -50,42 +64,4 @@ h2, h3 {
 .author-bio {
 	a {font-size: rem-calc(13);}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
