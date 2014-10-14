@@ -39,7 +39,7 @@ $author_posts = new WP_Query(array(
                 <?php endif; ?>
             </ul>
             <ul class="tag-list">
-                <?php
+<!--                 <?php
                 $author_posts = new WP_Query(array(
                     'author' => $author_id,
                     'posts_per_page' => -1
@@ -58,7 +58,7 @@ $author_posts = new WP_Query(array(
                 foreach ($categories as $category) { ?>
                     <li><a href="/search?cat=<?php echo $category->slug; ?>&author=<?php the_author_meta('user_nicename', $author_id); ?>" class="topics-tag-minimal <?php echo $category->slug; ?>"><?php echo $category->name; ?></a></li>
                 <?php
-                } ?>
+                } ?> -->
             </ul>
             <a href="#" data-modal data-modal-content="authors">See all Authors &gt;</a>
         </div>
