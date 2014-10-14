@@ -3,6 +3,7 @@
     var twitterShareCount;
     var googleplusShareCount;
     var shareUrl = window.shareUrl || window.location.href;
+    var shareTitle = window.shareTitle || document.title;
 
     function sharePopup(url, title, width, height) {
         var left = (screen.width / 2) - (width / 2);
@@ -57,9 +58,9 @@
             var windowUrl = null;
 
             if (service == 'twitter')
-                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&url=' + encodeURIComponent(shareUrl);
+                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl);
             if (service == 'facebook')
-                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&t=' + encodeURIComponent(document.title);
+                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&t=' + encodeURIComponent(shareTitle);
             if (service == 'googleplus')
                 windowUrl = '//plus.google.com/share?url=' + encodeURIComponent(shareUrl)
             

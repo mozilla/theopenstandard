@@ -28,9 +28,6 @@
 		</div>
 	</div>
 
-	<section class="row search-results">
-	</section>
-
 	<section class="body topics-page">
 		<div class="row">
 			<!-- FEATURED ARTICLES -->
@@ -56,6 +53,7 @@
 			</div>
 			<!-- RECENT ARTICLES -->
 			<div class="large-4 columns">
+				<h4>Recent Articles</h4>
 				<ul class="recent-articles">
 			        <?php 
 			        while ($category_posts->have_posts()): 

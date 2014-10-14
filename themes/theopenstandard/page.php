@@ -14,7 +14,11 @@
         <div class="medium-8 medium-centered columns">
             <!-- STORY HEADER -->
             <div class="story-header">
-                <img src="<?php echo get_post_thumbnail_url('single-hero'); ?>" class="key-img">
+                <?php
+                if (has_post_thumbnail()) { ?>
+                    <img src="<?php echo get_post_thumbnail_url('single-hero'); ?>" class="key-img">
+                <?php
+                } ?>
 
                 <?php TheOpenStandardSocial::share_links(); ?>
             </div>
