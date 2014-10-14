@@ -5,6 +5,7 @@
             var query = url.query(true);
             var params = {};
             params.page = query.page || 1;
+            params.author = query.author;
 
             var search_form = $('[data-search]');
             search_form.submit(function() {
@@ -42,6 +43,10 @@
                 if (params.s) {
                     var u = new URI();
                     u.setSearch('s', search_input.val());
+                    History.pushState({}, '', u.toString());
+                } else {
+                    var u = new URI();
+                    u.removeSearch('s');
                     History.pushState({}, '', u.toString());
                 }
 
