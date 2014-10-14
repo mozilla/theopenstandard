@@ -22,7 +22,6 @@
 
                 <?php TheOpenStandardSocial::share_links(); ?>
             </div>
-            <!-- DECK -->
 
             <div class="page-content">
                 <?php the_content(); ?>

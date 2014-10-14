@@ -13,7 +13,7 @@
                         foreach ($categories as $category) { ?>
                             <li class="footer-item">
                                 <div class="topics-tag-normal <?php echo $category->slug; ?>">
-                                    <a href="#"><?php echo $category->name; ?></a>
+                                    <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
                                 </div>
                                 <p><?php echo $category->description; ?></p>
                             </li>
