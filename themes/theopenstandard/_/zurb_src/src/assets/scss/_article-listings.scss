@@ -53,11 +53,15 @@
 	
 	a { display: block; }
 	.thumbnail {
-		float: left;
-		margin: 0 1.5rem 1rem 0;
+		position: absolute;
+		top: 0;
+		left: 0;
 		@media #{$small-only} { width: 30%;}
 	}
-	
+	&.has-thumbnail {
+		padding-left: 6.5rem;
+		@media #{$small-only} { padding-left: 10rem;}
+	}	
 	p {
 		margin-bottom: 1rem;
 		line-height: 1.4;
