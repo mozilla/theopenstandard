@@ -36,3 +36,7 @@ Footer Menu
     3. Privacy ``https://www.mozilla.org/privacy/``
     4. Legal ``https://www.mozilla.org/about/legal/``
     5. Report Trademark Abuse ``https://www.mozilla.org/about/legal/report-abuse/``
+    
+Permalink
+--------------
+Select ``Post name https://openstandard.mozilla.org/sample-post/``
