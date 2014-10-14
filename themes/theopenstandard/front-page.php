@@ -25,8 +25,8 @@
     ?>
 
     <div class="row collapse">
-        <div class="medium-12 columns hero-wrapper">
-            <a class="hero-image" href="<?php echo the_permalink(); ?>" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat"></a>
+        <div class="hero-wrapper">
+            <a class="hero-image" href="<?php echo the_permalink(); ?>" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') center center/cover no-repeat"></a>
             <div class="hero-post">
                 <?php
                 $primary_category = get_primary_category($post); ?>
@@ -45,7 +45,7 @@
                         </script>
                         <?php TheOpenStandardSocial::share_links(); ?>
 
-                        <div class="hero-headline-description" data-equalizer-watch="">
+                        <div class="hero-headline-description show-for-medium-up" data-equalizer-watch="">
                             <?php the_excerpt(); ?>
                             <ul class="inline-list">
                                 <?php

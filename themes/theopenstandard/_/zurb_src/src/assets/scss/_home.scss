@@ -14,14 +14,14 @@
 .hero-wrapper {
 	background-color: black;
 	position: relative;
-	margin-bottom: 2rem; 
+	clear: left;
+	margin: 0 0.9375rem 2rem 0.9375rem
 }
 
 .hero-image{
 	background:url('../images/hero.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
-	background-position: center;
 	padding: 70px 20px;
 	opacity: .5;
 	position: absolute;
@@ -37,6 +37,7 @@ div.hero-post {
 	@media only screen and (min-width: 640px) and (max-width: 890px) { padding: 140px 40px 140px 38px;}
 	position: relative;
 	z-index: 1;
+	padding: 70px 20px;
 	margin-bottom: 2rem;
 	h1 {
 		color: #FFF;
