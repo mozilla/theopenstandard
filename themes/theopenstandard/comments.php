@@ -1,3 +1,40 @@
+<?php
+function custom_comments($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment; ?>
+    <?php
+    switch($comment->comment_type):
+        case 'pingback' :
+        case 'trackback' : ?>
+            <li <?php comment_class('comments-item'); ?> id="comment<?php comment_ID(); ?>">
+            <div class="back-link">< ?php comment_author_link(); ?></div>
+            <?php 
+            break;
+        default : ?>
+            <li <?php comment_class('comments-item'); ?> id="comment-<?php comment_ID(); ?>">
+                <div class="comments-item-pic">
+                    <?php echo get_avatar($comment, 60); ?>
+                </div>
+                <div class="comments-item-comment">
+                    <p class="info"><span class="name"><?php comment_author(); ?></span> <span class="timestamp"><?php echo human_time_diff(strtotime($comment->comment_date_gmt), current_time('timestamp')) . ' ago'; ?></span>
+                    <?php
+                    comment_reply_link(array_merge($args, array( 
+                        'reply_text' => 'Reply',
+                        'after' => '',
+                        'depth' => $depth,
+                        'max_depth' => $args['max_depth'] 
+                    ))); ?>
+                    </p>
+                    <p><?php echo $comment->comment_content; ?></p>
+                </div>
+                <hr ?>
+            <?php // End the default styling of comment
+            break;
+    endswitch;
+}
+?>
+
+<a id="respond" name="respond"></a>
+
 <div class="comments">
     <?php
 
@@ -14,10 +51,8 @@
     <?php if (comments_open()): ?>
 
         <h2 class="text-center">Get in on the conversation</h2>
-        <p class="text-center"></p>
-
-        <div class="cancel-comment-reply">
-            <?php cancel_comment_reply_link(); ?>
+        <p class="text-center">
+            <?php cancel_comment_reply_link(); ?></p>
         </div>
 
         <?php if (get_option('comment_registration') && !is_user_logged_in()): ?>
@@ -48,8 +83,9 @@
     <?php endif; ?>
 
     <?php if (have_comments()): ?>
+        <hr>
         <ul>
-            <?php wp_list_comments(); ?>
+            <?php wp_list_comments(array('callback' => 'custom_comments', 'style' => 'ul')); ?>
         </ul>
 
         <?php paginate_comments_links(); ?>

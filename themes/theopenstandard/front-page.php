@@ -29,13 +29,10 @@
             <a class="hero-image" href="<?php echo the_permalink(); ?>" style="background: url('<?php echo get_post_thumbnail_url('homepage-hero'); ?>') 0 0/cover no-repeat"></a>
             <div class="hero-post">
                 <?php
-                $categories = get_post_categories($post);
-                foreach ($categories as $category) { ?>
-                    <div class="topics-tag-normal <?php echo $category->slug; ?>">
-                        <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a>
-                    </div>
-                <?php
-                } ?>
+                $primary_category = get_primary_category($post); ?>
+                <div class="topics-tag-normal <?php echo $primary_category->slug; ?>">
+                    <a href="<?php echo get_category_link($primary_category->term_id); ?>"><?php echo $primary_category->name; ?></a>
+                </div>
 
                 <div class="hero-headline-container">
                     <div class="hero-headline">
