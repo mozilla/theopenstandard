@@ -27,7 +27,9 @@ Class TheOpenStandardSocial {
     private static function get_plus_one_count($shared_url) {
         $html = file_get_contents("https://plusone.google.com/_/+1/fastbutton?url=" . urlencode($shared_url));
         $doc = new DOMDocument();
+        set_error_handler(function() { /* ignore errors */ });
         $doc->loadHTML($html);
+        restore_error_handler();
         $counter = $doc->getElementById('aggregateCount');
         $count = $counter->nodeValue;
 

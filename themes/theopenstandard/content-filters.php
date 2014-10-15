@@ -15,12 +15,14 @@
 
 		$document = new DOMDocument('1.0', 'utf-8');
 
+        set_error_handler(function() { /* ignore errors */ });
 		if (phpversion() >= 5.4) {
 			$document->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 		} else {
 			$document->loadHTML($content);
 
 		}
+        restore_error_handler();
 
 		$xpath = new DOMXpath($document);
 

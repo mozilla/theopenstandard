@@ -52,8 +52,8 @@ function custom_comments($comment, $args, $depth) {
 
         <h2 class="text-center">Get in on the conversation</h2>
         <p class="text-center">
-            <?php cancel_comment_reply_link(); ?></p>
-        </div>
+            <?php cancel_comment_reply_link(); ?>
+        </p>
 
         <?php if (get_option('comment_registration') && !is_user_logged_in()): ?>
             <p><?php _e('You must be','html5reset'); ?> <a href="<?php echo wp_login_url( get_permalink() ); ?>"><?php _e('logged in','html5reset'); ?></a> <?php _e('to post a comment.','html5reset'); ?></p>
