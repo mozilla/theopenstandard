@@ -7,7 +7,7 @@
 Contact Form 7
 ==============
 
-Provides the contact us form.
+Provides the contact us form. Note we use Akismet to cut down on spam with this form.
 
 - Enable plugin
 
@@ -21,16 +21,14 @@ Provides the contact us form.
     .. sourcecode:: html
 
         <p>
-        Hello. The Open Standard wants to hear from you. Please, share with us your suggestions.
-        Do you have a story tip? A problem with the site? This is where you can reach us.
+        Hello. The Open Standard wants to hear from you. Please, share with us your suggestions. Do you have a story tip? A problem with the site? This is where you can reach us.
         </p>
-
-        <p> Name (required)<br />[text* your-name] </p>
-
-        <p>Email (required)<br /> [email* your-email] </p>
-
+        
+        <p> Name<br />[text your-name akismet:author] </p>
+        
+        <p>Email (required)<br /> [email* your-email akismet:author_email] </p>
+        
         <p>Message<br />[textarea* your-message] </p>
-
+        
         <p>[submit class:button "Send"]</p>
-
 
