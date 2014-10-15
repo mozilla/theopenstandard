@@ -33,8 +33,8 @@ Footer Menu
 * Links
     1. About ``link to internal page``
     2. Contact Us ``link to internal page``
-    3. Privacy ``https://www.mozilla.org/privacy/``
-    4. Legal ``https://www.mozilla.org/about/legal/``
+    3. Privacy ``https://www.mozilla.org/privacy/websites/``
+    4. Legal ``https://www.mozilla.org/about/legal/terms/mozilla/``
     5. Report Trademark Abuse ``https://www.mozilla.org/about/legal/report-abuse/``
     
 Permalink
