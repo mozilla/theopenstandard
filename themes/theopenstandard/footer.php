@@ -52,6 +52,11 @@
                 <div class="medium-10 columns">
                     <?php wp_nav_menu(array('menu' => 'Footer Menu', 'menu_class' => 'inline-list')); ?>
                     <p class="disclaimer">
+                        <em>
+                            Hosted by Mozilla. Views expressed here represent the author's perspective, not Mozilla's opinion.
+                        </em>
+                    </p>
+                    <p class="disclaimer">
                     Except where otherwise <a href="https://www.mozilla.org/foundation/licensing/website-content/">noted</a>,
                     content on Mozilla websites is available under a Creative Commons Attribution Share-Alike 3.0 license.
                     </p>
