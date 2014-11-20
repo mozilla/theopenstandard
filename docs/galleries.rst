@@ -7,6 +7,4 @@
 Galleries
 ==========
 
-Placeholder
-
-
+Galleries, once created, may be inserted into the body of a post using the shortcode ``[post_gallery id=gallery_id_here]``

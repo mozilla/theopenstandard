@@ -1,4 +1,4 @@
-(function() {
+window.Sharing = (function() {
     var facebookShareCount;
     var twitterShareCount;
     var googleplusShareCount;
@@ -53,7 +53,7 @@
     }
 
     function attachShareListeners() {
-        $('button[data-share-service]').click(function() {
+        $(document).on('click', 'button[data-share-service]', function() {
             var service = $(this).attr('data-share-service');
             var windowUrl = null;
 

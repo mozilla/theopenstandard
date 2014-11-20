@@ -8,6 +8,7 @@ section.gallery
 		float: left
 		height: 14rem
 		width: 14rem
+		position: relative
 		a
 			position: absolute
 			top: 0
@@ -18,10 +19,19 @@ section.gallery
 		a.view
 			right: 0
 			left: 50%
-			
+
+div.modal
+	section.gallery
+		div.thumbnail
+			width: 10rem
+			height: 10rem			
+
 .gallery_full
+	margin-top: 1rem
+	margin-bottom: 3.5rem
 	position: relative
 	height: 34rem
+	background: url("../images/loader.gif") no-repeat center center
 	div.full_image
 		position: absolute
 		top: 0
@@ -31,4 +41,20 @@ section.gallery
 		background-size: cover
 		background-repeat: no-repeat
 		background-position: center
-		opacity: 0			
+		opacity: 0
+		transition: opacity 1s
+		&.active.loaded
+			opacity: 1
+			z-index: 1
+		p.caption
+			position: absolute
+			bottom: -3.5rem
+			font-size: .8rem
+			text-align: center
+			color: #888888
+			left: 0
+			width: 100%
+
+	div.arrow-right, div.arrow-left
+		top: 12rem
+		z-index: 2

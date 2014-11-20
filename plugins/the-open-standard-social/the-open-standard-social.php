@@ -54,8 +54,9 @@ Class TheOpenStandardSocial {
         }
     }
 
-    static function share_links() {
-        wp_enqueue_script('the-open-standard-sharing', plugins_url('js/sharing.js', __FILE__), NULL, NULL, TRUE);
+    static function share_links($enqueue = true) {
+        if ($enqueue)
+            wp_enqueue_script('the-open-standard-sharing', plugins_url('js/sharing.js', __FILE__), NULL, NULL, TRUE);
         include 'share-links.php';
     }
 }
