@@ -4,7 +4,8 @@
     <div class="story header">
         <div class="row">
             <div class="medium-8 medium-centered columns">
-                <?php $categories = get_post_categories($post); ?>
+                <?php $categories = get_post_categories($post); 
+                ?>
                 <?php if (has_category('sponsored')) { ?>
                     <div class="sponsored-content-container">
                         <p class="sponsored-content">Sponsored</p>
@@ -29,10 +30,12 @@
 
                     <?php
                     $tags = get_the_tags();
-                    foreach ($tags as $tag) { ?>
-                        <li class="issues-tag"><a href="<?php TheOpenStandardIssues::the_issues_link($tag->slug); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
-                    <?php
-                    } ?>  
+                    if (!empty($tags)) {
+                        foreach ($tags as $tag) { ?>
+                            <li class="issues-tag"><a href="<?php TheOpenStandardIssues::the_issues_link($tag->slug); ?>" class="issues-<?php echo $tag->slug; ?>"><?php echo $tag->name; ?></a></li>
+                        <?php
+                        } 
+                    } ?>
                 </ul>
             </div>
         </div>
