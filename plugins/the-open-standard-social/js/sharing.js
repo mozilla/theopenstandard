@@ -5,6 +5,35 @@ window.Sharing = (function() {
     var shareUrl = window.shareUrl || window.location.href;
     var shareTitle = window.shareTitle || document.title;
 
+    function buildBlockquoteSharing() {
+        $('div.post-content blockquote').each(function(i) {
+            var id = 'drop_' + i;
+
+            var button = $('<div />');
+            button.addClass('share-button');
+            button.attr('data-dropdown', id);
+            button.attr('aria-controls', id);
+            button.attr('aria-expanded', "false");
+
+            var dropdown = $('<ul />');
+            dropdown.addClass('f-dropdown');
+            dropdown.attr('id', id);
+            dropdown.attr('data-dropdown-content', '');
+            dropdown.attr('aria-hidden', true);
+            dropdown.attr('tabindex', -1);
+
+            dropdown.append('<li>Share on:</li>');
+            dropdown.append('<li class="share-icon twitter"><button data-share-text="' + $(this).text() + '" data-share-service="twitter"></button></li>');
+            dropdown.append('<li class="share-icon facebook"><button data-share-text="' + $(this).text() + '" data-share-service="facebook"></button></li>');
+
+            var wrapper = $('<div />').addClass('share-wrapper');
+            wrapper.append(button);
+            wrapper.append(dropdown);
+
+            wrapper.appendTo(this);
+        });
+    }
+
     function sharePopup(url, title, width, height) {
         var left = (screen.width / 2) - (width / 2);
         var top = (screen.height / 2) - (height / 2);
@@ -46,21 +75,24 @@ window.Sharing = (function() {
     function shareCountReceived() {
         if (twitterShareCount >= 0 && facebookShareCount >= 0 && googleplusShareCount >= 0) {
             var total = twitterShareCount + facebookShareCount + googleplusShareCount;
-            $('.twitter').height((twitterShareCount / total * 100) || 0 + '%');
-            $('.facebook').height((facebookShareCount / total * 100) || 0 + '%');
-            $('.googleplus').height((googleplusShareCount / total * 100) || 0 + '%');
+            $('ul.share-ratios .twitter').height((twitterShareCount / total * 100) || 0 + '%');
+            $('ul.share-ratios .facebook').height((facebookShareCount / total * 100) || 0 + '%');
+            $('ul.share-ratios .googleplus').height((googleplusShareCount / total * 100) || 0 + '%');
         }
     }
 
     function attachShareListeners() {
-        $(document).on('click', 'button[data-share-service]', function() {
+        $(document).on('click', '[data-share-service]', function() {
             var service = $(this).attr('data-share-service');
+            var shareText = $(this).attr('data-share-text');
+
+            shareUrl = window.shareUrl || window.location.href
             var windowUrl = null;
 
             if (service == 'twitter')
-                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl);
+                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(shareText || shareTitle) + '&url=' + encodeURIComponent(shareUrl);
             if (service == 'facebook')
-                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&t=' + encodeURIComponent(shareTitle);
+                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&t=' + encodeURIComponent(shareText || shareTitle);
             if (service == 'googleplus')
                 windowUrl = '//plus.google.com/share?url=' + encodeURIComponent(shareUrl)
             
@@ -72,4 +104,5 @@ window.Sharing = (function() {
 
     attachShareListeners();
     getShareCounts();
+    buildBlockquoteSharing();
 })();

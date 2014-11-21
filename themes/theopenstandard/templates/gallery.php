@@ -7,8 +7,10 @@
 <?php
 foreach ($gallery as $gallery_item) { ?>
 	<div class="thumbnail" style="background-image: url('<?php echo $gallery_item['image']['image_src']['thumbnail'][0]; ?>');">
-		<a href="#" class="share"></a>
-		<a href="gallery/<?php echo $gallery_id; ?>" class="view" data-modal data-modal-content="gallery" data-modal-query="/<?php echo $post_id; ?>/<?php echo $gallery_id; ?>/<?php echo $gallery_item['image']['id']; ?>"></a>
+		<?php
+		$modal_query = "/$post_id/$gallery_id/" . $gallery_item['image']['id'];
+		?>
+		<a href="?modal=<?php echo $modal_query; ?>" class="view" data-modal data-modal-content="gallery" data-modal-query="<?php echo $modal_query; ?>"></a>
 	</div>
 <?php
 } ?>
