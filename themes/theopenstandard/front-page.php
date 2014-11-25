@@ -153,19 +153,21 @@
                             ?>
 
                             <li class="recent-articles-item large-thumb <?php echo $primary_category->slug; ?> <?php echo has_category('sponsored') ? 'sponsored-content-container' : ''; ?> <?php echo has_post_thumbnail() ? 'has-thumbnail' : ''; ?>">
-                                <?php if (has_post_thumbnail()) { ?>
-                                <div class="thumbnail">
-                                    <?php the_post_thumbnail('thumbnail'); ?>
-                                </div>
-                                <?php } ?>
-                                
-                                <?php
-                                if (has_category('sponsored')) { ?>
-                                    <p class="sponsored-content">Sponsored</p>
-                                <?php
-                                } ?>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php if (has_post_thumbnail()) { ?>
+                                    <div class="thumbnail">
+                                        <?php the_post_thumbnail('thumbnail'); ?>
+                                    </div>
+                                    <?php } ?>
+                                    
+                                    <?php
+                                    if (has_category('sponsored')) { ?>
+                                        <p class="sponsored-content">Sponsored</p>
+                                    <?php
+                                    } ?>
 
-                                <a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
+                                    <h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3>
+                                </a>
                                 <p><?php the_excerpt(); ?></p>
                                 <p>
                                     <?php

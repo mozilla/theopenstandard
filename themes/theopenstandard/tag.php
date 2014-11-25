@@ -16,10 +16,12 @@
 		        while ($tagged_posts->have_posts()): 
 		            $tagged_posts->the_post(); ?>
 		            <li class="recent-articles-item">
-		                <div class="thumbnail">
-		                    <?php the_post_thumbnail('thumbnail'); ?>
-		                </div>
-		                <a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
+		                <a href="<?php the_permalink(); ?>">
+			                <div class="thumbnail">
+			                    <?php the_post_thumbnail('thumbnail'); ?>
+			                </div>
+			                <h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3>
+			            </a>
 		                <p><?php the_excerpt(); ?></p>
 		                <p>
 		                    <?php

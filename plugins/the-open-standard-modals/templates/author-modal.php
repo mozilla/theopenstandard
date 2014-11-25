@@ -71,8 +71,10 @@ $author_posts = new WP_Query(array(
                     $author_posts->the_post(); 
                     $categories = get_post_categories(); ?>
                     <li class="recent-articles-item <?php echo has_post_thumbnail() ? 'has-thumbnail' : ''; ?>">
-                        <?php the_post_thumbnail(array(80,80), array('class' => 'thumbnail')); ?>
-                        <a href="<?php the_permalink(); ?>"><h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3></a>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_post_thumbnail(array(80,80), array('class' => 'thumbnail')); ?>
+                            <h3><?php echo one_of(simple_fields_fieldgroup('short_title'), get_the_title()); ?></h3>
+                        </a>
                         <p><?php the_excerpt(); ?></p>
                         <p>
                             <?php
