@@ -7,30 +7,9 @@ window.Sharing = (function() {
 
     function buildBlockquoteSharing() {
         $('div.post-content blockquote').each(function(i) {
-            var id = 'drop_' + i;
-
-            var button = $('<div />');
-            button.addClass('share-button');
-            button.attr('data-dropdown', id);
-            button.attr('aria-controls', id);
-            button.attr('aria-expanded', "false");
-
-            var dropdown = $('<ul />');
-            dropdown.addClass('f-dropdown');
-            dropdown.attr('id', id);
-            dropdown.attr('data-dropdown-content', '');
-            dropdown.attr('aria-hidden', true);
-            dropdown.attr('tabindex', -1);
-
-            dropdown.append('<li>Share on:</li>');
+            var dropdown = $('<ul class="share" />');
             dropdown.append('<li class="share-icon twitter"><button data-share-text="' + $(this).text() + '" data-share-service="twitter"></button></li>');
-            dropdown.append('<li class="share-icon facebook"><button data-share-text="' + $(this).text() + '" data-share-service="facebook"></button></li>');
-
-            var wrapper = $('<div />').addClass('share-wrapper');
-            wrapper.append(button);
-            wrapper.append(dropdown);
-
-            wrapper.appendTo(this);
+            dropdown.appendTo(this);
         });
     }
 

@@ -5,6 +5,7 @@
         "grunt": "*",
         "grunt-contrib-watch": "*",
         "grunt-contrib-stylus": "*",
-        "grunt-contrib-uglify": "*"
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-sass": "*"
     }
 }

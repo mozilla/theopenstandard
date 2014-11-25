@@ -21,7 +21,6 @@
     <!-- concatenate and minify for production -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reset.css" />
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" />
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/foundation/css/foundation.min.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_/zurb_src/dist/assets/css/app.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/_/css/blog.css" />
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico" />
