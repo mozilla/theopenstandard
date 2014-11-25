@@ -23,11 +23,20 @@
     <div class="medium-8 medium-centered columns">
 		<div class="tab content <?php if ($modal == 'authors'): print 'active'; endif; ?>" id="authors">
 			<?php 
-			$authors = get_users(array(
-				'role' => 'author',
-				'fields' => 'ID'
-			));
+			$authors = array_merge(
+				get_users(array(
+					'role' => 'author',
+					'fields' => 'ID'
+				)), 
+				get_users(array(
+					'role' => 'administrator',
+					'fields' => 'ID'
+				))
+			);
+			$counts = count_many_users_posts($authors);
 			foreach ($authors as $author_id) {
+				if (!$counts[$author_id])
+					continue;
 				include('author-listing-item.php');
 			}
 			?>			
