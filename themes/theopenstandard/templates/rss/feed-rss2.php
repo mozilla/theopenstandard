@@ -84,7 +84,7 @@ do_action( 'rss_tag_pre', 'rss2' );
 		<comments><?php comments_link_feed(); ?></comments>
 		<pubDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></pubDate>
 		<dc:creator><![CDATA[<?php the_author() ?>]]></dc:creator>
-		<?php the_category_rss('rss2') ?>
+		<?php echo get_the_category_rss_custom('rss2') ?>
 
 		<guid isPermaLink="false"><?php the_guid(); ?></guid>
 <?php if (get_option('rss_use_excerpt')) : ?>

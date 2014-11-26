@@ -155,4 +155,39 @@
 
         return $data;
     }
+
+    // Uses my get_post_categories function, but is otherwise idential to the wordpress implementation.
+    function get_the_category_rss_custom($type = null) {
+        if ( empty($type) )
+            $type = get_default_feed();
+        $categories = get_post_categories($post, array('featured', 'hp_lead'));
+        $tags = get_the_tags();
+        $the_list = '';
+        $cat_names = array();
+
+        $filter = 'rss';
+        if ( 'atom' == $type )
+            $filter = 'raw';
+
+        if ( !empty($categories) ) foreach ( (array) $categories as $category ) {
+            $cat_names[] = sanitize_term_field('name', $category->name, $category->term_id, 'category', $filter);
+        }
+
+        if ( !empty($tags) ) foreach ( (array) $tags as $tag ) {
+            $cat_names[] = sanitize_term_field('name', $tag->name, $tag->term_id, 'post_tag', $filter);
+        }
+
+        $cat_names = array_unique($cat_names);
+
+        foreach ( $cat_names as $cat_name ) {
+            if ( 'rdf' == $type )
+                $the_list .= "\t\t<dc:subject><![CDATA[$cat_name]]></dc:subject>\n";
+            elseif ( 'atom' == $type )
+                $the_list .= sprintf( '<category scheme="%1$s" term="%2$s" />', esc_attr( get_bloginfo_rss( 'url' ) ), esc_attr( $cat_name ) );
+            else
+                $the_list .= "\t\t<category><![CDATA[" . @html_entity_decode( $cat_name, ENT_COMPAT, get_option('blog_charset') ) . "]]></category>\n";
+        }
+
+        return apply_filters( 'the_category_rss', $the_list, $type );
+    }
 ?>
