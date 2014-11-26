@@ -156,12 +156,11 @@
         return $data;
     }
 
-    // Uses my get_post_categories function, but is otherwise idential to the wordpress implementation.
+    // Uses my get_post_categories function and doesn't include tags, but is otherwise idential to the wordpress implementation.
     function get_the_category_rss_custom($type = null) {
         if ( empty($type) )
             $type = get_default_feed();
         $categories = get_post_categories($post, array('featured', 'hp_lead'));
-        $tags = get_the_tags();
         $the_list = '';
         $cat_names = array();
 
@@ -171,10 +170,6 @@
 
         if ( !empty($categories) ) foreach ( (array) $categories as $category ) {
             $cat_names[] = sanitize_term_field('name', $category->name, $category->term_id, 'category', $filter);
-        }
-
-        if ( !empty($tags) ) foreach ( (array) $tags as $tag ) {
-            $cat_names[] = sanitize_term_field('name', $tag->name, $tag->term_id, 'post_tag', $filter);
         }
 
         $cat_names = array_unique($cat_names);
