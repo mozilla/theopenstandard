@@ -136,6 +136,7 @@
         wp_create_nav_menu('Around The Web (Opinion)');
 
     require_once('custom-post-types.php');
+    require_once('filters.php');
     require_once('custom-shortcodes.php');
     require_once('simple-fields.php');
     require_once('content-filters.php');

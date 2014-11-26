@@ -124,4 +124,35 @@
         $items = wp_get_nav_menu_items($menu);
         include 'templates/around-the-web.php';
     }
+
+    function get_author_data($author = NULL) {
+        if (!$author)
+            $author = array_shift(get_coauthors());
+
+        $data = new StdClass();
+
+        if ($author && $author->type == 'guest-author') {
+            $data->nicename = $author->user_nicename;
+            $data->avatar = coauthors_get_avatar($author, 150);
+            $data->name = $author->display_name;
+            $data->facebook = $author->facebook;
+            $data->twitter = $author->twitter;
+            $data->googleplus = $author->googleplus;
+        } else {
+            if ($author) {
+                $author_id = $author->ID;
+            } else {
+                $author_id = get_the_author_meta('ID');
+            }
+
+            $data->nicename = get_the_author_meta('user_nicename', $author_id);
+            $data->avatar = get_wp_user_avatar($author_id, 150);
+            $data->name = $author ? $author->data->display_name : get_the_author();
+            $data->facebook = get_the_author_meta('facebook', $author_id);
+            $data->twitter = get_the_author_meta('facebook', $author_id);
+            $data->googleplus = get_the_author_meta('facebook', $author_id);
+        }
+
+        return $data;
+    }
 ?>
