@@ -69,7 +69,7 @@ $author_posts = new WP_Query(array(
                 <?php 
                 while ($author_posts->have_posts()): 
                     $author_posts->the_post(); 
-                    $categories = get_post_categories(); ?>
+                    $categories = get_post_categories($post); ?>
                     <li class="recent-articles-item <?php echo has_post_thumbnail() ? 'has-thumbnail' : ''; ?>">
                         <a href="<?php the_permalink(); ?>">
                             <?php the_post_thumbnail(array(80,80), array('class' => 'thumbnail')); ?>

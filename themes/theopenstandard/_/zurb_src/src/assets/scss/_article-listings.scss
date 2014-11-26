@@ -21,6 +21,9 @@
 	h3 {
 		margin-top: 1rem;
 		line-height: 1.2;
+		&:hover {
+			color: black;
+		}
 	}
 	.owl-carousel & {
 	  margin: 0.5rem;
@@ -51,7 +54,11 @@
 	}
 	&:last-child { border-bottom: 0; }
 	
-	a { display: block; }
+	a { display: block; 
+		&:hover h3 {
+			color: black;
+		}		
+	}
 	.thumbnail {
 		float: left;
 		margin: 0 1.5rem 1rem -6.5rem;

@@ -6231,6 +6231,8 @@ a.topics-tag-minimal {
   .featured-articles-item h3 {
     margin-top: 1rem;
     line-height: 1.2; }
+    .featured-articles-item h3:hover {
+      color: black; }
   .owl-carousel .featured-articles-item {
     margin: 0.5rem; }
 
@@ -6254,6 +6256,8 @@ a.topics-tag-minimal {
     border-bottom: 0; }
   .recent-articles-item a {
     display: block; }
+    .recent-articles-item a:hover h3 {
+      color: black; }
   .recent-articles-item .thumbnail {
     float: left;
     margin: 0 1.5rem 1rem -6.5rem; }
@@ -6490,6 +6494,11 @@ div.post-content > p:first-child:first-letter {
 
 .author-bio {
   padding-bottom: 3rem; }
+  @media only screen and (max-width: 40em) {
+    .author-bio {
+      padding-bottom: 1rem; } }
+  .author-bio p {
+    margin-bottom: 0; }
   .author-bio ul {
     padding: .5rem 0; }
   .author-bio .tag-list {
