@@ -16,11 +16,4 @@ Plugin Settings
    plugins/passwordprotect
    plugins/relatedposts
    plugins/simplefields
-
-
-
-
-
-
-
-
+   plugins/coauthors
