@@ -5851,6 +5851,9 @@ body[data-useragent*="Windows"], body[data-useragent*="Windows"] p, body[data-us
 .author-bio a {
   font-size: 0.8125rem; }
 
+a h1, a h2, a h3, a h4, a h5, a h6 {
+  color: #666666; }
+
 .date-home {
   position: absolute;
   right: 1.2rem;
