@@ -65,15 +65,19 @@ window.Sharing = (function() {
             var service = $(this).attr('data-share-service');
             var shareText = $(this).attr('data-share-text');
 
-            shareUrl = window.shareUrl || window.location.href
+            shareUrl = encodeURIComponent(window.shareUrl || window.location.href)
             var windowUrl = null;
 
-            if (service == 'twitter')
-                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(shareText || shareTitle) + '&url=' + encodeURIComponent(shareUrl);
+            if (service == 'twitter') {
+                if ((shareText + shareUrl).length > 140)
+                    shareText = shareText.substring(0, 140 - shareUrl.length - 3) + '...';
+
+                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(shareText || shareTitle) + '&url=' + shareUrl;
+            }
             if (service == 'facebook')
-                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&t=' + encodeURIComponent(shareText || shareTitle);
+                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + shareUrl + '&t=' + encodeURIComponent(shareText || shareTitle);
             if (service == 'googleplus')
-                windowUrl = '//plus.google.com/share?url=' + encodeURIComponent(shareUrl)
+                windowUrl = '//plus.google.com/share?url=' + shareUrl
             
             if (windowUrl)
                 sharePopup(windowUrl, 'Share this article', 500, 360);
