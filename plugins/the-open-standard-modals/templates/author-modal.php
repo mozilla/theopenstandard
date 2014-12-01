@@ -56,7 +56,7 @@ if ($author) {
             <a href="authors" data-modal data-modal-content="authors">See all Authors &gt;</a>
         </div>
         <div class="medium-8 columns left">
-            <p class="lead"><?php the_author_meta('description', $author_id); ?></p>
+            <p class="lead"><?php echo $author_data->description; ?></p>
 
             <ul class="recent-articles">
                 <?php 

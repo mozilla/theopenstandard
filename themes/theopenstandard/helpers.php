@@ -132,6 +132,7 @@
         $data = new StdClass();
 
         if ($author && $author->type == 'guest-author') {
+            $data->description = $author->description;
             $data->nicename = $author->user_nicename;
             $data->avatar = coauthors_get_avatar($author, 150);
             $data->name = $author->display_name;
@@ -144,7 +145,7 @@
             } else {
                 $author_id = get_the_author_meta('ID');
             }
-
+            $data->description = get_the_author_meta('description', $author_id);
             $data->nicename = get_the_author_meta('user_nicename', $author_id);
             $data->avatar = get_wp_user_avatar($author_id, 150);
             $data->name = $author ? $author->data->display_name : get_the_author();
