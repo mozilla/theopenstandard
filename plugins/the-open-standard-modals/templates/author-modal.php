@@ -15,13 +15,7 @@ if ($author) {
     $author = $coauthors_plus->get_coauthor_by('user_nicename', $author_slug, true);
     $author_data = get_author_data($author);
 
-    $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => 10,
-        'post_status' => 'publish',
-        'author_name' => $author_data->name,
-    );
-    $author_posts = new WP_Query($args);
+    $author_posts = get_posts_assigned_to_author($author_data->nicename);
 }
 ?>
 

@@ -31,9 +31,8 @@
                 $author_ids[] = $author->ID;
             }
 
-            $counts = count_many_users_posts($author_ids);
             foreach ($authors as $author) {
-                if (!$counts[$author->ID] && $author->type != 'guest-author')
+                if (!count(get_posts_assigned_to_author($author->data->user_nicename)->posts) && $author->type != 'guest-author')
                     continue;
                 include('author-listing-item.php');
             }

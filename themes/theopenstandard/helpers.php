@@ -186,4 +186,14 @@
 
         return apply_filters( 'the_category_rss', $the_list, $type );
     }
+
+    function get_posts_assigned_to_author($nicename) {
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+            'author_name' => $nicename,
+        );
+        return new WP_Query($args);
+    }
 ?>
