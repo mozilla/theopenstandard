@@ -17,3 +17,4 @@ Plugin Settings
    plugins/relatedposts
    plugins/simplefields
    plugins/coauthors
+   plugins/wordpress-seo.rst
