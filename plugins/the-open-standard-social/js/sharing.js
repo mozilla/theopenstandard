@@ -63,21 +63,21 @@ window.Sharing = (function() {
     function attachShareListeners() {
         $(document).on('click', '[data-share-service]', function() {
             var service = $(this).attr('data-share-service');
-            var shareText = $(this).attr('data-share-text');
+            var shareText = $(this).attr('data-share-text') || shareTitle;
 
-            shareUrl = encodeURIComponent(window.shareUrl || window.location.href)
+            shareUrl = window.shareUrl || window.location.href
             var windowUrl = null;
 
             if (service == 'twitter') {
                 if ((shareText + shareUrl).length > 140)
-                    shareText = shareText.substring(0, 140 - shareUrl.length - 3) + '...';
+                    shareText = shareText.substring(0, 140 - shareUrl.length - 4) + '...';
 
-                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(shareText || shareTitle) + '&url=' + shareUrl;
+                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
             }
             if (service == 'facebook')
-                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + shareUrl + '&t=' + encodeURIComponent(shareText || shareTitle);
+                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&t=' + encodeURIComponent(shareText);
             if (service == 'googleplus')
-                windowUrl = '//plus.google.com/share?url=' + shareUrl
+                windowUrl = '//plus.google.com/share?url=' + encodeURIComponent(shareUrl)
             
             if (windowUrl)
                 sharePopup(windowUrl, 'Share this article', 500, 360);
