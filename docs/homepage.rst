@@ -14,7 +14,7 @@ The homepage has 2 areas that can be actively managed.
 
 HP Lead
 =======
-The HP Lead story is the latest story in the speical category ``hp_lead``. 
+The HP Lead story is the latest story in the special category ``hp_lead``. 
 
 Featured Articles By Topic
 ==========================
