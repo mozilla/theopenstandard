@@ -6555,6 +6555,12 @@ li.comments-item {
     font-size: .7rem;
     margin-left: 1rem;
     text-decoration: underline; }
+  li.comments-item div.pending-approval-message {
+    background-color: #FFFABD;
+    border: 1px solid #fff257;
+    color: #242100;
+    padding: .3rem .5rem;
+    margin-bottom: .5rem; }
 
 .comments-item-pic {
   position: absolute; }
