@@ -10,6 +10,7 @@
     $featured_term_id = get_category_by_slug('featured')->term_id;
     $hp_featured_term_id = get_category_by_slug('hp_featured')->term_id;
     $lead_term_id = get_category_by_slug('hp_lead')->term_id;
+    $recent_term_id = get_category_by_slug('hp_recent')->term_id;
 
     // Get all posts that have the HP Featured category
     $featured_posts = get_posts(array(
@@ -152,7 +153,11 @@
                     
                     <?php
                     // Get all recent posts not in the Featured category.
-                    $options = array('category__not_in' => array($featured_term_id, $lead_term_id));
+                    $options = array(
+                        'cat' => $recent_term_id,
+                        'category__not_in' => array($hp_featured_term_id, $lead_term_id),
+                        'posts_per_page' => -1
+                    );
                     $recent_posts = get_posts($options);
                     ?>
                     <ul>
