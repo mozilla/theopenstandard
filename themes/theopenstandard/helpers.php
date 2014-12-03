@@ -205,59 +205,30 @@
     }
 
     function get_featured_post_for_category($category_term_id, $featured_term_id, $lead_term_id) {
-        // Source for customized SQL
-        // $fallback_featured_post = new WP_Query(array(
-        //     // 'cat' => $featured_term_id,
-        //     'category__not_in' => array($lead_term_id),
-        //     // Simple Fields field group slug and field slug. This is replaced by simple fields with the internal field name.
-        //     // 'sf_meta_key' => 'categories/primary_category',
-        //     // Simple Fields stores its drop down values in the form 'dropdown_num_somevalue' so we need to query for that.
-        //     // 'meta_value' => 'dropdown_num_' . $category->term_id,
-        //     'posts_per_page' => 1,
-        //     'orderby' => 'date',
-        //     'meta_query' => array(
-        //         array(
-        //             'key' => '_simple_fields_fieldGroupID_6_fieldID_1_numInSet_0',
-        //             'value' => 'dropdown_num_' . $category->term_id,
-        //             'compare' => '='
-        //         )
-        //     ),
-        //     'tax_query' => array(
-        //         array(
-        //             'taxonomy' => 'category',
-        //             'field' => 'id',
-        //             'terms' => $category->term_id
-        //         ),
-        //         array(
-        //             'taxonomy' => 'category',
-        //             'field' => 'id',
-        //             'terms' => $featured_term_id
-        //         )                                    
-        //     )
-        // ));        
-        global $sf;
-        $primary_category_field = $sf->get_field_by_fieldgroup_and_slug_string('categories/primary_category');
-        if (false !== $field) {
-            $field_meta_key = $sf->get_meta_key($primary_category_field["field_group"]["id"], $primary_category_field["id"], 0, $primary_category_field["field_group"]["slug"], $primary_category_field["slug"]);
-            $primary_category_meta_key = $field_meta_key;
-        }
-        if (!$primary_category_meta_key)
-            return NULL;
+        $fallback_featured_post = get_posts(array(
+            'cat' => $featured_term_id,
+            'category__not_in' => array($lead_term_id),
+            // Simple Fields field group slug and field slug. This is replaced by simple fields with the internal field name.
+            'sf_meta_key' => 'categories/primary_category',
+            // Simple Fields stores its drop down values in the form 'dropdown_num_somevalue' so we need to query for that.
+            'meta_value' => 'dropdown_num_' . $category_term_id,
+            'posts_per_page' => 1,
+            'orderby' => 'date',
+        ));
 
-        $query = <<<EOT
-SELECT SQL_CALC_FOUND_ROWS voices_posts.ID FROM voices_posts INNER JOIN voices_term_relationships ON (voices_posts.ID = voices_term_relationships.object_id) INNER JOIN voices_term_relationships AS tt1 ON (voices_posts.ID = tt1.object_id) INNER JOIN voices_postmeta ON (voices_posts.ID = voices_postmeta.post_id) WHERE 1=1 
-AND ( 
-    voices_term_relationships.term_taxonomy_id IN ($category_term_id) AND tt1.term_taxonomy_id IN ($featured_term_id) AND voices_posts.ID NOT IN ( SELECT object_id FROM voices_term_relationships WHERE term_taxonomy_id IN ($lead_term_id) ) 
-    OR ( (voices_postmeta.meta_key = '$primary_category_meta_key' AND CAST(voices_postmeta.meta_value AS CHAR) = 'dropdown_num_$category_term_id') )
-) 
-AND voices_posts.post_type = 'post' 
-AND (voices_posts.post_status = 'publish' OR voices_posts.post_status = 'private') 
-GROUP BY voices_posts.ID ORDER BY voices_posts.post_date DESC LIMIT 0, 1
-EOT;
-        global $wpdb;
-        $results = $wpdb->get_results($query);
-        if ($results)
-            return get_post($results[0]->ID);
+        // Couldn't find a primary category with featured, so we'll grab a non primary category with featured
+        if (!$fallback_featured_post) {
+            $fallback_featured_post = get_posts(array(
+                'category__and' => array($featured_term_id, $category_term_id),
+                'category__not_in' => array($lead_term_id),
+                'posts_per_page' => 1,
+                'orderby' => 'date',
+            ));
+        }
+
+        if ($fallback_featured_post)
+            return array_shift($fallback_featured_post);
+
         return NULL;
     }
 ?>
