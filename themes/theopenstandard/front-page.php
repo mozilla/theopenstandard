@@ -8,11 +8,12 @@
 
     <?php
     $featured_term_id = get_category_by_slug('featured')->term_id;
+    $hp_featured_term_id = get_category_by_slug('hp_featured')->term_id;
     $lead_term_id = get_category_by_slug('hp_lead')->term_id;
 
-    // Get all posts that are promoted to front page
+    // Get all posts that have the HP Featured category
     $featured_posts = get_posts(array(
-        'cat' => $featured_term_id,
+        'cat' => $hp_featured_term_id,
         'category__not_in' => array($lead_term_id),
         'posts_per_page' => -1
     ));
@@ -82,6 +83,7 @@
                     $ordered_featured_posts = array();
                     
                     foreach ($categories as $category) {
+                        $found_post = FALSE;
                         foreach ($featured_posts as $i => $featured_post) {
                             $featured_post_categories = get_post_categories($featured_post);
                             
@@ -90,10 +92,18 @@
                             $primary_category = get_primary_category($featured_post);
 
                             if ($category->slug == $primary_category->slug) {
+                                $found_post = TRUE;
                                 $ordered_featured_posts[] = $featured_post;
                                 unset($featured_posts[$i]);
                                 break;
                             }
+                        }
+                        // Fallback to Featured category if HP Featured wasn't set for the current category.
+                        if (!$found_post) {
+                            $featured_post = get_featured_post_for_category($category->term_id, $featured_term_id, $lead_term_id);
+                            if ($featured_post)
+                                $ordered_featured_posts[] = $featured_post;
+                            
                         }
                     }
 

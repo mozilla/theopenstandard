@@ -14,11 +14,12 @@ The homepage has 2 areas that can be actively managed.
 
 HP Lead
 =======
-The HP Lead story is the latest story in the special category ``hp_lead``. 
+The HP Lead story is the latest story in the special category ``hp_lead``.
+The featured stories are the latest stories in each category with the special category ``hp_featured``. If no story in the given category has ``hp_featured`` then falls back to the most recent story with the ``featured`` category.
+The most recent stories are stories sorted by published date with the ``hp_recent`` category
 
 Featured Articles By Topic
 ==========================
-The newest featured article from each category will be shown on the home page. Featured articles
-are those placed in the ``Featured`` category.
+The newest articles with the ``featured`` category will be shown on each category landing page in the Featured section.
 
 
