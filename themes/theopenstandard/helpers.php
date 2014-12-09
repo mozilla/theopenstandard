@@ -4,8 +4,10 @@
 
     // Helper function for getting post categories.
     function get_post_categories($post, $without = NULL, $limit = NULL) {
+        global $meta_categories;
         if ($without === NULL)
             $without = $meta_categories;
+
         $categories = get_the_category($post);
         if ($without || $limit)
             $categories = reduce_categories($categories, $without, $limit);
@@ -14,6 +16,7 @@
     }
 
     function get_primary_category($post, $without = NULL) {
+        global $meta_categories;
         if ($without === NULL)
             $without = $meta_categories;
         $primary_category_data = simple_fields_value('primary_category', $post);
