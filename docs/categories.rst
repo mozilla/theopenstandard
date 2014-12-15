@@ -25,6 +25,8 @@ Special Categories
 ~~~~~~~~~~~~~~~~~~
 There are a few special-purpose categories that must exist.
 
-- Sponsored (for sponsored articles)
-- HP Lead (for the main article featured on the home page)
-- Featured (to feature articles on the category listings and the home page)
+- Sponsored ``sponsored`` - for sponsored articles.
+- HP Lead ``hp_lead`` - for the main article featured on the home page.
+- HP Featured ``hp_featured`` - featured stories on the home page (most recent by category).
+- HP Recent ``hp_recent`` - most recent stories on the home page sorted by published date.
+- Featured ``featured`` - to feature articles on the category listings page.
