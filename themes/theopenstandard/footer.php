@@ -73,6 +73,7 @@
 <script src='<?php echo get_template_directory_uri(); ?>/_/js/vendor/moment.min.js'></script>
 <script src='<?php echo get_template_directory_uri(); ?>/_/js/vendor/URI.js'></script>
 <script src='<?php echo get_template_directory_uri(); ?>/_/js/vendor/jquery.history.js'></script>
+<script src='<?php echo get_template_directory_uri(); ?>/_/js/galleries.js'></script>
 
 <?php include 'templates/modals.php'; ?>
 

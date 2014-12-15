@@ -1,9 +1,0 @@
-*.DS_Store
-/css/*
-/bower_components/*
-/node_modules/*
-/dist/*
-npm-debug.log
-dist.zip
-
-!/dist/assets/

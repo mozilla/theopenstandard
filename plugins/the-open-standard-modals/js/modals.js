@@ -1,3 +1,7 @@
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 function ModalsClass() {
 	this.openModal = null;
 	this.ignoreNextStateChange = false;
@@ -51,7 +55,7 @@ ModalsClass.prototype.open = function(modalContent, modalQuery, updateUrl) {
 	if (updateUrl) {
 		var u = new URI();
 		u.setSearch('modal', modalContent);
-		History.pushState({}, '', u.toString() + (modalQuery || ''));
+		History.pushState({}, document.title, u.toString() + (modalQuery || ''));
 	}
 }
 

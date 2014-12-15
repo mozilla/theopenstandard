@@ -10,7 +10,12 @@ function custom_comments($comment, $args, $depth) {
             <?php 
             break;
         default : ?>
-            <li <?php comment_class('comments-item'); ?> id="comment-<?php comment_ID(); ?>">
+            <li <?php comment_class('comments-item ' . ($comment->comment_approved ? 'approved' : 'pending-approval')); ?> id="comment-<?php comment_ID(); ?>">
+                <?php 
+                if (!$comment->comment_approved) { ?>
+                    <div class="pending-approval-message">Your comment is awaiting approval by an editor.</div>
+                <?php
+                } ?>
                 <div class="comments-item-pic">
                     <?php echo get_avatar($comment, 60); ?>
                 </div>

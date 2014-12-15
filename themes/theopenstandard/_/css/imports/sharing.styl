@@ -51,3 +51,29 @@ ul.share-ratios
         background: url('../images/icons/social-facebook.svg') no-repeat center center; background-size: $share-size - .2
     button.googleplus-button
         background: url('../images/icons/social-google-plus.svg') no-repeat center center; background-size: $share-size - .2
+        
+ul.share
+    list-style: none
+    margin: 0
+    li
+        cursor: none
+        color: #333
+        font-size: .8rem
+        list-style: none
+    .share-icon
+        float: left
+        button
+            width: 2rem
+            height: 2rem
+            display: block
+            cursor: pointer
+            padding: 0
+            margin: 0 .5rem 0 0
+            &:hover
+                opacity: .7
+        &.twitter button
+            background: url('../images/icons/social-twitter-grey.svg') no-repeat center center; background-size: $share-size - .4
+        &.facebook button
+            background: url('../images/icons/social-facebook-grey.svg') no-repeat center center; background-size: $share-size - .4
+        &.googleplus button
+            background: url('../images/icons/social-google-plus-grey.svg') no-repeat center center; background-size: $share-size - .4

@@ -1,9 +1,17 @@
-(function() {
+window.Sharing = (function() {
     var facebookShareCount;
     var twitterShareCount;
     var googleplusShareCount;
     var shareUrl = window.shareUrl || window.location.href;
     var shareTitle = window.shareTitle || document.title;
+
+    function buildBlockquoteSharing() {
+        $('div.post-content blockquote').each(function(i) {
+            var dropdown = $('<ul class="share" />');
+            dropdown.append('<li class="share-icon twitter"><button data-share-text="' + $(this).text() + '" data-share-service="twitter"></button></li>');
+            dropdown.appendTo(this);
+        });
+    }
 
     function sharePopup(url, title, width, height) {
         var left = (screen.width / 2) - (width / 2);
@@ -46,21 +54,28 @@
     function shareCountReceived() {
         if (twitterShareCount >= 0 && facebookShareCount >= 0 && googleplusShareCount >= 0) {
             var total = twitterShareCount + facebookShareCount + googleplusShareCount;
-            $('.twitter').height((twitterShareCount / total * 100) || 0 + '%');
-            $('.facebook').height((facebookShareCount / total * 100) || 0 + '%');
-            $('.googleplus').height((googleplusShareCount / total * 100) || 0 + '%');
+            $('ul.share-ratios .twitter').height((twitterShareCount / total * 100) || 0 + '%');
+            $('ul.share-ratios .facebook').height((facebookShareCount / total * 100) || 0 + '%');
+            $('ul.share-ratios .googleplus').height((googleplusShareCount / total * 100) || 0 + '%');
         }
     }
 
     function attachShareListeners() {
-        $('button[data-share-service]').click(function() {
+        $(document).on('click', '[data-share-service]', function() {
             var service = $(this).attr('data-share-service');
+            var shareText = $(this).attr('data-share-text') || shareTitle;
+
+            shareUrl = window.shareUrl || window.location.href
             var windowUrl = null;
 
-            if (service == 'twitter')
-                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl);
+            if (service == 'twitter') {
+                if ((shareText + shareUrl).length > 140)
+                    shareText = shareText.substring(0, 140 - shareUrl.length - 4) + '...';
+
+                windowUrl = '//twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
+            }
             if (service == 'facebook')
-                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&t=' + encodeURIComponent(shareTitle);
+                windowUrl = '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl) + '&t=' + encodeURIComponent(shareText);
             if (service == 'googleplus')
                 windowUrl = '//plus.google.com/share?url=' + encodeURIComponent(shareUrl)
             
@@ -72,4 +87,5 @@
 
     attachShareListeners();
     getShareCounts();
+    buildBlockquoteSharing();
 })();

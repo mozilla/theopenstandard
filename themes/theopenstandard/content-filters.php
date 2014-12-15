@@ -7,6 +7,22 @@
 		return $node->previousSibling;
 	}
 
+	function inner_html(DOMNode $element) {
+		$innerHTML = "";
+		$children = $element->childNodes;
+		foreach ($children as $child) { 
+			$innerHTML .= $element->ownerDocument->saveHTML($child);
+		}
+
+		return $innerHTML;
+	}
+
+	function fragment_from_html($doc, $html) {
+		$fragment = $doc->createDocumentFragment();
+		$fragment->appendXML($html);
+		return $fragment;
+	}
+
 	// Parse out consequtive p::content and put them into block grids.
 	function add_block_grids($content) {
 		// DOMDocument seems to have problems with the long dash, this fixes it.
@@ -15,7 +31,7 @@
 
 		$document = new DOMDocument('1.0', 'utf-8');
 
-        set_error_handler(function() { /* ignore errors */ });
+		set_error_handler(function() { /* ignore errors */ });
 		if (phpversion() >= 5.4) {
 			$document->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 		} else {
@@ -63,7 +79,12 @@
 
 			foreach ($block_group as $block) {
 				$li = $document->createElement('li');
-				$block->nodeValue = str_replace('::', '', $block->nodeValue);
+				$inner_html = inner_html($block);
+				$inner_html = str_replace('::', '', $inner_html);
+				// Erase current contents
+				$block->nodeValue = '';
+				// Append contents with '::' replaced
+				$block->appendChild(fragment_from_html($document, $inner_html));
 				$li->appendChild($block);
 				$ul->appendChild($li);
 			}

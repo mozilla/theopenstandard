@@ -1,6 +1,9 @@
 uploads/
 themes/twentythirteen/
 themes/theopenstandard/node_modules/
+themes/theopenstandard/_/zurb_src/bower_components/
+
+.sass-cache/
 
 # Ignore the local doc build
 docs/_build

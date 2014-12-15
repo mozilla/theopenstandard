@@ -1,5 +1,3 @@
-<script>var currentPostId = <?php echo the_ID(); ?>;</script>
-
 <div class="social">
     <ul class="share-ratios">
         <li class="twitter"><div class="bar"></div> <button class="twitter-button" data-share-service="twitter"></button></li>

@@ -18,6 +18,8 @@ Required Categories
 * Opinion
 * Sponsored
 * HP Lead (with slug "hp_lead")
+* HP Featured (with slug "hp_featured")
+* HP Recent (with slug "hp_recent")
 
 Required Pages
 --------------
