@@ -3,9 +3,9 @@
 .. file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-=============
+===============
 Co-authors Plus
-=============
+===============
 
 This plugin provides guest author functionality
 
@@ -14,5 +14,5 @@ This plugin provides guest author functionality
     #. Create the ones you want
     #. When creating or editing a post, add them using the authors input box
 
-.. image:: ../images/guest-author.png
+.. image:: ../images/guest-author.jpg
 

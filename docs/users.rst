@@ -6,6 +6,9 @@
 Users
 ==========
 
+.. important:: This documentation is out of date and needs to be rewritten to include the co-authors plugin.
+
+
 For the purposes of content editing there are 3 user roles we use:
 
 1. Editor - our paid staff, somebody who can publish and manage posts including the posts of other users.
