@@ -8,18 +8,6 @@
 Word Press Settings
 ==================================
 
-Required Categories
--------------------
-* Featured
-* Engage
-* Innovate
-* Learn
-* Live
-* Opinion
-* Sponsored
-* HP Lead (with slug "hp_lead")
-* HP Featured (with slug "hp_featured")
-* HP Recent (with slug "hp_recent")
 
 Required Pages
 --------------
@@ -38,7 +26,7 @@ Footer Menu
     3. Privacy ``https://www.mozilla.org/privacy/websites/``
     4. Legal ``https://www.mozilla.org/about/legal/terms/mozilla/``
     5. Report Trademark Abuse ``https://www.mozilla.org/about/legal/report-abuse/``
-    
+
 Permalink
 --------------
 Select ``Post name https://openstandard.mozilla.org/sample-post/``
