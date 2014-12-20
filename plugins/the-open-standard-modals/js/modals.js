@@ -9,7 +9,7 @@ function ModalsClass() {
 	$('body').on('click', 'a[data-modal]', function() {
 		var modalUrl = $(this).attr('data-modal-content');
 		var modalQuery = $(this).attr('data-modal-query');
-		
+
 		Modals.open(modalUrl || null, modalQuery, true);
 		return false;
 	});
