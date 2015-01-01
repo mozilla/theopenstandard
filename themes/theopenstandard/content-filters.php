@@ -1,96 +1,50 @@
 <?php
-	// The content from the wysiwyg has empty text nodes between tags and I want to ignore them.
-	function get_real_previous_sibling($node) {
-		if ($node->previousSibling && $node->previousSibling->nodeName == '#text' && ctype_space($node->previousSibling->nodeValue)) {
-			return $node->previousSibling->previousSibling;
-		}
-		return $node->previousSibling;
-	}
+	require 'vendor/querypath/src/qp.php';
 
-	function inner_html(DOMNode $element) {
-		$innerHTML = "";
-		$children = $element->childNodes;
-		foreach ($children as $child) { 
-			$innerHTML .= $element->ownerDocument->saveHTML($child);
-		}
-
-		return $innerHTML;
-	}
-
-	function fragment_from_html($doc, $html) {
-		$fragment = $doc->createDocumentFragment();
-		$fragment->appendXML($html);
-		return $fragment;
+	function startsWith($haystack, $needle) {
+		$length = strlen($needle);
+		return (substr($haystack, 0, $length) === $needle);
 	}
 
 	// Parse out consequtive p::content and put them into block grids.
 	function add_block_grids($content) {
-		// DOMDocument seems to have problems with the long dash, this fixes it.
-		$content = mb_convert_encoding($content, 'utf-8', mb_detect_encoding($content));
-		$content = mb_convert_encoding($content, 'html-entities', 'utf-8'); 
-
-		$document = new DOMDocument('1.0', 'utf-8');
-
-		set_error_handler(function() { /* ignore errors */ });
-		if (phpversion() >= 5.4) {
-			$document->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-		} else {
-			$document->loadHTML($content);
-
-		}
-        restore_error_handler();
-
-		$xpath = new DOMXpath($document);
-
-		$blocks = $xpath->query("//p[starts-with(.,'::')]");
+		$content = qp($content);
+		$blocks = $content->xpath("//p[starts-with(.,'::')]");
 
 		$block_groups = array();
 		$block_group = null;
 
-		$last_block = null;
 		foreach ($blocks as $block) {
-			$previous_sibling = get_real_previous_sibling($block);
-			if ($last_block && $previous_sibling && $previous_sibling->isSameNode($last_block)) {
-				// We're still in the same block group.
-				$block_group[] = $block;
+			$prev = $block->branch()->prev();
+			$next = $block->branch()->next();
+
+			$innerHTML = str_replace('::', '', $block->html());
+
+			if ($block_group 
+				&& (
+					count($prev) 
+					&& startsWith($prev->text(), '::')
+				)
+			) {
+				$block_group->append('<li></li>')->find('li:last-child')->html($innerHTML)->end();
+				$block->remove();
 			} else {
-				if ($block_group) {
-					// We've found a new series of blocks, so start a new array for them.
-					$block_groups[] = $block_group;
-					$block_group = array($block);
-				} else {
-					// It's our first group
-					$block_group = array($block);
-					$block_groups[] = &$block_group;
-				}
-			}
-
-			$last_block = $block;
-		}
-
-		foreach ($block_groups as $block_group) {
-			$ul = $document->createElement('ul');
-
-			$count = count($block_group);
-			$ul->setAttribute('class', "medium-block-grid-$count takeaways innovate");
-
-			// Insert the UL before the block group p tags
-			$block_group[0]->parentNode->insertBefore($ul, $block_group[0]);
-
-			foreach ($block_group as $block) {
-				$li = $document->createElement('li');
-				$inner_html = inner_html($block);
-				$inner_html = str_replace('::', '', $inner_html);
-				// Erase current contents
-				$block->nodeValue = '';
-				// Append contents with '::' replaced
-				$block->appendChild(fragment_from_html($document, $inner_html));
-				$li->appendChild($block);
-				$ul->appendChild($li);
+				$block_group = qp('<ul></ul>', 'ul');
+				$block_group->append('<li></li>')->find('li:last-child')->html($innerHTML)->end();
+				$block_groups[] = $block_group;
 			}
 		}
 
-		return preg_replace("~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i", '', $document->saveHTML());
+		$blocks = $content->xpath("//p[starts-with(.,'::')]");
+
+		foreach ($blocks as $block) {
+			$block_grid = array_shift($block_groups);
+			$count = count($block_grid->branch()->find('li'));
+			$block_grid->find('ul')->attr('class', "medium-block-grid-$count takeaways innovate");
+			$block->replaceWith($block_grid);
+		}
+
+		return $content->html();
 	}
 
     add_filter('the_content', 'add_block_grids');

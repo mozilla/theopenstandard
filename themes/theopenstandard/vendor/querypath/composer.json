@@ -1,0 +1,15 @@
+{
+  "name": "querypath/QueryPath",
+  "type": "library",
+  "description": "HTML/XML querying (CSS 4 or XPath) and processing (like jQuery)",
+  "homepage": "https://github.com/technosophos/querypath",
+  "license": "MIT",
+  "keywords": ["xml", "html", "css", "jquery", "xslt"],
+  "require" : {
+    "php" : ">=5.3.0"
+  },
+  "autoload": {
+    "psr-0": {"QueryPath": "src/"},
+    "files": ["src/qp_functions.php"]
+  }
+}
