@@ -2,21 +2,13 @@
 $author_slug = $modal_args[0];
 $author = get_user_by('slug', $author_slug);
 
-if ($author) {
-    $author_data = get_author_data($author);    
+$author_data = get_author_data($author);    
 
-    $author_posts = new WP_Query(array(
-        'author_name' => $author_slug,
-        'posts_per_page' => -1,
-        'orderby' => 'date'
-    ));
-} else {
-    global $coauthors_plus;
-    $author = $coauthors_plus->get_coauthor_by('user_nicename', $author_slug, true);
-    $author_data = get_author_data($author);
-
-    $author_posts = get_posts_assigned_to_author($author_data->nicename);
-}
+$author_posts = new WP_Query(array(
+    'author_name' => $author_slug,
+    'posts_per_page' => -1,
+    'orderby' => 'date'
+));
 ?>
 
 <div class="close-button">

@@ -40,10 +40,10 @@ ModalsClass.prototype.open = function(modalContent, modalQuery, updateUrl) {
 	if (!modalContent)
 		return;
 
-	Modals.close(this.openModal);
 	this.openModal = modalContent + (modalQuery || '');
 
 	var modal = $('#modal');
+	modal.html('');
 
 	$.get('/modal?m=' + modalContent + (modalQuery || ''), function(response) {
 		modal.html(response);
