@@ -23,17 +23,21 @@
     <div class="medium-8 medium-centered columns">
         <div class="tab content <?php if ($modal == 'authors'): print 'active'; endif; ?>" id="authors">
             <?php 
-            global $coauthors_plus;
-            $authors = $coauthors_plus->search_authors();
-
-            $author_ids = array();
-            foreach ($authors as $author) {
-                $author_ids[] = $author->ID;
-            }
-
-            foreach ($authors as $author) {
-                if (!count(get_posts_assigned_to_author($author->data->user_nicename)->posts) && $author->type != 'guest-author')
+            $authors = array_merge(
+                get_users(array(
+                    'role' => 'author',
+                    'fields' => 'ID'
+                )), 
+                get_users(array(
+                    'role' => 'administrator',
+                    'fields' => 'ID'
+                ))
+            );
+            $counts = count_many_users_posts($authors);
+            foreach ($authors as $author_id) {
+                if (!$counts[$author_id])
                     continue;
+                $author = get_user_by('id', $author_id);
                 include('author-listing-item.php');
             }
             ?>          
