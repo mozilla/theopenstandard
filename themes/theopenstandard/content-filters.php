@@ -8,6 +8,10 @@
 
 	// Parse out consequtive p::content and put them into block grids.
 	function add_block_grids($content) {
+
+		$content = mb_convert_encoding($content, 'utf-8', mb_detect_encoding($content));
+		$content = mb_convert_encoding($content, 'html-entities', 'utf-8');
+
 		$content = qp($content);
 		$blocks = $content->xpath("//p[starts-with(.,'::')]");
 
@@ -20,9 +24,9 @@
 
 			$innerHTML = str_replace('::', '', $block->html());
 
-			if ($block_group 
+			if ($block_group
 				&& (
-					count($prev) 
+					count($prev)
 					&& startsWith($prev->text(), '::')
 				)
 			) {
@@ -44,7 +48,8 @@
 			$block->replaceWith($block_grid);
 		}
 
-		return $content->html();
+		return preg_replace("~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i", '', $content->html());
+
 	}
 
     add_filter('the_content', 'add_block_grids');
