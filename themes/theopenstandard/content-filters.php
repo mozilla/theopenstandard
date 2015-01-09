@@ -48,8 +48,7 @@
 			$block->replaceWith($block_grid);
 		}
 
-		return preg_replace("~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i", '', $content->html());
-
+		return $content->find('body')->innerHTML();
 	}
 
     add_filter('the_content', 'add_block_grids');
